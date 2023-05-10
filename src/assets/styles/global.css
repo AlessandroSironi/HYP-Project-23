@@ -1,3 +1,43 @@
 /*
     Global styles go here
 */
+
+:root {
+    --bg-color: #fefefe;
+    --gradient-color: linear-gradient(30deg, #1D5E5C, #153F3E);
+    --accent-color: #2F928F;
+    --par-color: #5f5f5f;
+    --par-color-alt: #ffffff;
+    --title-color: #000000;
+    --title-color-alt: #ffffff;
+    --title-color-accent: #1D5E5C;
+    --btn-color: #153f3e;
+    --btn-color-alt: #ffffff;
+
+    --font-size: 16px;
+}
+
+html {
+    font-size: var(--font-size);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3.75rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
