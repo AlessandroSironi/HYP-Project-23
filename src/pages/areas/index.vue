@@ -1,8 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <Navbar />
-    <slot />
+    <div></div>
 </template>
 
 <style scoped></style>

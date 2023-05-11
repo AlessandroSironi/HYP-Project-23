@@ -24,6 +24,10 @@ html {
 body {
     margin: 0;
     background-color: var(--bg-color);
+    font-family: Comme;
+    scroll-behavior: smooth;
+    min-width: 350px;
+    min-height: 600px;
 }
 
 * {
