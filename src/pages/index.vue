@@ -1,7 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div>hello world!</div>
+    <div>div home</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/*TODO: remove, this is just for debug */
+div {
+    height: 170dvh;
+    background-color: red;
+}
+</style>

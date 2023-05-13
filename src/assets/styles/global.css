@@ -1,20 +1,24 @@
 /*
-    Global styles go here
+    Global styles of the entire application:
+    - css variables
+    - general css rules for body (font-sizes ecc.)
+    - useful classes repeated in different components 
 */
 
 :root {
     --bg-color: #fefefe;
-    --gradient-color: linear-gradient(30deg, #1D5E5C, #153F3E);
-    --accent-color: #2F928F;
+    --gradient-color: linear-gradient(30deg, #1d5e5c, #153f3e);
+    --accent-color: #2f928f;
     --par-color: #5f5f5f;
     --par-color-alt: #ffffff;
     --title-color: #000000;
     --title-color-alt: #ffffff;
-    --title-color-accent: #1D5E5C;
+    --title-color-accent: #1d5e5c;
     --btn-color: #153f3e;
     --btn-color-alt: #ffffff;
 
     --font-size: 16px;
+    --content-width: min(90%, 920px);
 }
 
 html {
@@ -26,7 +30,7 @@ body {
     background-color: var(--bg-color);
     font-family: Comme;
     scroll-behavior: smooth;
-    min-width: 350px;
+    min-width: 250px;
     min-height: 600px;
 }
 
@@ -44,4 +48,9 @@ h2 {
 
 h3 {
     font-size: 1.75rem;
+}
+
+.disable-scrolling {
+    position: fixed;
+    width: 100%;
 }
