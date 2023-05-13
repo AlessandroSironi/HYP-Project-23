@@ -2,7 +2,7 @@
 /**
  * Component name: Navbar
  * Description: this is the default navigation bar menu
- * present on top of all pages, it is a fixed component
+ * present on top of all pages, it is a fixed component (with sticky attribute)
  * and it is responsive for mobile devices.
  *
  */
@@ -11,54 +11,63 @@
 let showMobileNav = ref(false);
 const toggle = () => {
     showMobileNav.value = !showMobileNav.value;
+    document.querySelector('body')?.classList.toggle('disable-scrolling');
+};
+
+const closeMenuOnLogo = () => {
+    if (showMobileNav.value === true) showMobileNav.value = false;
 };
 </script>
 
 <template>
     <header class="nav-container">
         <nav class="nav-group">
-            <div class="logo"><NuxtLink class="nuxt-link" to="/">CORE</NuxtLink></div>
+            <div class="logo"><NuxtLink class="nuxt-link" to="/" @click="closeMenuOnLogo">CORE</NuxtLink></div>
             <ul class="nav-links">
-                <li><NuxtLink class="nuxt-link" to="/about">STRATEGY</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/about">ABOUT</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/persons">TEAM</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/projects">PROJECTS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/areas">AREAS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/contacts">CONTACTS</NuxtLink></li>
             </ul>
-            <button @click="toggle()" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''">
+            <button @click="toggle" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </nav>
-        <div :class="showMobileNav === true ? 'open-menu' : 'close-menu'">
+        <div class="menu-mobile" :class="showMobileNav === true ? 'open-menu' : 'close-menu'">
             <ul class="nav-links-mobile">
-                <li><NuxtLink class="nuxt-link" to="/about" @click="toggle()">STRATEGY</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/persons" @click="toggle()">TEAM</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/projects" @click="toggle()">PROJECTS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/areas" @click="toggle()">AREAS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/contacts" @click="toggle()">CONTACTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/about" @click="toggle">ABOUT</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/persons" @click="toggle">TEAM</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/projects" @click="toggle">PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/areas" @click="toggle">AREAS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/contacts" @click="toggle">CONTACTS</NuxtLink></li>
             </ul>
         </div>
     </header>
 </template>
 
 <style scoped>
+/** general styles*/
 .nav-container {
     background-image: var(--gradient-color);
     padding: 1rem 0;
+
+    /** the combination sticky + top 0 simulates the 
+        fixed position but also removes the problem of 
+        overlay with the main content */
     position: sticky;
     top: 0;
 }
 
 .nav-group {
     margin: 0 auto;
-    width: 90%;
-    max-width: 920px;
+    width: var(--content-width);
+    color: var(--par-color-alt);
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    color: var(--par-color-alt);
 }
 
 .logo {
@@ -67,6 +76,7 @@ const toggle = () => {
 }
 
 .nav-links {
+    padding: 0;
     list-style: none;
     display: flex;
     margin: 0;
@@ -74,41 +84,24 @@ const toggle = () => {
 }
 
 .nuxt-link {
-    text-decoration: none;
     color: var(--par-color-alt);
+    text-decoration: none;
     cursor: pointer;
 }
 
-/** Mobile responsivness */
+/** Mobile responsiveness */
+/** These three following classes disable mobile menu on larger devices */
+
 .nav-btn {
     display: none;
 }
-.close-menu {
-    transition: 0.3s ease-in all;
-    visibility: hidden;
-    height: 0;
-}
-
 .nav-links-mobile {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-    align-items: center;
-    min-height: 60%;
-    margin: 0;
-    padding: 0;
-    font-size: 1.2rem;
-}
-.open-menu {
-    display: block;
-    height: 100dvh;
-    overflow-y: none;
-    transition: 0.3s ease-in all;
+    display: none;
+    overflow: hidden;
 }
 
 @media (width < 1000px) {
+    /** These three following classes disable desktop menu on smaller devices */
     .nav-links {
         display: none;
     }
@@ -117,6 +110,41 @@ const toggle = () => {
         align-items: center;
     }
 
+    /** Styling of the mobile menu */
+    .close-menu {
+        transition: 0.3s ease-in all;
+        visibility: hidden;
+        width: 0;
+    }
+
+    .open-menu {
+        width: 100%;
+        visibility: visible;
+        transition: 0.3s ease-in all;
+    }
+
+    .menu-mobile {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        height: 100%;
+        background-image: var(--gradient-color);
+    }
+
+    .nav-links-mobile {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3rem;
+        align-items: center;
+        min-height: 60%;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+
+    /** Styling of the mobile-menu button */
     .nav-btn {
         display: flex;
         flex-direction: column;
