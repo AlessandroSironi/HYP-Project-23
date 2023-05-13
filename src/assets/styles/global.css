@@ -51,6 +51,5 @@ h3 {
 }
 
 .disable-scrolling {
-    position: fixed;
-    width: 100%;
+    overflow-y: hidden;
 }
