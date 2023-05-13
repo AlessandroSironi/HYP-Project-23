@@ -8,13 +8,14 @@
  */
 
 // mobile navbar toggle system
+// TODO: fix scrolling behaviour moving quryselector on new function closeOnLink (also for logo)
 let showMobileNav = ref(false);
-const toggle = () => {
+const toggleMenu = () => {
     showMobileNav.value = !showMobileNav.value;
     document.querySelector('body')?.classList.toggle('disable-scrolling');
 };
 
-const closeMenuOnLogo = () => {
+const closeMenuOnLink = () => {
     if (showMobileNav.value === true) showMobileNav.value = false;
 };
 </script>
@@ -22,7 +23,7 @@ const closeMenuOnLogo = () => {
 <template>
     <header class="nav-container">
         <nav class="nav-group">
-            <div class="logo"><NuxtLink class="nuxt-link" to="/" @click="closeMenuOnLogo">CORE</NuxtLink></div>
+            <div class="logo"><NuxtLink class="nuxt-link" to="/" @click="closeMenuOnLink">CORE</NuxtLink></div>
             <ul class="nav-links">
                 <li><NuxtLink class="nuxt-link" to="/about">ABOUT</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/persons">TEAM</NuxtLink></li>
@@ -30,7 +31,7 @@ const closeMenuOnLogo = () => {
                 <li><NuxtLink class="nuxt-link" to="/areas">AREAS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/contacts">CONTACTS</NuxtLink></li>
             </ul>
-            <button @click="toggle" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''">
+            <button @click="toggleMenu" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -38,11 +39,11 @@ const closeMenuOnLogo = () => {
         </nav>
         <div class="menu-mobile" :class="showMobileNav === true ? 'open-menu' : 'close-menu'">
             <ul class="nav-links-mobile">
-                <li><NuxtLink class="nuxt-link" to="/about" @click="toggle">ABOUT</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/persons" @click="toggle">TEAM</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/projects" @click="toggle">PROJECTS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/areas" @click="toggle">AREAS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/contacts" @click="toggle">CONTACTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/about" @click="closeMenuOnLink">ABOUT</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/persons" @click="closeMenuOnLink">TEAM</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/projects" @click="closeMenuOnLink">PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/areas" @click="closeMenuOnLink">AREAS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/contacts" @click="closeMenuOnLink">CONTACTS</NuxtLink></li>
             </ul>
         </div>
     </header>
