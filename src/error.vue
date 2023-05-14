@@ -10,8 +10,8 @@
         <h2 v-else>An error occurred</h2>
     </main>
     <div class="err-links">
-        <NuxtLink to="/">Back to homepage</NuxtLink>
-        <NuxtLink to="/">Back to last valid screen</NuxtLink>
+        <div class="btn"><NuxtLink class="nuxt-link" to="/">Back to homepage</NuxtLink></div>
+        <div class="btn"><a @click="$router.go(-1)">Back to last valid screen</a></div>
     </div> 
 </template>
 
@@ -19,4 +19,13 @@
 main{
     text-align: center;
 }
+
+.err-links{
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
 </style>
