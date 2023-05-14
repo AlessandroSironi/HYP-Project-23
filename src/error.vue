@@ -24,8 +24,14 @@ main{
     display: flex;
     flex-wrap: wrap;
     width: 45%;
-    justify-content: space-around;
-    gap: 1rem;
+    justify-content: center;
+    gap: 2rem;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+.btn{
+    cursor: pointer;
 }
 
 </style>
