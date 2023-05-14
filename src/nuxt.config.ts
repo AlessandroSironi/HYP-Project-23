@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts'],
+    modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon'],
     css: ['@/assets/styles/global.css'],
     googleFonts: {
         families: {
-            Comme: true,
+            Comme: [100,200,300,400,500,600, 700, 800],
             Inter: true,
         },
     },

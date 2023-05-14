@@ -1,0 +1,100 @@
+<script setup lang="ts">
+/**
+ * Component name: Footer
+ * Description: this is the default footer
+ * present on the bottom of all pages, it is a fixed component
+ * and it is responsive for mobile devices.
+ *
+ */
+
+// mobile navbar toggle system
+</script>
+
+<template>
+   <footer class="footer-box">
+    <div class="footer-text-container">
+        <p class="footer-title">CORE Impact SGR S.p.A. – manager EuAA</p>
+        <p class="footer-title-2">P.IVA Core Impact SGR SpA – 11325612983</p>
+        <p class="footer-title-3">Via Aurelio Saffi 29 - 20123 Milano</p>
+        <p class="footer-title-3">Phone number: +39 06 389 4677</p>
+        <p class="footer-title-3">info@oltreimpact.com</p>
+    </div>
+    <hr class="divider">
+    <div class="footer-social-container">
+        <div>
+            <p>© 2022 Core Impact SGR S.P.A. All rights reserved. <a class="footer-anchor" href="">Privacy Policy</a> · <a class="footer-anchor" href="">Cookie Policy</a></p>
+        </div>
+        <div class="footer-icon-container">
+            <Icon name="uil:linkedin" />
+            <Icon name="uil:facebook" />
+            <Icon name="fa6-brands:square-twitter" />
+        </div>
+    </div>
+   </footer>
+</template>
+
+<style scoped>
+
+.footer-anchor {
+    color: var(--par-color-alt);
+}
+
+.footer-anchor:visited {
+    color: var(--par-color-alt);
+}
+
+.footer-box{
+    background-image: var(--gradient-color);
+    padding: 1rem 0;
+    color: var(--par-color-alt);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.footer-text-container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 920px;
+}
+
+.footer-icon-container {
+   display: flex;
+   justify-content: center;
+}
+
+.footer-social-container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 920px;
+    display: flex;
+    /*flex-flow: row wrap;*/
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-title {
+    font-weight: 600;
+}
+
+.footer-title-2 {
+    font-weight: 100;
+    font-size: 0.9rem;
+}
+
+.footer-title-3 {
+    font-weight: 100;
+    font-size: 0.9rem;
+    margin:0.2rem;
+}
+
+hr.divider {
+    border-top: 2px solid --var(par-color);
+    width: 90%;
+    max-width: 920px;
+    border-radius: 3px;
+}
+
+</style>
