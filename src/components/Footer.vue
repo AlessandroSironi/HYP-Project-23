@@ -25,9 +25,9 @@
             <div>
                 <p>
                     © 2022 Core Impact SGR S.P.A. All rights reserved.
-                    <NuxtLink class="footer-anchor" to="">Privacy Policy</NuxtLink>
+                    <NuxtLink class="footer-anchor" to="https://www.google.it/">Privacy Policy</NuxtLink>
                     ·
-                    <NuxtLink class="footer-anchor" to="">Cookie Policy</NuxtLink>
+                    <NuxtLink class="footer-anchor" to="https://www.google.it/">Cookie Policy</NuxtLink>
                 </p>
             </div>
             <div class="footer-icon-container">
@@ -59,8 +59,7 @@
 }
 .footer-text-container {
     margin: 0 auto;
-    width: 90%;
-    max-width: 920px;
+    width: var(--content-width);
 }
 
 .footer-icon-container {
@@ -73,9 +72,9 @@
     margin: 0 auto;
     width: var(--content-width);
     display: flex;
-    /*flex-flow: row wrap;*/
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer-title {
