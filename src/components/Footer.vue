@@ -3,7 +3,7 @@
  * Component name: Footer
  * Description: this is the default footer
  * present on the bottom of all pages, it is a fixed component
- * and it is responsive for mobile devisces.
+ * and it is responsive for mobile devices.
  *
  */
 
