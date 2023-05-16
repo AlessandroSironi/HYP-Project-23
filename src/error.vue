@@ -1,37 +1,43 @@
 <script setup>
-    defineProps(['error'])
+defineProps(['error']);
 </script>
 
 <template>
     <Navbar />
-    <main>
-        <h1 id="err-code">{{ error.statusCode }}</h1>
+    <main class="main">
+        <h1 class="err-code">{{ error.statusCode }}</h1>
         <h2 v-if="error.statusCode === 404">Page not found</h2>
         <h2 v-else>An error occurred</h2>
+        <div class="err-links">
+            <div class="btn"><NuxtLink class="nuxt-link" to="/">Back to homepage</NuxtLink></div>
+            <div class="btn"><a @click="$router.go(-1)">Back to last valid screen</a></div>
+        </div>
     </main>
-    <div class="err-links">
-        <div class="btn"><NuxtLink class="nuxt-link" to="/">Back to homepage</NuxtLink></div>
-        <div class="btn"><a @click="$router.go(-1)">Back to last valid screen</a></div>
-    </div> 
+    <Footer />
 </template>
 
 <style scoped>
-main{
+.main {
     text-align: center;
+    padding: 5rem 0;
 }
 
-.err-links{
+.err-code {
+    font-size: 7rem;
+    margin-bottom: 2rem;
+}
+
+.err-links {
+    padding-top: 4rem;
     display: flex;
     flex-wrap: wrap;
     width: 45%;
     justify-content: center;
     gap: 2rem;
     margin: auto;
-    padding-top: 2rem;
 }
 
-.btn{
+.btn {
     cursor: pointer;
 }
-
 </style>
