@@ -20,11 +20,13 @@ defineProps(['error']);
 .main {
     text-align: center;
     padding: 5rem 0;
+    background-color: var(--bg-color);
 }
 
 .err-code {
     font-size: 7rem;
     margin-bottom: 2rem;
+    color: var(--title-color-accent);
 }
 
 .err-links {
