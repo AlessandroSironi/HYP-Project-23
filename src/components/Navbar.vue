@@ -8,7 +8,6 @@
  */
 
 // mobile navbar toggle system
-// TODO: fix scrolling behaviour moving quryselector on new function closeOnLink (also for logo)
 let showMobileNav = ref(false);
 const toggleMenu = () => {
     showMobileNav.value = !showMobileNav.value;
@@ -119,9 +118,9 @@ const closeMenuOnLink = () => {
     }
 
     .open-menu {
-        width: 100%;
-        visibility: visible;
         transition: 0.3s ease-in all;
+        visibility: visible;
+        width: 100%;
     }
 
     .menu-mobile {
@@ -134,11 +133,12 @@ const closeMenuOnLink = () => {
     }
 
     .nav-links-mobile {
+        margin-top: 3rem;
         list-style: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 3rem;
+        gap: 2.5rem;
         align-items: center;
         min-height: 60%;
         padding: 0;
