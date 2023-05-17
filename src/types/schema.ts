@@ -68,7 +68,6 @@ export interface Database {
         Row: {
           companyImage: string
           companyLogo: string
-          companyName: string
           created_at: string | null
           description: string
           founderName: string
@@ -77,12 +76,12 @@ export interface Database {
           mostRelevant: boolean | null
           name: string
           review: string
+          supervisor: number | null
           year: number
         }
         Insert: {
           companyImage: string
           companyLogo: string
-          companyName: string
           created_at?: string | null
           description: string
           founderName: string
@@ -91,12 +90,12 @@ export interface Database {
           mostRelevant?: boolean | null
           name: string
           review: string
+          supervisor?: number | null
           year: number
         }
         Update: {
           companyImage?: string
           companyLogo?: string
-          companyName?: string
           created_at?: string | null
           description?: string
           founderName?: string
@@ -105,6 +104,7 @@ export interface Database {
           mostRelevant?: boolean | null
           name?: string
           review?: string
+          supervisor?: number | null
           year?: number
         }
       }
