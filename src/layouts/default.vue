@@ -2,8 +2,15 @@
 
 <template>
     <Navbar />
-    <slot />
+    <div class="main-content">
+        <slot />
+    </div>
     <Footer />
 </template>
 
-<style scoped></style>
+<style scoped>
+.main-content {
+    background-color: var(--bg-color);
+    flex-grow: 1;
+}
+</style>

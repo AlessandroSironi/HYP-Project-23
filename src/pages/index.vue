@@ -7,7 +7,7 @@
 <style scoped>
 /*TODO: remove, this is just for debug */
 div {
-    height: 170dvh;
-    background-color: red;
+    height: 130dvh;
+    background-color: var(--bg-color);
 }
 </style>

@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     css: ['@/assets/styles/global.css'],
     googleFonts: {
         families: {
-            Comme: [100,200,300,400,500,600, 700, 800],
+            Comme: [100, 200, 300, 400, 500, 600, 700, 800],
             Inter: true,
         },
     },
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-            title: 'Nuxt eCommerce',
+            title: 'Core Investments',
             meta: [{ name: 'description', content: 'sample content' }],
             htmlAttrs: {
                 lang: 'en',
