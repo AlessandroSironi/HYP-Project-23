@@ -8,7 +8,6 @@ export default defineNuxtConfig({
             Inter: true,
         },
     },
-
     nitro: {
         compressPublicAssets: true,
     },

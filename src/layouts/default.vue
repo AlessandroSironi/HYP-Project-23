@@ -11,6 +11,5 @@
 <style scoped>
 .main-content {
     background-color: var(--bg-color);
-    flex-grow: 1;
 }
 </style>
