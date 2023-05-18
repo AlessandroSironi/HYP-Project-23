@@ -1,4 +1,13 @@
 <script setup lang="ts">
+/**
+ * Component name: EmployeeCard
+ * Description: this is the card used to display
+ * an Employee in the "Team" page, each card
+ * is a link to the single Employee page
+ *
+ */
+
+// structure of the component props, are inferred during defineProps
 interface Props {
     employee: Employee;
 }
