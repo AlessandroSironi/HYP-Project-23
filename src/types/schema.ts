@@ -1,3 +1,9 @@
+/**
+ * Database types automatically generated via supabase
+ * CLI tools, used in the backend to guarantee type-safety
+ * and get auto-completion during server side code writing
+ */
+
 export type Json = string | number | boolean | null | { [key: string]: Json } | Json[];
 
 export interface Database {
