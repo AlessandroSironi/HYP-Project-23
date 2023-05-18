@@ -6,10 +6,6 @@
  * and it is responsive for mobile devices.
  *
  */
-
-// mobile navbar toggle system
-// TODO: fix a -> NuxtLink, add links to icons, fix position of component, change footer tag to divs
-// + fix responsivness
 </script>
 <template>
     <main class="footer-box">
@@ -40,6 +36,9 @@
 </template>
 
 <style scoped>
+p {
+    margin: 1rem 0;
+}
 .footer-anchor {
     color: var(--par-color-alt);
 }
