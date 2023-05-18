@@ -7,6 +7,8 @@ type Employee =
           name: string;
           surname: string;
           role: string;
+          mail: string;
+          description: string;
           pic: string;
       }
     | undefined;
