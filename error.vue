@@ -1,45 +1,6 @@
 <script setup lang="ts">
 interface Props {
     error: {
-        statusCode: string;
-        message: string;
-    };
-}
-
-const { error } = defineProps<Props>();
-
-const handleClearError = () => {
-    clearError({ redirect: '/' });
-};
-</script>
-
-<template>
-    <div class="error-page">
-        <div class="error-box">
-            <h1>Error {{ error.statusCode }}</h1>
-            <p>{{ error.message }}</p>
-            <button @click="handleClearError">Go home</button>
-        </div>
-    </div>
-</template>
-
-<style scoped>
-.error-page {
-    display: grid;
-    text-align: center;
-    height: 100vh;
-    background-color: #333;
-}
-.error-box {
-    margin: auto;
-    color: #eee;
-}
-</style>
-
-
-<!-- <script setup lang="ts">
-interface Props {
-    error: {
         statusCode: number;
         message: string;
     };
@@ -102,4 +63,3 @@ body {
     cursor: pointer;
 }
 </style>
- -->
