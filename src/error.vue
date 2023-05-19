@@ -1,5 +1,16 @@
-<script setup>
-defineProps(['error']);
+<script setup lang="ts">
+interface Props {
+    error: {
+        statusCode: number;
+        message: string;
+    };
+}
+
+const { error } = defineProps<Props>();
+
+const handleClearError = () => {
+    clearError({ redirect: '/' });
+};
 </script>
 
 <template>
@@ -10,8 +21,8 @@ defineProps(['error']);
             <h2 v-if="error.statusCode === 404">Page not found</h2>
             <h2 v-else>An error occurred</h2>
             <div class="err-links">
-                <div class="btn"><NuxtLink class="nuxt-link" to="/">Back to homepage</NuxtLink></div>
-                <div class="btn"><a @click="$router.go(-1)">Back to last valid screen</a></div>
+                <div class="btn"><button @click="handleClearError">Back to homepage</button></div>
+                <div class="btn"><button @click="$router.go(-1)">Back to last valid screen</button></div>
             </div>
         </main>
         <Footer />
