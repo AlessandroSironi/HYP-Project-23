@@ -38,6 +38,7 @@ const { employee } = defineProps<Props>();
     background-color: transparent;
     text-decoration: none;
     transition: 0.3s ease-in all;
+    overflow: hidden;
 }
 
 .employee-card-container:hover {
@@ -46,11 +47,13 @@ const { employee } = defineProps<Props>();
 }
 .employee-card-image-box {
     background-color: transparent;
-    border-radius: 1.25rem 1.25rem 0 0;
+    /*     border-radius: 1.25rem 1.25rem 0 0;
+ */
 }
 .employee-card-image {
     width: 100%;
-    border-radius: 1.25rem 1.25rem 0 0;
+    /*     border-radius: 1.25rem 1.25rem 0 0;
+ */
 }
 
 .employee-card-info-box {
@@ -64,7 +67,8 @@ const { employee } = defineProps<Props>();
 .employee-card-info {
     background-color: var(--par-color-alt);
     padding: 1rem 0rem 1rem 1rem;
-    border-radius: 0 0 0 1.25rem;
+    /*     border-radius: 0 0 0 1.25rem;
+ */
     font-weight: 500;
 }
 
