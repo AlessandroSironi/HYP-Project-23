@@ -11,7 +11,7 @@ interface APIBody {
 }
 
 // employees vector iterated on in template
-const employees = ref(await getEmployees());
+const employees = await getEmployees();
 
 async function getEmployees() {
     // the server response contains the data (if found) or an error
