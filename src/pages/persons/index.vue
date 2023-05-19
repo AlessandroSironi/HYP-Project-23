@@ -15,15 +15,17 @@ const employees = await getEmployees();
 
 async function getEmployees() {
     // the server response contains the data (if found) or an error
-    const { data: serverData, error: serverError } = await useLazyFetch<APIBody>('/api/employee/getAllEmployees');
+    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/employee/getAllEmployees');
     const error = serverError.value?.message;
     const employees = serverData.value?.employees;
+    console.log('employees: ', employees);
 
     //TODO: fix the error with something better than console.log()
     if (error) {
         console.log('error while fetching:', error);
         return undefined;
     }
+
     return employees;
 }
 </script>
@@ -31,7 +33,7 @@ async function getEmployees() {
     <div class="list-container">
         <div class="list">
             <div v-for="employee in employees">
-                <EmployeeCard :employee="employee" />
+                <EmployeeCard :employee="employee" :key="employee?.id" />
             </div>
         </div>
     </div>
