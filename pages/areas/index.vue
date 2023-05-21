@@ -10,7 +10,7 @@ const areas = await getAllAreas();
 
 async function getAllAreas() {
     // the server response contains the data (if found) or an error
-    const { data: serverData, error: serverError } = await useLazyFetch<APIBody>('/api/area/getAllAreas');
+    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/area/getAllAreas');
     const error = serverError.value?.message;
     const areas = serverData.value?.areas;
 
