@@ -29,7 +29,9 @@
             <div class="footer-icon-container">
                 <NuxtLink to="https://www.linkedin.com" class="footer-anchor"><Icon name="uil:linkedin" /></NuxtLink>
                 <NuxtLink to="https://www.linkedin.com" class="footer-anchor"><Icon name="uil:facebook" /></NuxtLink>
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor"><Icon name="fa6-brands:square-twitter" /></NuxtLink>
+                <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
+                    <Icon name="fa6-brands:square-twitter" />
+                </NuxtLink>
             </div>
         </div>
     </main>
@@ -49,7 +51,7 @@ p {
 
 .footer-box {
     background-image: var(--gradient-color);
-    padding: 1rem 0;
+    padding: 4rem 0;
     color: var(--par-color-alt);
     width: 100%;
     display: flex;

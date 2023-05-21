@@ -41,14 +41,14 @@ async function getEmployees() {
 
 <style scoped>
 .list-container {
-    width: min(1000px, 90%);
+    width: min(1250px, 90%);
     margin: 2rem auto;
 }
 .list {
     display: grid;
     grid-column-gap: 2rem;
-    grid-row-gap: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-row-gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .list div {
