@@ -30,14 +30,12 @@ const handleClearError = () => {
 </template>
 
 <style scoped>
-body {
-    background-color: var(--bg-color);
-}
 .container {
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    background-color: var(--bg-color);
 }
 .main {
     text-align: center;

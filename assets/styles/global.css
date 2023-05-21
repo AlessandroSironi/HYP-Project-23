@@ -14,11 +14,11 @@
     --title-color: #000000;
     --title-color-alt: #ffffff;
     --title-color-accent: #1d5e5c;
-    --btn-color: #153f3e;
-    --btn-color-alt: #ffffff;
+    --btn-color: #fefefe;
+    --btn-color-alt: #1d5e5c;
 
     --font-size: 16px;
-    --content-width: min(90%, 920px);
+    --content-width: min(90%, 1200px);
 }
 
 html {
@@ -32,7 +32,6 @@ body {
     scroll-behavior: smooth;
     min-width: 250px;
     min-height: 600px;
-
 }
 
 * {
@@ -47,13 +46,11 @@ h1 {
 h2 {
     font-size: 2.5rem;
     margin: 0;
-
 }
 
 h3 {
     font-size: 1.75rem;
     margin: 0;
-
 }
 
 p {
