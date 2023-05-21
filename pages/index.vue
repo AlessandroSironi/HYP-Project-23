@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // TODO: remove all of this, it's just for debug
+//
 const sayHello = () => {
     alert('ciao');
 };
