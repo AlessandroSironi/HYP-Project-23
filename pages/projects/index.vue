@@ -11,7 +11,7 @@ const projects = await getAllProjects();
 
 async function getAllProjects() {
     // the server response contains the data (if found) or an error
-    const { data: serverData, error: serverError } = await useLazyFetch<APIBody>('/api/project/getAllProjects');
+    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/project/getAllProjects');
     const error = serverError.value?.message;
     const projects = serverData.value?.projects;
 
@@ -27,7 +27,7 @@ async function getAllProjects() {
 
 
 async function getProjectById() {
-    const { data: serverData, error: serverError } = await useLazyFetch<APIBody>('/api/project/getProjectById');
+    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/project/getProjectById');
     const error = serverError.value?.message;
     const project = serverData.value?.projects;
 
