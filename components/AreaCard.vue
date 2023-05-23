@@ -32,14 +32,9 @@ const { area } = defineProps<Props>();
 
 <style scoped>
 .area-card-container {
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
-
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* width: min(500px, 90%); */
     box-shadow: 0.1rem 0.2rem 0.5rem #888888;
     border-radius: 1.25rem 1.25rem 0 1.25rem;
     background-color: transparent;
@@ -54,25 +49,18 @@ const { area } = defineProps<Props>();
 }
 .area-card-image-box {
     background-color: transparent;
-    /*flex: 0 0 auto;*/
-    /* width: min(500px, 90%); */
     margin-right: 10px;
 }
 .area-card-image {
     width: min(350px, 90%);
-    /* flex-shrink: 1 1 auto; */
     height: auto;
     border-radius: 1.25rem 1.25rem 0 1.25rem;
     margin: 20px;
 }
 
 .area-card-info-box {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
     border-radius: 0 0 1.25rem;
     color: var(--title-color);
-    /*min-height: 5.5rem; */
     margin: 20px;
 }
 
@@ -87,7 +75,6 @@ const { area } = defineProps<Props>();
     border: 0;
     background-color: var(--accent-color);
     color: var(--bg-color);
-    /*max-width: 4rem; */
     width: 100%;
     cursor: pointer;
 }
