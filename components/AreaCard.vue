@@ -17,7 +17,7 @@ const { area } = defineProps<Props>();
 
 <template>
     <NuxtLink class="area-card-container" to="/">
-        <img class="area-card-image" :src="area?.pic" :alt="area?.name" />
+        <nuxt-img class="area-card-image" :src="area?.pic" :alt="area?.name" />
         <div class="area-card-info-box">
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>
