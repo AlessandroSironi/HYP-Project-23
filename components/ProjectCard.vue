@@ -18,7 +18,7 @@
     <NuxtLink class="project-card-maindiv" to="/">
         <nuxt-img height="150" class="project-logo-img" :src="project?.companyLogo" :alt="project?.name"/>
         <div class="project-card-infos">
-            <p>{{ project?.name }}</p>
+            <p class="project-name">{{ project?.name }}</p>
             <p>Year invested: {{ project?.year }}</p>
             <p class="see-more-project-link">See more ></p>
         </div>
@@ -29,10 +29,10 @@
     .project-card-maindiv {
         display: flex;
         flex-direction: column;
-        width: min(210px, 80%);
-        height: 200px;
+        width: minmax(250px, 90%);
         box-shadow: 0.1rem 0.2rem 0.5rem #888888;
         border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+        text-decoration: none;
     }
 
     .project-card-maindiv:hover {
@@ -46,19 +46,22 @@
     .see-more-project-link {
         border: 0;
         color: var(--accent-color);
-        max-width: 4rem;
         width: 100%;
-        font-weight: 300;
-        text-decoration: none;
-        max-width: 4rem;
+        font-weight: 500;
+    }
+
+    .project-name{
+        font-weight: 550;
+        color: var(--title-color);
     }
 
     p {
-        text-decoration: none;
+        color: var(--par-color);
     }
 
     .project-card-infos{
         padding: 1rem;
+        font-weight: 200;
     }
 
  </style>
