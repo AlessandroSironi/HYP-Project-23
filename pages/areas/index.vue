@@ -26,7 +26,30 @@ async function getAllAreas() {
 
 
 <template>
-    <div></div>
+   <div class="list-container">
+        <div class="list">
+            <div v-for="area in areas">
+                <AreaCard :area="area" :key="area?.id" />
+            </div>
+        </div>
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.list-container {
+    width: min(1250px, 90%);
+    margin: 2rem auto;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    grid-column-gap: 2rem;
+    grid-row-gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.list div {
+    display: flex;
+    justify-content: center;
+}
+</style>
