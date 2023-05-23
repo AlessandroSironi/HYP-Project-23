@@ -21,8 +21,8 @@ const handleClearError = () => {
             <h2 v-if="error.statusCode === 404">Page not found</h2>
             <h2 v-else>An error occurred</h2>
             <div class="err-links">
-                <div class="btn"><button @click="handleClearError">Back to homepage</button></div>
-                <div class="btn"><button @click="$router.go(-1)">Back to last valid screen</button></div>
+                <GenericButton value="Back to HomePage" :alt-style="true" @func="handleClearError" />
+                <GenericButton class="border" value="Back to Last valid screen" :alt-style="false" @func="$router.go(-1)" />
             </div>
         </main>
         <Footer />
@@ -43,21 +43,18 @@ const handleClearError = () => {
 }
 
 .err-code {
+    padding-top: 3rem;
     font-size: 7rem;
     color: var(--title-color-accent);
 }
 
 .err-links {
-    padding-top: 4rem;
+    padding: 3rem 0;
     display: flex;
     flex-wrap: wrap;
-    width: 45%;
+    width: 90%;
     justify-content: center;
     gap: 2rem;
     margin: auto;
-}
-
-.btn {
-    cursor: pointer;
 }
 </style>
