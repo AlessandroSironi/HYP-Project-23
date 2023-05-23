@@ -17,7 +17,7 @@ const { employee } = defineProps<Props>();
 
 <template>
     <NuxtLink class="employee-card-container" to="/">
-        <img class="employee-card-image" :src="employee?.pic" :alt="employee?.name" />
+        <nuxt-img class="employee-card-image" :src="employee?.pic" :alt="employee?.name" width="300" height="415" />
         <div class="employee-card-info-box">
             <div class="employee-card-info">
                 <p class="employee-name">{{ employee?.name }} {{ employee?.surname }}</p>
@@ -32,7 +32,7 @@ const { employee } = defineProps<Props>();
 .employee-card-container {
     display: flex;
     flex-direction: column;
-    width: min(250px, 90%);
+    width: minmax(300px, 90%);
     box-shadow: 0.1rem 0.2rem 0.5rem #888888;
     border-radius: 1.25rem 1.25rem 0 1.25rem;
     background-color: transparent;
@@ -47,13 +47,9 @@ const { employee } = defineProps<Props>();
 }
 .employee-card-image-box {
     background-color: transparent;
-    /*     border-radius: 1.25rem 1.25rem 0 0;
- */
 }
 .employee-card-image {
     width: 100%;
-    /*     border-radius: 1.25rem 1.25rem 0 0;
- */
 }
 
 .employee-card-info-box {
@@ -67,8 +63,6 @@ const { employee } = defineProps<Props>();
 .employee-card-info {
     background-color: var(--par-color-alt);
     padding: 1rem 0rem 1rem 1rem;
-    /*     border-radius: 0 0 0 1.25rem;
- */
     font-weight: 500;
 }
 
@@ -76,6 +70,7 @@ const { employee } = defineProps<Props>();
     color: var(--accent-color);
     font-weight: 400;
     font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .employee-link {

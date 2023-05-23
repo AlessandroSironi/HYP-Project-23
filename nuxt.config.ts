@@ -1,6 +1,8 @@
+import { getEnabledCategories } from 'trace_events';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon'],
+    modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon', '@nuxt/image-edge'],
     css: ['@/assets/styles/global.css'],
     googleFonts: {
         families: {

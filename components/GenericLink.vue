@@ -1,51 +1,49 @@
 <script setup lang="ts">
 /**
- * Component name: GenericButton
- * Description: this is the general button
- * used in the website, it accepts a value
- * (text to display on the button) and a boolean
+ * Component name: GenericLink
+ * Description: this is the general link
+ * used in the main sections of the website
+ * to navigate between pages, it accepts a name
+ * (text to display on the link), a boolean
  * called altStyle which defines which color
- * scheme the button should have.
- *
- * It also accepts an emit called func, which
- * is the function invoked when clicking the
- * button. Please note that the function logic
- * is obviously defined in the parent of this component
- * to achieve reusability.
+ * scheme the link-button should have and
+ * it also accepts an url which
+ * is the url we go to when clicking the
+ * link-button.
  *
  */
 
 interface Props {
-    value: string;
+    name: string;
     altStyle: boolean;
+    url: string;
 }
 
-const emit = defineEmits(['func']);
-
-const { value, altStyle } = defineProps<Props>();
+const { name, altStyle, url } = defineProps<Props>();
 </script>
 
 <template>
     <div>
-        <button class="btn" :class="altStyle ? 'alt-scheme' : 'scheme'" @click="emit('func')">{{ value }}</button>
+        <NuxtLink class="link" :class="altStyle ? 'alt-scheme' : 'scheme'" :to="url">{{ name }}</NuxtLink>
     </div>
 </template>
 
 <style scoped>
-.btn {
+.link {
     padding: 1rem 3rem;
     border-radius: 2rem;
     border: 0;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .scheme {
     background-color: var(--btn-color);
     color: var(--title-color);
-    transition: 0.3s all ease-in;
     border: 1px solid black;
+    transition: 0.3s all ease-in;
 }
 
 .scheme:hover {
@@ -59,12 +57,10 @@ const { value, altStyle } = defineProps<Props>();
     background-color: var(--btn-color-alt);
     color: var(--title-color-alt);
     transition: 0.3s all ease-in;
-    border: 1px solid transparent;
 }
 
 .alt-scheme:hover {
     background-color: var(--accent-color);
     transition: 0.2s all ease-in;
-    border: 1px solid transparent;
 }
 </style>
