@@ -43,7 +43,29 @@ async function getProjectById() {
 
 
 <template>
-    <div></div>
+    <div class="list-container">
+        <div class="list">
+            <div v-for="project in projects">
+                <ProjectCard :project="project" :key="project?.id" />
+            </div>
+        </div>
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.list-container {
+    width: min(1000px, 90%);
+    margin: 2rem auto;
+}
+.list {
+    display: grid;
+    grid-row-gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.list div {
+    display: flex;
+    justify-content: center;
+}
+
+</style>
