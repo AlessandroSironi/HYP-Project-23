@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * Component name: EmployeeCard
+ * Component name: AreaCard
  * Description: this is the card used to display
  * an Employee in the "Team" page, each card
  * is a link to the single Employee page
