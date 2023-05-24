@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 interface APIBody {
     projects: Project[];
     error: string;
@@ -23,24 +22,7 @@ async function getAllProjects() {
     console.log(projects);
     return projects;
 }
-
-
-
-async function getProjectById() {
-    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/project/getProjectById');
-    const error = serverError.value?.message;
-    const project = serverData.value?.projects;
-
-    //TODO: fix the error with something better than console.log()
-    if (error) {
-        console.log('error while fetching:', error);
-        return undefined;
-    }
-    console.log(project);
-    return project;
-}
 </script>
-
 
 <template>
     <div class="list-container">
@@ -54,18 +36,17 @@ async function getProjectById() {
 
 <style scoped>
 .list-container {
-    width: min(1000px, 90%);
+    width: var(--content-width);
     margin: 2rem auto;
 }
 .list {
     display: grid;
     grid-row-gap: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .list div {
     display: flex;
     justify-content: center;
 }
-
 </style>

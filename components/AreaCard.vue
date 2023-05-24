@@ -16,21 +16,24 @@ const { area } = defineProps<Props>();
 </script>
 
 <template>
-    <NuxtLink class="area-card-container" to="/">
-        <nuxt-img class="area-card-image" :src="area?.pic" :alt="area?.name" />
+    <div class="area-card-container" to="/">
+        <nuxt-img width="350" class="area-card-image" :src="area?.pic" :alt="area?.name" />
         <div class="area-card-info-box">
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>
                 <p class="area-description">{{ area?.description }}</p>
-                <div class="area-discover-wrapper"><GenericButton class="area-discover-btn" value="Discover more" :alt-style="true" /></div>
+
+                <div class="area-discover-wrapper">
+                    <GenericLink url="/" class="area-discover-btn" name="Discover more" :alt-style="true" />
+                </div>
             </div>
-            <!-- <button class="area-link"><Icon name="material-symbols:arrow-forward-ios-rounded" /></button> -->
         </div>
-    </NuxtLink>
+    </div>
 </template>
 
 <style scoped>
 .area-card-container {
+    min-width: 300px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,6 +43,7 @@ const { area } = defineProps<Props>();
     text-decoration: none;
     transition: 0.3s ease-in all;
     overflow: hidden;
+    min-height: 300px;
 }
 
 .area-card-container:hover {
@@ -68,7 +72,6 @@ const { area } = defineProps<Props>();
     padding: 1rem 0rem 1rem 1rem;
 }
 
-
 .area-link {
     border: 0;
     background-color: var(--accent-color);
@@ -88,7 +91,7 @@ const { area } = defineProps<Props>();
 }
 
 .area-discover-btn {
-    margin-top: 10px;
+    margin-top: 2rem;
 }
 
 .area-discover-wrapper {
@@ -96,9 +99,10 @@ const { area } = defineProps<Props>();
     justify-content: flex-end;
 }
 
-@media (max-width: 1000px) { /*768px*/
-  .area-card-container {
-    flex-direction: column; /* Switch to a column layout */
-  }
+@media (max-width: 1000px) {
+    /*768px*/
+    .area-card-container {
+        flex-direction: column; /* Switch to a column layout */
+    }
 }
 </style>
