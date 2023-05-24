@@ -26,7 +26,10 @@ async function getAllAreas() {
 
 
 <template>
-   <div class="list-container">
+    <div class="list-container">
+    <h2>Areas of Investment</h2>
+    <p>Core Ventures aims to create strong financial returns while adding value for individuals, communities, and humanity.</p>
+    <br><br>
         <div class="list">
             <div v-for="area in areas">
                 <AreaCard :area="area" :key="area?.id" />
@@ -37,7 +40,7 @@ async function getAllAreas() {
 
 <style scoped>
 .list-container {
-    width: min(1250px, 90%);
+    width: var(--content-width);
     margin: 2rem auto;
 }
 .list {

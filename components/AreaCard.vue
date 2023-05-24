@@ -23,7 +23,7 @@ const { area } = defineProps<Props>();
                 <p class="area-name">{{ area?.name }}</p>
                 <p class="area-description">{{ area?.description }}</p>
                 <br>
-                <GenericButton value="Discover more" :alt-style="false" />
+                <GenericButton value="Discover more" :alt-style="true" />
             </div>
             <!-- <button class="area-link"><Icon name="material-symbols:arrow-forward-ios-rounded" /></button> -->
         </div>
