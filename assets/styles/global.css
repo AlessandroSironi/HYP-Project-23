@@ -19,6 +19,8 @@
 
     --font-size: 16px;
     --content-width: min(90%, 1200px);
+
+    /*--mobile-width: 1000px; */
 }
 
 html {

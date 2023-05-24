@@ -96,7 +96,7 @@ const { area } = defineProps<Props>();
     justify-content: flex-end;
 }
 
-@media (max-width: 800px) { /*768px*/
+@media (max-width: 1000px) { /*768px*/
   .area-card-container {
     flex-direction: column; /* Switch to a column layout */
   }
