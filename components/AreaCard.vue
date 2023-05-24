@@ -22,6 +22,7 @@ const { area } = defineProps<Props>();
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>
                 <p class="area-description">{{ area?.description }}</p>
+
                 <div class="area-discover-wrapper"><GenericButton class="area-discover-btn" value="Discover more" :alt-style="true" /></div>
             </div>
             <!-- <button class="area-link"><Icon name="material-symbols:arrow-forward-ios-rounded" /></button> -->
@@ -86,7 +87,16 @@ const { area } = defineProps<Props>();
     font-weight: 400;
 }
 
-@media (max-width: 800px) {
+.area-discover-btn {
+    margin-top: 10px;
+}
+
+.area-discover-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 1000px) {
     /*768px*/
     .area-card-container {
         flex-direction: column; /* Switch to a column layout */
