@@ -63,6 +63,7 @@ p {
 .orientational-info {
     font-size: 1.75rem;
     color: var(--orientational-color);
+    margin: 0.75rem auto;
 }
 
 .disable-scrolling {
