@@ -46,7 +46,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 0;
 }
 
@@ -59,6 +59,16 @@ p {
     margin: 0;
 }
 
+.orientational-info {
+    font-size: 1.75rem;
+}
+
 .disable-scrolling {
     overflow-y: hidden;
+}
+
+@media (width < 1000px) {
+    body {
+        font-size: 14px;
+    }
 }

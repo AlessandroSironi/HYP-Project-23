@@ -27,8 +27,12 @@
                 </p>
             </div>
             <div class="footer-icon-container">
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor"><Icon name="uil:linkedin" /></NuxtLink>
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor"><Icon name="uil:facebook" /></NuxtLink>
+                <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
+                    <Icon name="uil:linkedin" />
+                </NuxtLink>
+                <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
+                    <Icon name="uil:facebook" />
+                </NuxtLink>
                 <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
                     <Icon name="fa6-brands:square-twitter" />
                 </NuxtLink>
