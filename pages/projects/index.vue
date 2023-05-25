@@ -26,6 +26,8 @@ async function getAllProjects() {
 
 <template>
     <div class="list-container">
+        <h2 class="orientational-info">Our Projects</h2>
+        <p class="paragraph-projects">Explore the projects we have developed for the companies who put their trust in us.</p>
         <div class="list">
             <div v-for="project in projects">
                 <ProjectCard :project="project" :key="project?.id" />
@@ -35,6 +37,9 @@ async function getAllProjects() {
 </template>
 
 <style scoped>
+.paragraph-projects{
+    margin-bottom: 2rem;
+}
 .list-container {
     width: var(--content-width);
     margin: 2rem auto;
@@ -48,5 +53,10 @@ async function getAllProjects() {
 .list div {
     display: flex;
     justify-content: center;
+}
+
+.orientational-info{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 </style>
