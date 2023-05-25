@@ -17,7 +17,7 @@ const toggleMenu = () => {
 const closeMenuOnLink = () => {
     if (showMobileNav.value === true) {
         showMobileNav.value = false;
-        document.querySelector('body')?.classList.toggle('disable-scrolling');
+        document.querySelector('body')?.classList.remove('disable-scrolling');
     }
 };
 </script>

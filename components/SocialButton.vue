@@ -1,4 +1,12 @@
 <script setup lang="ts">
+/**
+ * Component name: SocialButton
+ * Description: this component
+ * accepts an icon and a url link,
+ * it can also accept a text to be displayed
+ * on the right of the icon.
+ */
+
 interface Props {
     icon: string;
     url: string;
@@ -8,14 +16,12 @@ interface Props {
 const { icon, text } = defineProps<Props>();
 </script>
 <template>
-    <button class="social-button">
-        <NuxtLink :to="url" class="social-link">
-            <Icon :name="icon" size="1.5rem" />
-        </NuxtLink>
+    <NuxtLink class="social-button" :to="url">
+        <Icon :name="icon" class="icon-link" />
         <div v-if="text" class="btn-text">
             {{ text }}
         </div>
-    </button>
+    </NuxtLink>
 </template>
 
 <style scoped>
@@ -30,6 +36,8 @@ const { icon, text } = defineProps<Props>();
     cursor: pointer;
     transition: 0.3s all ease-in;
     gap: 0.8rem;
+    text-decoration: none;
+    color: var(--par-color-alt);
 }
 
 .social-button:hover {
@@ -37,8 +45,8 @@ const { icon, text } = defineProps<Props>();
     transition: 0.3s all ease-in;
 }
 
-.social-link {
-    color: var(--par-color-alt);
+.icon-link {
+    height: 1.5rem;
 }
 
 .btn-text {
