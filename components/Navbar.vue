@@ -65,6 +65,7 @@ const closeMenuOnLink = () => {
     position: sticky;
     top: 0;
     font-size: 0.9rem;
+    z-index: 100;
 }
 
 .nav-group {
