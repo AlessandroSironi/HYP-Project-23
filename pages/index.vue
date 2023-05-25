@@ -8,6 +8,13 @@ const sayHello = () => {
 
 <template>
     <div class="index-main">
+        <div class="social-box">
+            <SocialButton icon="mdi:linkedin" url="https://www.linkedin.com" text="Find me on Linkedin" />
+            <SocialButton icon="uiw:facebook" url="https://www.linkedin.com" />
+            <SocialButton icon="mdi:twitter" url="https://www.linkedin.com" />
+        </div>
+
+        <br />
         <GenericButton value="Discover more" :alt-style="true" @func="sayHello" />
         <br />
         <GenericLink name="Go to about" :alt-style="false" url="/about" />
@@ -22,5 +29,10 @@ const sayHello = () => {
     height: 130dvh;
     padding: 2rem;
     background-color: var(--bg-color);
+}
+
+.social-box {
+    display: flex;
+    gap: 1rem;
 }
 </style>

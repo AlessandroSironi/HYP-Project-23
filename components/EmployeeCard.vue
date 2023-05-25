@@ -16,7 +16,7 @@ const { employee } = defineProps<Props>();
 </script>
 
 <template>
-    <NuxtLink class="employee-card-container" to="/">
+    <NuxtLink class="employee-card-container" :to="`persons/${employee?.id}`">
         <nuxt-img class="employee-card-image" :src="employee?.pic" :alt="employee?.name" width="300" height="415" />
         <div class="employee-card-info-box">
             <div class="employee-card-info">
@@ -32,7 +32,7 @@ const { employee } = defineProps<Props>();
 .employee-card-container {
     display: flex;
     flex-direction: column;
-    width: minmax(300px, 90%);
+    width: 300px;
     box-shadow: 0.1rem 0.2rem 0.5rem #888888;
     border-radius: 1.25rem 1.25rem 0 1.25rem;
     background-color: transparent;

@@ -30,29 +30,53 @@ async function getEmployees() {
 }
 </script>
 <template>
-    <div class="list-container">
-        <div class="list">
-            <div v-for="employee in employees">
-                <EmployeeCard :employee="employee" :key="employee?.id" />
+    <div class="page-content">
+        <section class="page-title-container">
+            <h2 class="orientational-info">The team</h2>
+            <h1 class="page-title">Meet our team of experts, we are here to make your company grow.</h1>
+            <p>To be the company our customers want us to be , it takes an electric group of passionate operators. Get to know the people leading the way at Core Investments.</p>
+        </section>
+
+        <section class="list-container">
+            <div class="list">
+                <div v-for="employee in employees">
+                    <EmployeeCard :employee="employee" :key="employee?.id" />
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 </template>
 
 <style scoped>
-.list-container {
-    width: min(1250px, 90%);
+.page-content {
+    width: var(--content-width);
     margin: 2rem auto;
+}
+
+.page-title-container {
+    width: min(900px, 100%);
+}
+.page-title {
+    font-size: 2rem;
+    color: var(--title-color-accent);
+}
+
+.page-title-container * {
+    margin: 1rem 0;
+}
+
+.list-container {
+    margin: 3.5rem auto;
 }
 .list {
     display: grid;
     grid-column-gap: 2rem;
     grid-row-gap: 4rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: center;
 }
 
 .list div {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
 }
 </style>
