@@ -67,6 +67,13 @@ p {
     overflow-y: hidden;
 }
 
+@media (width >=1000px) {
+    body {
+        overflow: auto !important;
+    }
+
+}
+
 @media (width < 1000px) {
     body {
         font-size: 14px;
