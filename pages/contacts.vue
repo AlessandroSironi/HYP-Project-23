@@ -11,9 +11,9 @@
             <p>Phone number: +39 06 389 5940</p>
             <p>Email: info@coreventure.com</p>
             <div class="social-box">
-                <SocialButton icon="uil:linkedin" url="linkedin.com" text="Find us on LinkedIn"/>
-                <SocialButton icon="uiw:facebook" url="facebook.com"/>
-                <SocialButton icon="mdi:twitter" url="twitter.com" />
+                <SocialButton icon="uil:linkedin" url="https://www.linkedin.com" text="Find us on LinkedIn"/>
+                <SocialButton icon="uiw:facebook" url="https://www.facebook.com"/>
+                <SocialButton icon="mdi:twitter" url="https://www.twitter.com" />
             </div>
         </div>
     </div>
