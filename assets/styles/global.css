@@ -16,6 +16,7 @@
     --title-color-accent: #1d5e5c;
     --btn-color: #fefefe;
     --btn-color-alt: #1d5e5c;
+    --orientational-color: #16403F;
 
     --font-size: 16px;
     --content-width: min(90%, 1200px);
@@ -61,6 +62,7 @@ p {
 
 .orientational-info {
     font-size: 1.75rem;
+    color: var(--orientational-color);
 }
 
 .disable-scrolling {

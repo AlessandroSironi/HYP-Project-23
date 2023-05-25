@@ -27,14 +27,15 @@ async function getAllAreas() {
 
 <template>
     <div class="list-container">
-    <h2>Areas of Investment</h2>
-    <p>Core Ventures aims to create strong financial returns while adding value for individuals, communities, and humanity.</p>
-    <br><br>
-        <div class="list">
-            <div v-for="area in areas">
+        <!-- <h2 class="orientational-info">Areas</h2> -->
+        <h2 class="orientational-info">Areas of Investment</h2>
+        <p>Core Ventures aims to create strong financial returns while adding value for individuals, communities, and humanity.</p>
+        <br><br>
+            <div class="list">
+             <div v-for="area in areas">
                 <AreaCard :area="area" :key="area?.id" />
-            </div>
-        </div>
+             </div>
+         </div>
     </div>
 </template>
 
