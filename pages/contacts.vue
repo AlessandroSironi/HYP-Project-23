@@ -3,8 +3,7 @@
 <template>
     <div class="content">
         <h2 class="orientational-info">Contacts</h2>
-    <div class="info">
-        <nuxt-img width="600" class="area-card-image" src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z" alt="Contact Us" />
+    <ComplexParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z" image_alt="Contact Us">
         <div>
             <h2 class="contact-information-h2">Contact Information</h2>
             <p>Address: Piazza Leonardo da Vinci - Milano</p>
@@ -16,7 +15,7 @@
                 <SocialButton icon="mdi:twitter" url="https://www.twitter.com" />
             </div>
         </div>
-    </div>
+    </ComplexParagraph>
     <div class="form-title">
         <h2 class="contact-title">Contact Us</h2>
         <p>Feel free to contact us if you want to make your company thrive or if you need any information about our work</p>
