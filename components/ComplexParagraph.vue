@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { stringLiteral } from '@babel/types';
+
 /**
  * Component name: ComplexParagraph
  * Description: this is a generic paragraph
@@ -12,9 +14,11 @@ interface Props {
     image_url?: string;
     // the default value if missing is false
     is_image_rigth?: boolean;
+    image_alt?: string;
+    justify_content?: boolean; // True -> space-between, false -> center
 }
 
-const { image_url, is_image_rigth } = defineProps<Props>();
+const { image_url, is_image_rigth, image_alt , justify_content} = defineProps<Props>();
 
 /**
  * This function is used to compute which class
@@ -26,13 +30,18 @@ const imageStyle = computed(() => {
     if (is_image_rigth) return 'right-image';
     else return 'left-image';
 });
+
+const justifyContent = computed(() => {
+    if (justify_content) return 'space-between';
+    else return 'center';
+});
 </script>
 
 <template>
     <div>
         <div class="par-container">
-            <div class="image-container" :class="imageStyle">
-                <nuxt-img :src="image_url" :alt="image_url" />
+            <div class="image-container" :class="imageStyle, justifyContent">
+                <nuxt-img class="image-container" :src="image_url" :alt="image_alt" />
             </div>
             <div class="text-container"><slot /></div>
         </div>
@@ -41,18 +50,18 @@ const imageStyle = computed(() => {
 
 <style scoped>
 .par-container {
-    border: 1px solid red;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     padding: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .image-container {
-    border: 1px solid green;
-}
-
-.text-container {
-    border: 1px solid blue;
+    max-width: min(450px, 100%);
+    height: auto;
+    border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 
 .no-image {
@@ -65,5 +74,15 @@ const imageStyle = computed(() => {
 
 .right-image {
     order: 1;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
 }
 </style>
