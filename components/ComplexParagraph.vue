@@ -50,21 +50,18 @@ const justifyContent = computed(() => {
 
 <style scoped>
 .par-container {
-    border: 1px solid red;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     padding: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .image-container {
-    border: 1px solid green;
-    max-width: min(450px, 90%);
+    max-width: min(450px, 100%);
     height: auto;
     border-radius: 1.25rem 1.25rem 0 1.25rem;
-}
-
-.text-container {
-    border: 1px solid blue;
 }
 
 .no-image {

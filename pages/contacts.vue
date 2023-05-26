@@ -6,9 +6,9 @@
     <ComplexParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z" image_alt="Contact Us">
         <div>
             <h2 class="contact-information-h2">Contact Information</h2>
-            <p>Address: Piazza Leonardo da Vinci - Milano</p>
-            <p>Phone number: +39 06 389 5940</p>
-            <p>Email: info@coreventure.com</p>
+            <p>Address: <NuxtLink to="/" class="contacts-links">Piazza Leonardo da Vinci - Milano</NuxtLink></p>
+            <p>Phone number: <NuxtLink to="/" class="contacts-links">+39 06 389 5940</NuxtLink></p>
+            <p>Email: <NuxtLink to="/" class="contacts-links">info@coreventure.com</NuxtLink></p>
             <div class="social-box">
                 <SocialButton icon="uil:linkedin" url="https://www.linkedin.com" text="Find us on LinkedIn"/>
                 <SocialButton icon="uiw:facebook" url="https://www.facebook.com"/>
@@ -51,8 +51,12 @@
 </template>
 
 <style scoped>
+
+.contacts-links{
+    color: var(--accent-color);
+}
 .content {
-    width: var(--content-width);
+    width: min(1000px, 90%);
     margin: 2rem auto;
 }
 
