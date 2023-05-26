@@ -177,8 +177,8 @@ input {
     }
 
     .form-content {
-        margin-right: 70px;
-        margin-left: 70px;
+        margin-right: 30px;
+        margin-left: 30px;
     }
 }
 </style>
