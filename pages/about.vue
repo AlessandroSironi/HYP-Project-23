@@ -17,7 +17,9 @@
     </div>
     <div class="colored-bar">
             <h2> Why should you partner with us?</h2>
-            
+            <p>Card 1</p>
+            <p>Card 2</p>
+            <p>Card 3</p>
         </div>
 </template>
 
