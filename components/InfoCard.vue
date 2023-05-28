@@ -28,6 +28,7 @@
         width: 240px;
         height: 200px;
         color: var(--bg-color);
+        background-color: var(--bg-color);
         box-shadow: 0.1rem 0.2rem 0.5rem #888888;
         border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
         margin: 0.5rem;
@@ -60,6 +61,7 @@
         justify-content: center;
         gap: 0.2rem;
         margin-top: 1rem;
+        color: var(--title-color);
     }
 
 </style>

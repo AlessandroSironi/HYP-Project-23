@@ -79,6 +79,7 @@ p {
     background-image: var(--gradient-color);
     color: var(--par-color-alt);
     text-align: center;
+    padding: 50px;
 }
 
 .content {

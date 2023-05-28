@@ -16,11 +16,19 @@
         </div>
     </div>
     <div class="colored-bar">
-            <h2> Why should you partner with us?</h2>
-            <p>Card 1</p>
-            <p>Card 2</p>
-            <p>Card 3</p>
+            <h2 class="colored-bar-content"> Why should you partner with us?</h2>
+            <p class="colored-bar-content">If you're a founder asking yourself whether or not we are the right partner for you, here are the five principles that guide how we act as a team.</p>
+            <div class="colored-bar-card">
+                <InfoCard icon_locator="tabler:trophy-filled" title="Aligned to Win" info_text="Choose us for unmatched expertise and exceptional returns on your investment."/>
+                <InfoCard icon_locator="tabler:scale" title="Performance through Integrity" info_text="Our success is rooted in unwavering integrity and consistently delivering."/>
+                <InfoCard icon_locator="bi:fire" title="Bold and Progressive" info_text="Embrace our bold and progressive approach to drive innovation and maximize growth potential."/>
+                <InfoCard icon_locator="ph:hand" title="Humble" info_text="Partner with a humble team that values collaboration and puts your success above all else."/>
+            </div>
         </div>
+
+    <div class="content">
+        WHAT SHOULD FOUNDERS EXPECT WITH PHOTO
+    </div>
 </template>
 
 <style scoped>
@@ -45,6 +53,15 @@
     max-width: min(1000px, 90%);
 }
 
+.colored-bar-content {
+    margin-bottom: 20px;
+}
 
+.colored-bar-card {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    color: var(--bg-color);
+}
 
 </style>
