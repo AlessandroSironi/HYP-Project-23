@@ -16,5 +16,8 @@
     "nuxt": "^3.4.3",
     "nuxt-icon": "^0.4.0",
     "supabase": "^1.57.3"
+  },
+  "dependencies": {
+    "gsap": "^3.11.5"
   }
 }

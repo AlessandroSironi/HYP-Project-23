@@ -16,7 +16,7 @@
     --title-color-accent: #1d5e5c;
     --btn-color: #fefefe;
     --btn-color-alt: #1d5e5c;
-    --orientational-color: #16403F;
+    --orientational-color: #16403f;
 
     --font-size: 16px;
     --content-width: min(90%, 1200px);
@@ -57,7 +57,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     margin: 0;
 }
 
@@ -84,6 +84,11 @@ p {
 .content {
     width: var(--content-width);
     margin: 2rem auto;
+
+@media (width >=1000px) {
+    body {
+        overflow: auto !important;
+    }
 }
 
 @media (width < 1000px) {

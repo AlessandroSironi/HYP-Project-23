@@ -16,6 +16,11 @@ const { project } = defineProps<Props>();
 
 <template>
     <NuxtLink class="project-card-maindiv" to="/">
+        <div class="trophy-box" v-if="project?.mostRelevant">
+            <div class="trophy-container">
+                <Icon name="solar:cup-star-bold" class="trophy" />
+            </div>
+        </div>
         <nuxt-img height="200" class="project-logo-img" :src="project?.companyLogo" :alt="project?.name" />
         <div class="project-card-infos">
             <p class="project-name">{{ project?.name }}</p>
@@ -26,6 +31,22 @@ const { project } = defineProps<Props>();
 </template>
 
 <style scoped>
+.trophy-box {
+    display: flex;
+    padding: 0.2rem 0.4rem;
+    justify-content: flex-end;
+    position: absolute;
+    width: calc(300px - 2rem);
+    color: var(--title-color);
+}
+.trophy-container {
+    background-color: var(--bg-color);
+    box-shadow: 0.1rem 0.2rem 0.5rem #888888;
+    margin-top: 0.2rem;
+    margin-left: 0;
+    padding: 0.6rem;
+    border-radius: 100%;
+}
 .project-card-maindiv {
     display: flex;
     flex-direction: column;
@@ -33,6 +54,7 @@ const { project } = defineProps<Props>();
     box-shadow: 0.1rem 0.2rem 0.5rem #888888;
     border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
     text-decoration: none;
+    position: static;
 }
 
 .project-card-maindiv:hover {

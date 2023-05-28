@@ -26,8 +26,10 @@ async function getAllProjects() {
 
 <template>
     <div class="list-container">
+        <h2 class="orientational-info">Our Projects</h2>
+        <p class="paragraph-projects">Explore the projects we have developed for the companies who put their trust in us.</p>
         <div class="list">
-            <div v-for="project in projects">
+            <div v-for="project in projects" class="item">
                 <ProjectCard :project="project" :key="project?.id" />
             </div>
         </div>
@@ -35,6 +37,9 @@ async function getAllProjects() {
 </template>
 
 <style scoped>
+.paragraph-projects {
+    margin-bottom: 2rem;
+}
 .list-container {
     width: var(--content-width);
     margin: 2rem auto;
@@ -45,8 +50,13 @@ async function getAllProjects() {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.list div {
+.item {
     display: flex;
     justify-content: center;
+}
+
+.orientational-info {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 </style>

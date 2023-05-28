@@ -17,7 +17,7 @@ const toggleMenu = () => {
 const closeMenuOnLink = () => {
     if (showMobileNav.value === true) {
         showMobileNav.value = false;
-        document.querySelector('body')?.classList.toggle('disable-scrolling');
+        document.querySelector('body')?.classList.remove('disable-scrolling');
     }
 };
 </script>
@@ -65,6 +65,7 @@ const closeMenuOnLink = () => {
     position: sticky;
     top: 0;
     font-size: 0.9rem;
+    z-index: 100;
 }
 
 .nav-group {

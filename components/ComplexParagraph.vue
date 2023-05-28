@@ -12,9 +12,11 @@ interface Props {
     image_url?: string;
     // the default value if missing is false
     is_image_rigth?: boolean;
+    image_alt?: string;
+    justify_content?: boolean; // True -> space-between, false -> center
 }
 
-const { image_url, is_image_rigth } = defineProps<Props>();
+const { image_url, is_image_rigth, image_alt, justify_content } = defineProps<Props>();
 
 /**
  * This function is used to compute which class
@@ -29,30 +31,26 @@ const imageStyle = computed(() => {
 </script>
 
 <template>
-    <div>
-        <div class="par-container">
-            <div class="image-container" :class="imageStyle">
-                <nuxt-img :src="image_url" :alt="image_url" />
-            </div>
-            <div class="text-container"><slot /></div>
+    <div class="par-container">
+        <div class="image-container" :class="imageStyle">
+            <nuxt-img class="image" :src="image_url" :alt="image_alt" />
         </div>
+        <slot />
     </div>
 </template>
 
 <style scoped>
 .par-container {
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0;
+    align-items: center;
+    padding: 1vw 0;
+    gap: 2rem;
 }
 
-.image-container {
-    border: 1px solid green;
-}
-
-.text-container {
-    border: 1px solid blue;
+.image {
+    width: min(100%, 1000px);
+    border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 
 .no-image {
@@ -65,5 +63,13 @@ const imageStyle = computed(() => {
 
 .right-image {
     order: 1;
+}
+
+@media (width < 1200px) {
+    .par-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
 }
 </style>

@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { error } = defineProps<Props>();
+console.log(error);
 
 const handleClearError = () => {
     clearError({ redirect: '/' });
