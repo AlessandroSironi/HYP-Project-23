@@ -14,18 +14,16 @@
             <p class="p-alt"> We believe entrepreneurs are the ultimate agents of positive, transformational change across every aspect of our society and economy. Our mission is to spur this progress forward. </p>
             <p class="p-alt">It’s why we partner with the world’s most ambitious founders. The rule-breakers who want to build the next leader in their category. The world-shapers creating companies that fundamentally shift the way we live today. The gamechangers using technology to rewire the world in favour of something better, for as many people as possible. When we find these people, we invest much more than money. We work hand- in-glove with them, drawing on hard-won experience scaling some of the most successful technology companies in the world.</p>
         </div>
-        
-        
-        <div class="colored-bar">
+    </div>
+    <div class="colored-bar">
+            <h2> Why should you partner with us?</h2>
             
         </div>
-    </div>
 </template>
 
 <style scoped>
 .hero-image {
-    
-    height: auto;
+    max-width: min(1000px, 90%);
     border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
 }
 
@@ -42,7 +40,9 @@
 }
 
 .paragraph-content {
-    max-width: min(4600px, 90%);
+    max-width: min(1000px, 90%);
 }
+
+
 
 </style>
