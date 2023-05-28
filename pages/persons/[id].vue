@@ -12,6 +12,7 @@ interface APIBodyProjects {
 
 const employee = ref(await getEmployee());
 const supervisedProjects = ref(await getSupervisedProjects());
+const projects = ref(await getProjectsByEmployee());
 
 async function getEmployee() {
     const { data: serverData, error: serverError } = await useFetch<APIBodyEmpLoyee>('/api/employee/getEmployeeById', {
@@ -45,7 +46,30 @@ async function getSupervisedProjects() {
 
     const error = serverError.value?.message;
     const projects = serverData.value?.projects;
-    console.log('projects: ', projects);
+    console.log('sup_projects: ', projects);
+
+    //TODO: fix the error with something better than console.log()
+    if (error) {
+        console.log('error while fetching:', error);
+        return undefined;
+    }
+
+    return projects;
+}
+
+async function getProjectsByEmployee() {
+    const { data: serverData, error: serverError } = await useFetch<APIBodyProjects>(
+        '/api/project/getProjectsByEmployee',
+        {
+            query: {
+                id: id,
+            },
+        }
+    );
+
+    const error = serverError.value?.message;
+    const projects = serverData.value?.projects;
+    console.log('work_projects: ', projects);
 
     //TODO: fix the error with something better than console.log()
     if (error) {
@@ -75,7 +99,8 @@ const getEmployeeFullName = computed(() => {
                 </div>
                 <div class="employee-description">
                     <h3 class="employee-description-title">WHO AM I?</h3>
-                    <p class="employee-description-p">{{ employee?.description }}</p>
+
+                    <div class="employee-description-p">{{ employee?.description }}</div>
                 </div>
                 <div class="employee-contacts">
                     <p>
@@ -86,8 +111,24 @@ const getEmployeeFullName = computed(() => {
                 </div>
             </div>
         </ComplexParagraph>
-        <section class="employee-supervised-projects"></section>
-        <section class="employee-projects"></section>
+        <section class="projects">
+            <div class="employee-supervised-projects">
+                <h2 class="projects-title">Projects supervised by me</h2>
+                <div class="project-list">
+                    <div class="project-card" v-for="project in supervisedProjects">
+                        <ProjectCard :project="project" :key="project?.id" />
+                    </div>
+                </div>
+            </div>
+            <div class="employee-projects">
+                <h2 class="projects-title">Projects I have worked on</h2>
+                <div class="project-list">
+                    <div class="project-card" v-for="project in projects">
+                        <ProjectCard :project="project" :key="project?.id" />
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 </template>
 
@@ -107,7 +148,7 @@ const getEmployeeFullName = computed(() => {
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
-    max-width: 650px;
+    width: 60%;
 }
 
 .employee-name {
@@ -129,6 +170,7 @@ const getEmployeeFullName = computed(() => {
     color: var(--accent-color);
     font-weight: 600;
 }
+
 .bolder {
     font-weight: 600;
 }
@@ -136,5 +178,38 @@ const getEmployeeFullName = computed(() => {
 .employee-description-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.projects {
+    margin: 2rem 0 5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.projects-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.project-list {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media (width < 1200px) {
+    .employee-bio {
+        width: 100%;
+    }
+}
+
+@media (width < 620px) {
+    .projects-title {
+        text-align: center;
+    }
+    .project-card {
+        margin: 0 auto;
+    }
 }
 </style>

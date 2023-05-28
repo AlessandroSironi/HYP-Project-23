@@ -31,28 +31,25 @@ const imageStyle = computed(() => {
 </script>
 
 <template>
-    <div>
-        <div class="par-container">
-            <div class="image-container" :class="imageStyle">
-                <nuxt-img class="image-container" :src="image_url" :alt="image_alt" />
-            </div>
-            <div class="text-container"><slot /></div>
+    <div class="par-container">
+        <div class="image-container" :class="imageStyle">
+            <nuxt-img class="image" :src="image_url" :alt="image_alt" />
         </div>
+        <slot />
     </div>
 </template>
 
 <style scoped>
 .par-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
-    flex-wrap: wrap;
+    padding: 1vw 0;
+    gap: 2rem;
 }
 
-.image-container {
-    max-width: min(450px, 100%);
-    height: auto;
+.image {
+    width: min(100%, 1000px);
     border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 
@@ -68,8 +65,9 @@ const imageStyle = computed(() => {
     order: 1;
 }
 
-@media (width < 1400px) {
+@media (width < 1200px) {
     .par-container {
+        flex-direction: column;
         justify-content: center;
         gap: 2rem;
     }
