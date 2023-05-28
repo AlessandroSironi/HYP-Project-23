@@ -11,7 +11,7 @@ interface APIBody {
 }
 
 // employees vector iterated on in template
-const employees = await getEmployees();
+const employees = ref(await getEmployees());
 
 async function getEmployees() {
     // the server response contains the data (if found) or an error
@@ -34,7 +34,10 @@ async function getEmployees() {
         <section class="page-title-container">
             <h2 class="orientational-info">The team</h2>
             <h1 class="page-title">Meet our team of experts, we are here to make your company grow.</h1>
-            <p>To be the company our customers want us to be , it takes an electric group of passionate operators. Get to know the people leading the way at Core Investments.</p>
+            <p>
+                To be the company our customers want us to be , it takes an electric group of passionate operators. Get
+                to know the people leading the way at Core Investments.
+            </p>
         </section>
 
         <section class="list-container">

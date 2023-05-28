@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { stringLiteral } from '@babel/types';
-
 /**
  * Component name: ComplexParagraph
  * Description: this is a generic paragraph
@@ -18,7 +16,7 @@ interface Props {
     justify_content?: boolean; // True -> space-between, false -> center
 }
 
-const { image_url, is_image_rigth, image_alt , justify_content} = defineProps<Props>();
+const { image_url, is_image_rigth, image_alt, justify_content } = defineProps<Props>();
 
 /**
  * This function is used to compute which class
@@ -30,37 +28,28 @@ const imageStyle = computed(() => {
     if (is_image_rigth) return 'right-image';
     else return 'left-image';
 });
-
-const justifyContent = computed(() => {
-    if (justify_content) return 'space-between';
-    else return 'center';
-});
 </script>
 
 <template>
-    <div>
-        <div class="par-container">
-            <div class="image-container" :class="imageStyle, justifyContent">
-                <nuxt-img class="image-container" :src="image_url" :alt="image_alt" />
-            </div>
-            <div class="text-container"><slot /></div>
+    <div class="par-container">
+        <div class="image-container" :class="imageStyle">
+            <nuxt-img class="image" :src="image_url" :alt="image_alt" />
         </div>
+        <slot />
     </div>
 </template>
 
 <style scoped>
 .par-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
-    flex-wrap: wrap;
-    gap: 1rem;
+    padding: 1vw 0;
+    gap: 2rem;
 }
 
-.image-container {
-    max-width: min(450px, 100%);
-    height: auto;
+.image {
+    width: min(100%, 1000px);
     border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 
@@ -76,13 +65,11 @@ const justifyContent = computed(() => {
     order: 1;
 }
 
-.space-between {
-    display: flex;
-    justify-content: space-between;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
+@media (width < 1200px) {
+    .par-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
 }
 </style>
