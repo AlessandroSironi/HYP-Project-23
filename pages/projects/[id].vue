@@ -37,6 +37,9 @@
     <main class="main-container">
         <h2 class="orientational-info">Our Projects</h2>
         <h1 class="project-name">{{ project?.name }}</h1>
+        <div class="area-tags">
+            <AreaTag v-if="project?.mostRelevant" :is_most_relevant="true" />
+        </div>
         <div class="collaborator-section">
             <h4> FOUNDED BY:</h4>
             <h4 class="collaborator-info"><NuxtLink to="https://rateyourmusic.com/">{{project?.founderName}} {{ project?.founderSurname }}</NuxtLink></h4>
@@ -88,6 +91,13 @@
     .main-par{
         display: flex;
         flex-direction: column;
+    }
+
+    .area-tags{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 0.5rem;
     }
 
 </style>
