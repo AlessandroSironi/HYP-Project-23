@@ -9,7 +9,7 @@ export default eventHandler(async (event) => {
     // query the Db and then send to the Vue client an object with employee and error field
     const { data, error } = await client
         .from('area')
-        .select('id, name, description, pic, card_revenue, card_why, card_future')
+        .select('id, name, description, pic, card_revenue, card_why, card_future, description_2')
         .eq('id', id)
         .single();
     return { area: data, error: error };

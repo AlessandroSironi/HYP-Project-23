@@ -30,9 +30,20 @@ async function getArea() {
     return area;
 } 
  
-const computerdUrl = computed(() => {
+const computedUrlPrevious = computed(() => {
     const numAreas = 5;
-    
+    const numArea = (area?.value?.id);
+    let previous = (numArea! - 1) % numAreas;
+    if (previous === 0) previous = numAreas;
+    return "/areas/" + previous;
+});
+
+const computedUrlNext = computed(() => {
+    const numAreas = 5;
+    const numArea = (area?.value?.id);
+    let next = (numArea! + 1) % numAreas;
+    if (next === 0) next = 1;
+    return "/areas/" + next;
 });
 </script>
 
@@ -45,18 +56,35 @@ const computerdUrl = computed(() => {
             <nuxt-img class="area-image" :src="area?.pic" />
         </div>
         <div class="area-card">
-            <InfoCard title="Revenues" icon_locator="solar:dollar-bold"  info_text=""/> 
-            <InfoCard title="Why" icon_locator="ph:question-fill"  info_text=""/>
-            <InfoCard title="The Future" icon_locator="iconoir:time-zone"  info_text=""/>
+            <InfoCard title="Revenues" icon_locator="solar:dollar-bold">
+                <p class="text-container">{{ area?.card_revenue }}</p>
+            </InfoCard> 
+            <InfoCard title="Why" icon_locator="ph:question-fill">
+                <p class="text-container">{{ area?.card_why }}</p>
+            </InfoCard> 
+            <InfoCard title="The Future" icon_locator="iconoir:time-zone">
+                <p class="text-container">{{ area?.card_future }}</p>
+            </InfoCard> 
         </div>
-
+        </section>
+        <div class="colored-bar description-2-div">
+            <p class="area-description-2">{{ area?.description_2 }}</p>
+        </div>
+        
+        <section class="content">
         <div class="discover-projects-div">
             <h2>Are you interested in investing in this area?</h2>
-            <GenericButton value="Discover Projects" alt-style="false"/>
+            <GenericButton value="Discover Projects" :alt-style="true"/>
         </div>
 
         <div class="prev-next-area">
-            <GenericLink name="Previous Area" alt-style="true" url="{[computedUrl}}" />
+            <NuxtLink :to=computedUrlPrevious>
+                <GenericButton value="<- Previous" :alt-style="false" />
+            </NuxtLink>
+
+            <NuxtLink :to=computedUrlNext>
+                <GenericButton value="Next ->" :alt-style="false" />
+            </NuxtLink>
         </div>
     </section>
 </template>
@@ -66,6 +94,18 @@ const computerdUrl = computed(() => {
     color: var(--par-color);
     margin-top: 30px;
     margin-bottom: 30px;
+    text-align: justify;
+}
+
+.area-description-2 {
+    color: var(--par-color-alt);
+    width: var(--content-width);
+    text-align: justify;
+}
+
+.description-2-div {
+    display: flex;
+    justify-content: center;
 }
 
 .area-image {
@@ -80,5 +120,19 @@ const computerdUrl = computed(() => {
     margin-top: 20px;
     margin-bottom: 20px;
     gap: 20px;
+}
+
+.prev-next-area {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.text-container{
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-bottom: 0.75rem;
+    padding-right: 0.5rem;
+    color: var(--par-color);
 }
 </style>

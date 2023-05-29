@@ -19,10 +19,26 @@
             <h2 class="colored-bar-content"> Why should you partner with us?</h2>
             <p class="colored-bar-content">If you're a founder asking yourself whether or not we are the right partner for you, here are the five principles that guide how we act as a team.</p>
             <div class="colored-bar-card">
-                <InfoCard icon_locator="tabler:trophy-filled" title="Aligned to Win" info_text="Choose us for unmatched expertise and exceptional returns on your investment."/>
-                <InfoCard icon_locator="tabler:scale" title="Performance through Integrity" info_text="Our success is rooted in unwavering integrity and consistently delivering."/>
-                <InfoCard icon_locator="bi:fire" title="Bold and Progressive" info_text="Embrace our bold and progressive approach to drive innovation and maximize growth potential."/>
-                <InfoCard icon_locator="ph:hand" title="Humble" info_text="Partner with a humble team that values collaboration and puts your success above all else."/>
+                <InfoCard icon_locator="tabler:trophy-filled" title="Aligned to Win">
+                    <p class="text-container">
+                        Choose us for unmatched expertise and exceptional returns on your investment.
+                    </p>
+                </InfoCard>
+                <InfoCard icon_locator="tabler:scale" title="Performance through Integrity">
+                    <p class="text-container">
+                        Our success is rooted in unwavering integrity and consistently delivering.
+                    </p>
+                </InfoCard>
+                <InfoCard icon_locator="bi:fire" title="Bold and Progressive">
+                    <p class="text-container">
+                        Embrace our bold and progressive approach to drive innovation and maximize growth potential.
+                    </p>
+                </InfoCard>
+                <InfoCard icon_locator="ph:hand" title="Humble">
+                    <p class="text-container">
+                        Partner with a humble team that values collaboration and puts your success above all else.
+                    </p>
+                </InfoCard>
             </div>
         </div>
 
@@ -62,6 +78,14 @@
     flex-flow: row wrap;
     justify-content: center;
     color: var(--bg-color);
+}
+
+.text-container{
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-bottom: 0.75rem;
+        padding-right: 0.5rem;
+        color: var(--par-color);
 }
 
 </style>
