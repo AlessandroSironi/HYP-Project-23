@@ -15,7 +15,7 @@ const { project } = defineProps<Props>();
 </script>
 
 <template>
-    <NuxtLink class="project-card-maindiv" to="/">
+    <NuxtLink class="project-card-maindiv" :to="`/projects/${project?.id}`">
         <div class="trophy-box" v-if="project?.mostRelevant">
             <div class="trophy-container">
                 <Icon name="solar:cup-star-bold" class="trophy" />
