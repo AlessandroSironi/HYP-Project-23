@@ -19,7 +19,9 @@
     <main class="main_class_div">
         <div class="card-icon-div"><Icon :name="icon_locator"/></div>
         <h4 class="card-title">{{ title }}</h4>
-        <div class="text-container"><p class="info-text">{{ info_text }}</p></div>
+        <div class="text-container">
+            <slot class="text-container"/>
+        </div>
     </main>
  </template>
 
@@ -28,6 +30,7 @@
         width: 240px;
         height: 200px;
         color: var(--bg-color);
+        background-color: var(--bg-color);
         box-shadow: 0.1rem 0.2rem 0.5rem #888888;
         border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
         margin: 0.5rem;
@@ -60,6 +63,7 @@
         justify-content: center;
         gap: 0.2rem;
         margin-top: 1rem;
+        color: var(--title-color);
     }
 
 </style>

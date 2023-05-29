@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { id } = useRoute().params;
 
-interface APIBodyEmpLoyee {
+interface APIBodyEmployee {
     employee: Employee;
     error: string;
 }
@@ -15,7 +15,7 @@ const supervisedProjects = ref(await getSupervisedProjects());
 const projects = ref(await getProjectsByEmployee());
 
 async function getEmployee() {
-    const { data: serverData, error: serverError } = await useFetch<APIBodyEmpLoyee>('/api/employee/getEmployeeById', {
+    const { data: serverData, error: serverError } = await useFetch<APIBodyEmployee>('/api/employee/getEmployeeById', {
         query: {
             id: id,
         },

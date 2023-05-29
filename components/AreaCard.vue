@@ -24,7 +24,9 @@ const { area } = defineProps<Props>();
                 <p class="area-description">{{ area?.description }}</p>
 
                 <div class="area-discover-wrapper">
-                    <GenericLink url="/" class="area-discover-btn" name="Discover more" :alt-style="true" />
+                    <NuxtLink :to="`/areas/${area?.id}`">
+                        <GenericButton class="area-discover-btn" value="Discover more" :alt-style="true" />
+                    </NuxtLink>
                 </div>
             </div>
         </div>
@@ -88,6 +90,8 @@ const { area } = defineProps<Props>();
 
 .area-description {
     font-weight: 400;
+    text-align: justify;
+    margin-right: 20px;
 }
 
 .area-discover-btn {
