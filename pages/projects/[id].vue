@@ -37,22 +37,32 @@
     <main class="main-container">
         <h2 class="orientational-info">Our Projects</h2>
         <h1 class="project-name">{{ project?.name }}</h1>
-        <h3> FOUNDED BY: 
-            <div class="collaborator-info"><NuxtLink to="/">{{project?.founderName}} {{ project?.founderSurname }}</NuxtLink></div>
-        </h3>
+        <div class="collaborator-section">
+            <h4> FOUNDED BY:</h4>
+            <h4 class="collaborator-info"><NuxtLink to="https://rateyourmusic.com/">{{project?.founderName}} {{ project?.founderSurname }}</NuxtLink></h4>
+        </div>
+        
         <ComplexParagraph :image_url="project?.companyImage" :image_alt="project?.name">
-            <h3>Project supervised by: 
-                <NuxtLink></NuxtLink>
-            </h3>
-            <h3>Project supervised by: 
-                <NuxtLink></NuxtLink>
-            </h3>
-            <p>{{ project?.description }}</p>
+            <section class="main-par">
+                <div class="collaborator-section">
+                    <h4>Project supervised by:</h4>
+                    <h4><NuxtLink class="collaborator-info"></NuxtLink></h4>
+                </div>
+                
+                <div class="collaborator-section">
+                    <h4>Other team members:</h4>
+                    <h4><NuxtLink class="collaborator-info"></NuxtLink></h4>
+                </div>
+    
+                <p>{{ project?.description }}</p>
+            </section>  
         </ComplexParagraph>
 
         <ComplexParagraph :is_image_rigth="true" :image_url="project?.companyLogo" :image_alt="project?.name">
-            <h3>LET'S HEAR FROM THEM...</h3>
-            <p> {{ project?.review }} </p>
+            <section class="main-par">
+                <h4>LET'S HEAR FROM THEM...</h4>
+                <p> {{ project?.review }} </p>
+            </section>
         </ComplexParagraph>
     </main>
 </template>
@@ -66,6 +76,18 @@
     .collaborator-info{
         color: var(--accent-color);
         font-weight: 600;
+        margin-left: 0.75rem;
+    }
+
+    .collaborator-section{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .main-par{
+        display: flex;
+        flex-direction: column;
     }
 
 </style>
