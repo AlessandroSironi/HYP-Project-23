@@ -1,5 +1,3 @@
-import { getEnabledCategories } from 'trace_events';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon', '@nuxt/image-edge'],
@@ -12,6 +10,22 @@ export default defineNuxtConfig({
     },
     nitro: {
         compressPublicAssets: true,
+    },
+    // needed to use the sizes attribute in <nuxt-img />
+    image: {
+        domains: ['nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/'],
+        alias: {
+            supabase: 'https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources',
+        },
+        screens: {
+            xs: 320,
+            sm: 640,
+            md: 768,
+            lg: 1200,
+            xl: 1280,
+            xxl: 1536,
+            '2xl': 1536,
+        },
     },
     app: {
         head: {

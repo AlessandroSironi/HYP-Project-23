@@ -13,10 +13,9 @@ interface Props {
     // the default value if missing is false
     is_image_rigth?: boolean;
     image_alt?: string;
-    justify_content?: boolean; // True -> space-between, false -> center
 }
 
-const { image_url, is_image_rigth, image_alt, justify_content } = defineProps<Props>();
+const { image_url, is_image_rigth, image_alt } = defineProps<Props>();
 
 /**
  * This function is used to compute which class
@@ -32,7 +31,7 @@ const imageStyle = computed(() => {
 
 <template>
     <div class="par-container">
-        <div class="image-container" :class="imageStyle">
+        <div v-if="image_url" class="image-container" :class="imageStyle">
             <nuxt-img class="image" :src="image_url" :alt="image_alt" />
         </div>
         <slot />
