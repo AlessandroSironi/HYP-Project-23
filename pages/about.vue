@@ -78,6 +78,7 @@
     flex-flow: row wrap;
     justify-content: center;
     color: var(--bg-color);
+    gap: 20px;
 }
 
 .text-container{
