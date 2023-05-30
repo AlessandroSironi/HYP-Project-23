@@ -30,7 +30,6 @@ const {area, is_most_relevant} = defineProps<Props>();
         background-color: var(--accent-color);
         display: inline-block;
         text-decoration: none;
-        margin: 0.5rem;
     }
 
     .info-title{

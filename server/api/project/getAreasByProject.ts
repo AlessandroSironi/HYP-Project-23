@@ -17,4 +17,8 @@ export default eventHandler(async (event) => {
         ids.push(element.area);
     });
 
+    const { data, error } = await client.from('area').select('id, name').in('id', ids);
+
+
+    return { areas: data, error: error };
 });
