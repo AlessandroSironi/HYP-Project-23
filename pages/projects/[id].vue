@@ -9,21 +9,25 @@ import getAreasByProjects from '~/server/api/project/getAreasByProject.js';
         error: string;
     }
 
-    //apibody areas
     interface APIBodyAreas {
         areas: Area[];
         error: string;
     }
 
-    //supervisor ??? rip
     interface APIBodyWorkers {
         workers: Employee[];
+        error: string;
+    }
+
+    interface APIBodySupervisor {
+        supervisor: Employee;
         error: string;
     }
 
     const project = ref(await getProject());
     const areas = ref(await getAreasByProject());
     const workers = ref(await getWorkers());
+    const supervisor = ref(await getSupervisor());
 
     async function getProject() {
         const { data: serverData, error: serverError } = await useFetch<APIBodyProject>('/api/project/getProjectById', {
@@ -88,6 +92,29 @@ async function getWorkers(){
     return workers;
 }
 
+async function getSupervisor(){
+    const { data: serverData, error: serverError } = await useFetch<APIBodySupervisor>(
+        '/api/project/getSupervisorByProject',
+        {
+            query: {
+                id: id,
+            }
+        }
+    );
+
+    const error = serverError.value?.message;
+    const supervisor = serverData.value?.supervisor;
+
+    
+    if (error) {
+        console.log('error while fetching:', error);
+        return undefined;
+    }
+
+    console.log('supervisor: ', supervisor);
+    return supervisor;
+}
+
 </script>
 
 <template>
@@ -102,14 +129,14 @@ async function getWorkers(){
         </div>
         <div class="collaborator-section">
             <h4> FOUNDED BY:</h4>
-            <h4 class="collaborator-info"><NuxtLink to="https://rateyourmusic.com/">{{project?.founderName}} {{ project?.founderSurname }}</NuxtLink></h4>
+            <h4><NuxtLink class="collaborator-info" to="https://rateyourmusic.com/">{{project?.founderName}} {{ project?.founderSurname }}</NuxtLink></h4>
         </div>
         
         <ComplexParagraph :image_url="project?.companyImage" :image_alt="project?.name">
             <section class="main-par">
                 <div class="collaborator-section">
-                    <h4>Project supervised by: <NuxtLink :to="`/persons/${project?.supervisor}`">
-                        aaaa
+                    <h4>Project supervised by: <NuxtLink :to="`/persons/${project?.supervisor}`" class="collaborator-info">
+                        {{ supervisor?.name }} {{ supervisor?.surname }}
                     </NuxtLink></h4>
                 </div>
                 
@@ -154,6 +181,7 @@ async function getWorkers(){
     .main-par{
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 
     .area-tags{
@@ -163,6 +191,10 @@ async function getWorkers(){
         margin-top: 0.7rem;
         margin-bottom: 0.7rem;
         gap: 0.7rem;
+    }
+
+    h4{
+        margin-top: 0.25rem;
     }
 
 </style>

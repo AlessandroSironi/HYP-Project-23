@@ -4,14 +4,19 @@ import { Database } from '~/types/schema';
 export default eventHandler(async (event) => {
     const{ id } = getQuery(event);
     const client = serverSupabaseClient<Database>(event);
-    const { data: supervisor, error: supervisor_error } = await client
-        .from('employees')
-        .select('name, surname')
-        .eq('id', id)
+    
+    const { data: project_sup, error: supervisor_error } = await client
+        .from('project')
+        .select('supervisor')
+        .eq('id', id )
         .single();
 
-    console.log(supervisor);
+    const { data, error } = await client
+        .from('employee')  
+        .select('name, surname')
+        .eq('id', project_sup?.supervisor)
+        .single();
 
-    return{ supervisor: data, error: error };
+    return { supervisor: data, error: error };
 
-})
+});
