@@ -11,7 +11,7 @@ export default eventHandler(async (event) => {
         .from('works_in')
         .select('project')
         .eq('emp', id);
-    console.log(projects_ids);
+    if (projects_ids_error) console.log(projects_ids_error);
 
     // transform the list of objects to a list of numbers in order to use .in() later
     let ids: number[] = [];
@@ -22,6 +22,7 @@ export default eventHandler(async (event) => {
 
     // return the projects in the ids list with all the required information
     const { data, error } = await client.from('project').select('id, name, companyLogo, year').in('id', ids);
+    if (error) console.log(error);
 
-    return { projects: data, error: error };
+    return data;
 });

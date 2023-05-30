@@ -20,10 +20,15 @@ const handleClearError = () => {
         <main class="main">
             <h1 class="err-code">{{ error.statusCode }}</h1>
             <h2 v-if="error.statusCode === 404">Page not found</h2>
-            <h2 v-else>An error occurred</h2>
+            <h2 v-else>An error occurred, {{ error.message }}</h2>
             <div class="err-links">
                 <GenericButton value="Back to HomePage" :alt-style="true" @func="handleClearError" />
-                <GenericButton class="border" value="Back to Last valid screen" :alt-style="false" @func="$router.go(-1)" />
+                <GenericButton
+                    class="border"
+                    value="Back to Last valid screen"
+                    :alt-style="false"
+                    @func="$router.go(-1)"
+                />
             </div>
         </main>
         <Footer />

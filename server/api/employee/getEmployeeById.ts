@@ -12,5 +12,6 @@ export default eventHandler(async (event) => {
         .select('id, name, surname, role, pic, mail, description')
         .eq('id', id)
         .single();
-    return { employee: data, error: error };
+    if (error) console.log(error);
+    return data;
 });

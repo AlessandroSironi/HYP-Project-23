@@ -8,5 +8,6 @@ export default eventHandler(async (event) => {
     const client = serverSupabaseClient<Database>(event);
     // query the Db and then send to the Vue client an object with projects and error field
     const { data, error } = await client.from('project').select('id, name, year, companyLogo').eq('supervisor', id);
-    return { projects: data, error: error };
+    console.log(error);
+    return data;
 });
