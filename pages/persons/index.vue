@@ -1,32 +1,14 @@
 <script setup lang="ts">
+import { Employee } from '~/types/Employee';
+
 /**
  * team page with all employees,
  * fecth data from backend and displays employees in a grid
  */
 
-// interface used to infer type while fetching
-interface APIBody {
-    employees: Employee[];
-    error: string;
-}
-
-// employees vector iterated on in template
-const employees = ref(await getEmployees());
-
-async function getEmployees() {
-    // the server response contains the data (if found) or an error
-    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/employee/getAllEmployees');
-    const error = serverError.value?.message;
-    const employees = serverData.value?.employees;
-    console.log('employees: ', employees);
-
-    //TODO: fix the error with something better than console.log()
-    if (error) {
-        console.log('error while fetching:', error);
-        return undefined;
-    }
-
-    return employees;
+const { data: employees, pending, error } = await useLazyFetch<Employee[]>('/api/employee/getAllEmployees');
+if (error.value) {
+    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
 }
 </script>
 <template>
@@ -41,7 +23,8 @@ async function getEmployees() {
         </section>
 
         <section class="list-container">
-            <div class="list">
+            <div v-if="pending"><LoaderComponent /></div>
+            <div class="list" v-else>
                 <div v-for="employee in employees">
                     <EmployeeCard :employee="employee" :key="employee?.id" />
                 </div>

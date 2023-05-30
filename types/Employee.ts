@@ -1,14 +1,3 @@
 // Employee type
-// TODO: fix it with other data from the DB
-
-type Employee =
-    | {
-          id: number;
-          name: string;
-          surname: string;
-          role: string;
-          mail: string;
-          description: string;
-          pic: string;
-      }
-    | undefined;
+import { Database } from './schema';
+export type Employee = Database['public']['Tables']['employee']['Row'];
