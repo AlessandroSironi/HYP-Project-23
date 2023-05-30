@@ -196,6 +196,10 @@ p {
         display: none;
     }
 
+    .button-container {
+        justify-content: center;
+    }
+
     .team-section-par-container {
         flex-wrap: wrap;
     }
