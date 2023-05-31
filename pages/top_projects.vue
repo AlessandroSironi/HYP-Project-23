@@ -48,7 +48,7 @@ async function getMostRelevantProjects() {
     </section>
 
     <div class="carousel-div">
-
+        <Carousel :projects="projects" />
     </div>
 
     </main>
