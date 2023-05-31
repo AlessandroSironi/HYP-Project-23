@@ -2,7 +2,7 @@
 
 <template>
     <div class="loader-container">
-        <Icon name="mingcute:loading-fill" class="loader-icon" size="200" />
+        <Icon name="mingcute:loading-fill" class="loader-icon" size="100" />
     </div>
 </template>
 
@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
+    padding: 5rem;
 }
 
 .loader-icon {

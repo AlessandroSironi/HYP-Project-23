@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Area } from '~/types/Area';
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
 

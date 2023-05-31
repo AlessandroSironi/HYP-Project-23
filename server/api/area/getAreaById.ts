@@ -12,5 +12,7 @@ export default eventHandler(async (event) => {
         .select('id, name, description, pic, card_revenue, card_why, card_future, description_2')
         .eq('id', id)
         .single();
-    return { area: data, error: error };
+
+    if (error) console.log(error);
+    return data;
 });

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Project } from '~/types/Project';
+
 /**
  * Component name: ProjectCard
  * Description: this is the card used to display
@@ -21,7 +23,7 @@ const { project } = defineProps<Props>();
                 <Icon name="solar:cup-star-bold" class="trophy" />
             </div>
         </div>
-        <nuxt-img height="200" class="project-logo-img" :src="project?.companyLogo" :alt="project?.name" />
+        <nuxt-img height="200" width="267" class="project-logo-img" :src="project?.companyLogo" :alt="project?.name" />
         <div class="project-card-infos">
             <p class="project-name">{{ project?.name }}</p>
             <p>Year invested: {{ project?.year }}</p>
