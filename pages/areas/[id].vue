@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { Area } from '~/types/Area';
 
 const { id } = useRoute().params;
 
-interface APIBodyArea {
+/* interface APIBodyArea {
     area: Area;
     error: string;
 }
@@ -19,7 +20,7 @@ async function getArea() {
     const error = serverError.value?.message;
     const area = serverData.value?.area;
 
-    console.log("Area:" , area);
+    console.log('Area:', area);
 
     //TODO: fix the error with something better than console.log()
     if (error) {
@@ -28,61 +29,81 @@ async function getArea() {
     }
 
     return area;
-} 
- 
+} */
+
+// fetch the area information
+const {
+    data: area,
+    pending: pending,
+    error: supervised_error,
+} = await useLazyFetch<Area>('/api/area/getAreaById', {
+    query: {
+        id: id,
+    },
+});
+if (supervised_error.value) {
+    // throw error if something went wrong during the fetch
+    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
+}
+
 const computedUrlPrevious = computed(() => {
     const numAreas = 5;
-    const numArea = (area?.value?.id);
+    const numArea = area?.value?.id;
     let previous = (numArea! - 1) % numAreas;
     if (previous === 0) previous = numAreas;
-    return "/areas/" + previous;
+    return '/areas/' + previous;
 });
 
 const computedUrlNext = computed(() => {
     const numAreas = 5;
-    const numArea = (area?.value?.id);
+    const numArea = area?.value?.id;
     let next = (numArea! + 1) % numAreas;
     if (next === 0) next = 1;
-    return "/areas/" + next;
+    return '/areas/' + next;
 });
 </script>
 
 <template>
     <section class="content">
         <h2 class="orientational-info">Areas of Investment</h2>
-        <h1>{{ area?.name }}</h1>
-        <p class="area-description">{{ area?.description }}</p>
-        <div class="area-image-div">
-            <nuxt-img class="area-image" :src="area?.pic" />
+        <div v-if="pending">
+            <LoaderComponent />
         </div>
-        <div class="area-card">
-            <InfoCard title="Revenues" icon_locator="solar:dollar-bold">
-                <p class="text-container">{{ area?.card_revenue }}</p>
-            </InfoCard> 
-            <InfoCard title="Why" icon_locator="ph:question-fill">
-                <p class="text-container">{{ area?.card_why }}</p>
-            </InfoCard> 
-            <InfoCard title="The Future" icon_locator="iconoir:time-zone">
-                <p class="text-container">{{ area?.card_future }}</p>
-            </InfoCard> 
+        <div v-else>
+            <h1>{{ area?.name }}</h1>
+            <p class="area-description">{{ area?.description }}</p>
+            <div class="area-image-div">
+                <nuxt-img class="area-image" :src="area?.pic" placeholder="[100, 50, 10]" />
+            </div>
+            <div class="area-card">
+                <InfoCard title="Revenues" icon_locator="solar:dollar-bold">
+                    <p class="text-container">{{ area?.card_revenue }}</p>
+                </InfoCard>
+                <InfoCard title="Why" icon_locator="ph:question-fill">
+                    <p class="text-container">{{ area?.card_why }}</p>
+                </InfoCard>
+                <InfoCard title="The Future" icon_locator="iconoir:time-zone">
+                    <p class="text-container">{{ area?.card_future }}</p>
+                </InfoCard>
+            </div>
         </div>
-        </section>
-        <div class="colored-bar description-2-div">
-            <p class="area-description-2">{{ area?.description_2 }}</p>
-        </div>
-        
-        <section class="content">
+    </section>
+    <div class="colored-bar description-2-div">
+        <p class="area-description-2">{{ area?.description_2 }}</p>
+    </div>
+
+    <section class="content">
         <div class="discover-projects-div">
             <h2>Are you interested in investing in this area?</h2>
-            <GenericButton value="Discover Projects" :alt-style="true"/>
+            <GenericButton value="Discover Projects" :alt-style="true" />
         </div>
 
         <div class="prev-next-area">
-            <NuxtLink :to=computedUrlPrevious>
+            <NuxtLink :to="computedUrlPrevious">
                 <GenericButton value="<- Previous" :alt-style="false" />
             </NuxtLink>
 
-            <NuxtLink :to=computedUrlNext>
+            <NuxtLink :to="computedUrlNext">
                 <GenericButton value="Next ->" :alt-style="false" />
             </NuxtLink>
         </div>
@@ -113,7 +134,9 @@ const computedUrlNext = computed(() => {
     border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 
-.area-image-div, .area-card, .discover-projects-div {
+.area-image-div,
+.area-card,
+.discover-projects-div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -128,7 +151,7 @@ const computedUrlNext = computed(() => {
     gap: 50px;
 }
 
-.text-container{
+.text-container {
     text-align: center;
     padding-left: 0.5rem;
     padding-bottom: 0.75rem;

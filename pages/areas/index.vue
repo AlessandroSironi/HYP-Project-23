@@ -1,41 +1,37 @@
 <script setup lang="ts">
+import { Area } from '~/types/Area';
 
-interface APIBody {
-    areas: Area[];
-    error: string;
-}
+/**
+ * Fecth employees function is lazy, returns:
+ * employees: the Ref<Area[]> vector used in the template
+ * pending: Ref<boolean> used to display the loader while still fetching
+ * error: Ref<FetchError> used to redirect to error page when there is an error while fetching
+ */
 
-// employees vector iterated on in template
-const areas = await getAllAreas();
-
-async function getAllAreas() {
-    // the server response contains the data (if found) or an error
-    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/area/getAllAreas');
-    const error = serverError.value?.message;
-    const areas = serverData.value?.areas;
-
-    //TODO: fix the error with something better than console.log()
-    if (error) {
-        console.log('error while fetching:', error);
-        return undefined;
-    }
-    console.log(areas);
-    return areas;
+const { data: areas, pending, error } = await useLazyFetch<Area[]>('/api/area/getAllAreas');
+if (error.value) {
+    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
 }
 </script>
-
 
 <template>
     <div class="list-container">
         <!-- <h2 class="orientational-info">Areas</h2> -->
         <h2 class="orientational-info">Areas of Investment</h2>
-        <p>Core Ventures aims to create strong financial returns while adding value for individuals, communities, and humanity.</p>
-        <br><br>
-            <div class="list">
-             <div v-for="area in areas">
+        <p>
+            Core Ventures aims to create strong financial returns while adding value for individuals, communities, and
+            humanity.
+        </p>
+        <br />
+        <br />
+        <div v-if="pending">
+            <LoaderComponent />
+        </div>
+        <div class="list" v-else>
+            <div v-for="area in areas">
                 <AreaCard :area="area" :key="area?.id" />
-             </div>
-         </div>
+            </div>
+        </div>
     </div>
 </template>
 

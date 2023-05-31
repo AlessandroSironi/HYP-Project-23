@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Area } from '~/types/Area';
+
 /**
  * Component name: AreaCard
  * Description: this is the card used to display
@@ -17,7 +19,12 @@ const { area } = defineProps<Props>();
 
 <template>
     <div class="area-card-container" to="/">
-        <nuxt-img width="350" class="area-card-image" :src="area?.pic" :alt="area?.name" />
+        <nuxt-img
+            sizes="xs:240px, sm:280px, md:350px, lg:350px"
+            class="area-card-image"
+            :src="area?.pic"
+            :alt="area?.name"
+        />
         <div class="area-card-info-box">
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>
@@ -57,8 +64,6 @@ const { area } = defineProps<Props>();
     margin-right: 10px;
 }
 .area-card-image {
-    max-width: min(350px, 90%);
-    height: auto;
     border-radius: 1.25rem 1.25rem 0 1.25rem;
     margin: 20px;
 }
