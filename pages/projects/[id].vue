@@ -9,7 +9,7 @@ const {
     data: project,
     pending: is_project_loading,
     error: project_error,
-} = await useFetch<Project>('/api/project/getProjectById', {
+} = await useLazyFetch<Project>('/api/project/getProjectById', {
     query: {
         id: id,
     },
@@ -24,7 +24,7 @@ const {
     data: workers,
     pending: is_workers_loading,
     error: workers_error,
-} = await useFetch<Employee[]>('/api/project/getWorkingMembersByProject', {
+} = await useLazyFetch<Employee[]>('/api/project/getWorkingMembersByProject', {
     query: {
         id: id,
     },
@@ -39,7 +39,7 @@ const {
     data: supervisor,
     pending: is_supervisor_loading,
     error: supervisor_error,
-} = await useFetch<Employee>('/api/project/getSupervisorByProject', {
+} = await useLazyFetch<Employee>('/api/project/getSupervisorByProject', {
     query: {
         id: id,
     },
@@ -55,7 +55,7 @@ const {
     data: areas,
     pending: is_areas_loading,
     error: areas_error,
-} = await useFetch<Area[]>('/api/project/getAreasByProject', {
+} = await useLazyFetch<Area[]>('/api/project/getAreasByProject', {
     query: {
         id: id,
     },
