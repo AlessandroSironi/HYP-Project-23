@@ -32,7 +32,7 @@ const imageStyle = computed(() => {
 <template>
     <div class="par-container">
         <div v-if="image_url" class="image-container" :class="imageStyle">
-            <nuxt-img class="image" :src="image_url" :alt="image_alt" />
+            <nuxt-img class="image" :src="image_url" :alt="image_alt" loading="lazy" />
         </div>
         <slot />
     </div>

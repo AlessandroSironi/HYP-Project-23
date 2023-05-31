@@ -6,6 +6,13 @@ import { Employee } from '~/types/Employee';
  * fecth data from backend and displays employees in a grid
  */
 
+/**
+ * Fecth employees function is lazy, returns:
+ * employees: the Ref<Employee[]> vector used in the template
+ * pending: Ref<boolean> used to display the loader while still fetching
+ * error: Ref<FetchError> used to redirect to error page when there is an error while fetching
+ */
+
 const { data: employees, pending, error } = await useLazyFetch<Employee[]>('/api/employee/getAllEmployees');
 if (error.value) {
     throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });

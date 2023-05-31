@@ -7,22 +7,10 @@ export default eventHandler(async (event) => {
     // create a client for the supabase DB and infer the DB structure
     const client = serverSupabaseClient<Database>(event);
     // query the Db and find the project ids for the employee
-    const { data: projects_ids, error: projects_ids_error } = await client
-        .from('works_in')
-        .select('project')
-        .eq('emp', id);
-    if (projects_ids_error) console.log(projects_ids_error);
 
-    // transform the list of objects to a list of numbers in order to use .in() later
-    let ids: number[] = [];
+    const { data: rawData, error } = await client.from('works_in').select('project(*)').eq('emp', id);
+    const newData = rawData?.map((el) => el.project);
 
-    projects_ids?.forEach((element) => {
-        ids.push(element.project);
-    });
-
-    // return the projects in the ids list with all the required information
-    const { data, error } = await client.from('project').select('id, name, companyLogo, year').in('id', ids);
-    if (error) console.log(error);
-
-    return data;
+    console.log('EMP: ', newData);
+    return newData;
 });
