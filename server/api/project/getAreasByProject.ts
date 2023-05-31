@@ -2,14 +2,9 @@ import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
 
 export default eventHandler(async (event) => {
-    const{ id } = getQuery(event);
+    const { id } = getQuery(event);
     const client = serverSupabaseClient<Database>(event);
-    const { data: area_ids, error: area_id_error }  = await client 
-        .from('related_to')
-        .select('area')
-        .eq('project', id);
-    
-    console.log(area_ids);  
+    const { data: area_ids, error: area_id_error } = await client.from('related_to').select('area').eq('project', id);
 
     let ids: number[] = [];
 
@@ -18,7 +13,7 @@ export default eventHandler(async (event) => {
     });
 
     const { data, error } = await client.from('area').select('id, name').in('id', ids);
+    if (error) console.log(error);
 
-
-    return { areas: data, error: error };
+    return data;
 });

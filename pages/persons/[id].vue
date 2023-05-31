@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Employee } from '~/types/Employee';
+import { Project } from '~/types/Project';
 
 const { id } = useRoute().params;
 
@@ -87,29 +88,25 @@ const getEmployeeFullName = computed(() => {
         </div>
 
         <section class="projects">
-            <div v-if="is_supervised_loading">
-                <LoaderComponent />
-            </div>
-            <div v-else>
-                <div class="employee-supervised-projects">
-                    <h2 class="projects-title">Projects supervised by me</h2>
-                    <div class="project-list">
-                        <div class="project-card" v-for="project in supervisedProjects">
-                            <ProjectCard :project="project" :key="project?.id" />
-                        </div>
+            <div class="employee-supervised-projects">
+                <h2 class="projects-title">Projects supervised by me</h2>
+                <div v-if="is_supervised_loading">
+                    <LoaderComponent />
+                </div>
+                <div class="project-list" v-else>
+                    <div class="project-card" v-for="project in supervisedProjects">
+                        <ProjectCard :project="project" :key="project?.id" />
                     </div>
                 </div>
             </div>
-            <div v-if="is_projects_loading">
-                <LoaderComponent />
-            </div>
-            <div v-else>
-                <div class="employee-projects">
-                    <h2 class="projects-title">Projects I have worked on</h2>
-                    <div class="project-list">
-                        <div class="project-card" v-for="project in projects">
-                            <ProjectCard :project="project" :key="project?.id" />
-                        </div>
+            <div class="employee-projects">
+                <h2 class="projects-title">Projects I have worked on</h2>
+                <div v-if="is_projects_loading">
+                    <LoaderComponent />
+                </div>
+                <div class="project-list" v-else>
+                    <div class="project-card" v-for="project in projects">
+                        <ProjectCard :project="project" :key="project?.id" />
                     </div>
                 </div>
             </div>

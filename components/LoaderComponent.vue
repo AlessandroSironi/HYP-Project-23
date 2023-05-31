@@ -2,7 +2,7 @@
 
 <template>
     <div class="loader-container">
-        <Icon name="mingcute:loading-fill" class="loader-icon" size="300" />
+        <Icon name="mingcute:loading-fill" class="loader-icon" size="200" />
     </div>
 </template>
 
@@ -16,14 +16,11 @@
 
 .loader-icon {
     color: var(--accent-color);
-    animation: spin 2.5s linear infinte;
+    animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
+    to {
         transform: rotate(360deg);
     }
 }
