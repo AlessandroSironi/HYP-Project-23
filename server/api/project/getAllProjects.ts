@@ -7,9 +7,7 @@ export default eventHandler(async (event) => {
     // query the Db and then send to the Vue client an object with projects
     const { data, error } = await client
         .from('project')
-        .select(
-            'id, name, year, founderName, founderSurname, description, review, companyLogo, companyImage, mostRelevant, supervisor'
-        )
+        .select('id, name, year, companyLogo, mostRelevant, related_to(area(name))')
         .order('id');
     if (error) {
         console.log(error);
