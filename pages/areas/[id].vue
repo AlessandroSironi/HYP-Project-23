@@ -3,34 +3,6 @@ import { Area } from '~/types/Area';
 
 const { id } = useRoute().params;
 
-/* interface APIBodyArea {
-    area: Area;
-    error: string;
-}
-
-const area = ref(await getArea());
-
-async function getArea() {
-    const { data: serverData, error: serverError } = await useFetch<APIBodyArea>('/api/area/getAreaById', {
-        query: {
-            id: id,
-        },
-    });
-
-    const error = serverError.value?.message;
-    const area = serverData.value?.area;
-
-    console.log('Area:', area);
-
-    //TODO: fix the error with something better than console.log()
-    if (error) {
-        console.log('error while fetching:', error);
-        return undefined;
-    }
-
-    return area;
-} */
-
 // fetch the area information
 const {
     data: area,
@@ -73,7 +45,7 @@ const computedUrlNext = computed(() => {
             <h1>{{ area?.name }}</h1>
             <p class="area-description">{{ area?.description }}</p>
             <div class="area-image-div">
-                <nuxt-img class="area-image" :src="area?.pic" placeholder="[100, 50, 10]" />
+                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" />
             </div>
             <div class="area-card">
                 <InfoCard title="Revenues" icon_locator="solar:dollar-bold">
@@ -95,7 +67,7 @@ const computedUrlNext = computed(() => {
     <section class="content">
         <div class="discover-projects-div">
             <h2>Are you interested in investing in this area?</h2>
-            <GenericButton value="Discover Projects" :alt-style="true" />
+            <GenericLink url="/projects" name="Discover Projects" :alt-style="true" />
         </div>
 
         <div class="prev-next-area">

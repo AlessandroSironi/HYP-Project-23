@@ -10,6 +10,7 @@ import { Project } from '~/types/Project';
  */
 
 // types union in order to take advantage of the area array
+// this type mirrors the response of the API
 type ProjectsBody = Project & {
     related_to: {
         area: {
@@ -36,14 +37,11 @@ function changeArea(area: string) {
 
 const filteredProjects = computed(() => {
     // Checking for values where the full list is provided
-    console.log(area_name.value);
-
     if (area_name.value == '') {
         return projects.value;
     }
 
     let arr: Project[] = [];
-    console.log(arr);
 
     if (area_name.value === 'top' && projects.value) {
         return projects.value?.filter((el) => el.mostRelevant);
@@ -53,13 +51,11 @@ const filteredProjects = computed(() => {
         j = 0;
 
     const allProjects = projects.value;
+
     if (allProjects) {
         for (i = 0; i < allProjects?.length; i++) {
             let project = allProjects[i];
-            console.log('name of p: ', project.name);
-            console.log('areas: ');
             for (j = 0; j < project.related_to.length; j++) {
-                console.log(project.related_to[j].area.name);
                 if (area_name.value === project.related_to[j].area.name) {
                     arr.push(project);
                 }
@@ -73,16 +69,28 @@ const filteredProjects = computed(() => {
 
 <template>
     <div class="list-container">
-        <h2 class="orientational-info">Our Projects</h2>
-        <p class="paragraph-projects">
-            Explore the projects we have developed for the companies who put their trust in us.
-        </p>
-        <div v-if="areas">
-            <div v-for="area in areas" :key="area.id">
-                <AreaFilterChip :area="area" :is-active="false" @func="changeArea(area.name)" />
+        <h2 class="orientational-info">
+            Our Projects
+            <span class="area-info" v-if="area_name !== ''">:{{ area_name }}</span>
+        </h2>
+        <p class="paragraph-projects">Explore the projects we have developed for the companies who put their trust in us.</p>
+        <div v-if="areas" class="areas-filter">
+            <!--The filter was made with radio html tag in order to take advantage of the checked 
+            CSS propriety to better style the chips-->
+            <div class="radio-toolbar">
+                <span v-for="area in areas" @click="changeArea(area.name)">
+                    <input type="radio" :key="area.id" :id="area.name" name="filter" :value="area.name" />
+                    <label :for="area.name">{{ area.name }}</label>
+                </span>
+                <span @click="changeArea('top')">
+                    <input type="radio" id="top" name="filter" value="top" />
+                    <label for="top">Most relevant</label>
+                </span>
+                <span class="remove-btn" @click="changeArea('')">
+                    <input type="radio" id="remove" name="filter" value="remove" />
+                    <label for="remove"><Icon name="ion:trash-bin" size="24px" /></label>
+                </span>
             </div>
-            <AreaFilterChip :is-active="false" @func="changeArea('top')" />
-            <button @click="changeArea('')">Remove</button>
         </div>
 
         <div v-if="pending">
@@ -101,6 +109,11 @@ const filteredProjects = computed(() => {
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
+
+.area-info {
+    font-size: 1.25rem;
+    color: var(--title-color);
+}
 .paragraph-projects {
     margin-bottom: 2rem;
 }
@@ -117,5 +130,62 @@ const filteredProjects = computed(() => {
 .item {
     display: flex;
     justify-content: center;
+}
+
+.areas-filter {
+    margin: 2rem 0;
+}
+
+.radio-toolbar {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    --chip-bg: #efefef;
+}
+
+.radio-toolbar span {
+    margin: 0.5rem 0;
+}
+
+.radio-toolbar input[type='radio'] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio-toolbar label {
+    background-color: var(--chip-bg);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 1.25rem;
+}
+
+.radio-toolbar label:hover {
+    background-color: #e1e1e1;
+    transition: 0.1s ease-in all;
+}
+
+.radio-toolbar input[type='radio']:checked + label {
+    outline: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: transparent;
+}
+
+.radio-toolbar input[type='radio']:focus + label {
+    outline: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: transparent;
+}
+
+.remove-btn input[type='radio']:checked + label {
+    color: var(--title-color);
+    outline: 1px solid transparent;
+    background-color: var(--chip-bg);
+}
+
+.remove-btn input[type='radio']:focus + label {
+    color: var(--title-color);
+    outline: 1px solid transparent;
+    background-color: var(--chip-bg);
 }
 </style>
