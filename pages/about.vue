@@ -43,7 +43,25 @@
         </div>
 
     <div class="content">
-        WHAT SHOULD FOUNDERS EXPECT WITH PHOTO
+        <OverlappingParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTYyMjMwNSwiZXhwIjoxMDAxNjg1NjIyMzA0fQ.lsE3_56GWEcwdV8YN6XQIqDALKpCW2yfBFkZisf0iYs&t=2023-06-01T12%3A25%3A05.074Z" image_alt="What should founders expect?">
+            <div class="overlapping-par-content">
+                <div class="overlapping-paragraph-sub">
+                    <h2>What should founders expect?</h2>
+                    <p>The truth is no two founders, products or business models are the same, and so there is no "one size-fits-all" approach to investing. However, as a founder, these are some general things you should expect if we are lucky enough to be invited into your fundraising process.</p>
+                </div>
+                <div class="overlapping-paragraph-sub">
+                    <h4>We listen, more than we talk.</h4>
+                    <p>Don't worry, that's because we focus on the things that matter and we do our work upfront. But we will have questions.</p>
+                </div>
+                <div class="overlapping-paragraph-sub">
+                    <h4>It's never too early to speak with us.</h4>
+                    <p>If you are interested in knowing us better feel free to contact us.</p>
+                </div>
+                <NuxtLink to="mailto:info@coreventure.it">
+                    <GenericButton value="Contact Us" :altStyle="true"/>
+                </NuxtLink>
+            </div>
+        </OverlappingParagraph>
     </div>
 </template>
 
@@ -58,6 +76,19 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.overlapping-par-content {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin: 30px;
+}
+
+.overlapping-par-content {
+    display: flex;
+    gap: 20px;
 }
 
 .p-alt {
