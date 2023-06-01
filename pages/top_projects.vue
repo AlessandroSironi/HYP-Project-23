@@ -98,4 +98,11 @@ async function getMostRelevantProjects() {
         padding-right: 0.5rem;
         color: var(--par-color);
     }
+
+    .carousel-div{
+        margin-top: 1.75rem;
+        margin-bottom: 1.75rem;
+        display: flex;
+        justify-content: center;
+    }
 </style>
