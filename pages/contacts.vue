@@ -3,10 +3,7 @@
 <template>
     <div class="content">
         <h2 class="orientational-info">Contacts</h2>
-        <ComplexParagraph
-            image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z"
-            image_alt="Contact Us"
-        >
+        <ComplexParagraph image_url="supabase/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z" image_alt="Contact Us">
             <div class="contact-info-box">
                 <h2 class="contact-information-h2">Contact Information</h2>
                 <p>
@@ -30,10 +27,7 @@
         </ComplexParagraph>
         <div class="form-title">
             <h2 class="contact-title">Contact Us</h2>
-            <p>
-                Feel free to contact us if you want to make your company thrive or if you need any information about our
-                work
-            </p>
+            <p>Feel free to contact us if you want to make your company thrive or if you need any information about our work</p>
         </div>
         <div class="form-content">
             <form id="contact-form" action="#" method="post">
@@ -57,7 +51,7 @@
                 </div>
                 <p class="form-required-p">(*) Required fields</p>
                 <div class="form-submit-button">
-                    <GenericButton value="Submit" alt-style="true" />
+                    <GenericButton value="Submit" :alt-style="true" />
                 </div>
             </form>
         </div>
