@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { numberLiteralTypeAnnotation } from '@babel/types';
 import { Area } from '~/types/Area';
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
@@ -70,6 +71,18 @@ const loading = computed(() => {
         return true;
     }
 });
+
+const projectNext =  await useLazyFetch<Project>('/api/project/getNextProject', {
+    query: {
+        currentProjectName: project.value?.name,
+    },
+});
+
+const computedUrlNext = computed(() => {
+    const nextId = projectNext.data.value?.id;
+    console.log("I am in computedUrlNext. nextId = " + nextId);
+    return "/projects/" + nextId;
+});
 </script>
 
 <template>
@@ -127,6 +140,16 @@ const loading = computed(() => {
                     <p>{{ project?.review }}</p>
                 </section>
             </ComplexParagraph>
+
+            <div class="prev-next-area">
+            <!-- <NuxtLink :to="computedUrlPrevious">
+                <GenericButton value="<- Previous" :alt-style="false" />
+            </NuxtLink> -->
+
+            <NuxtLink :to="computedUrlNext">
+                <GenericButton value="Next ->" :alt-style="false" />
+            </NuxtLink>
+        </div>
         </div>
     </main>
 </template>

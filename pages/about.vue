@@ -97,7 +97,8 @@
 }
 
 .paragraph-content {
-    max-width: min(1000px, 90%);
+    text-align: justify;
+    margin: 15px;
 }
 
 .colored-bar-content {
@@ -120,4 +121,9 @@
         color: var(--par-color);
 }
 
+/* @media (max-width: 1000px) {
+    .paragraph-content {
+
+    }
+} */
 </style>

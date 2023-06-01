@@ -34,6 +34,9 @@ const { area } = defineProps<Props>();
                     <NuxtLink :to="`/areas/${area?.id}`">
                         <GenericButton class="area-discover-btn" value="Discover more" :alt-style="true" />
                     </NuxtLink>
+                    <NuxtLink>
+                        <GenericButton class="area-discover-btn" value="Discover projects" :alt-style="false" />
+                    </NuxtLink>
                 </div>
             </div>
         </div>
@@ -106,6 +109,7 @@ const { area } = defineProps<Props>();
 .area-discover-wrapper {
     display: flex;
     justify-content: flex-end;
+    gap: 20px;
 }
 
 @media (max-width: 1000px) {

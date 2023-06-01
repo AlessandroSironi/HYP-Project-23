@@ -2,13 +2,17 @@ import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
 
 export default eventHandler(async (event) => {
-    // create a client for the supabase DB and infer the DB structure
+    const {currentProjectName} = getQuery(event); 
     const client = serverSupabaseClient<Database>(event);
-    // query the Db and then send to the Vue client an object with projects
+
+    console.log("I am in query getNextProject. Current Project Name: " + currentProjectName);
+
     const { data, error } = await client
         .from('project')
-        .select('id, name, year, companyLogo, mostRelevant, related_to(area(name))')
-        .order('name');
+        .select('id')
+        .order('name')
+        .gt('name', currentProjectName)
+        .limit(1);
     if (error) {
         console.log(error);
     }
