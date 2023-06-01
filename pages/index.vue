@@ -22,12 +22,7 @@ import gsap from 'gsap';
                     <GenericLink url="/about" name="Learn more" :alt-style="false" />
                 </div>
             </div>
-            <nuxt-img
-                width="340"
-                class="title-image"
-                src="supabase/home/home.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS9ob21lLndlYnAiLCJpYXQiOjE2ODUxMDY5NjMsImV4cCI6MTAwMTY4NTEwNjk2Mn0.BrzOZE5tlQsn1TigLcqQvkSVZyEJJzHWEWdz30DeHmM&t=2023-05-26T13%3A16%3A03.089Z"
-                alt="homepage title picture"
-            />
+            <nuxt-img width="340" class="title-image" src="supabase/home/home.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS9ob21lLndlYnAiLCJpYXQiOjE2ODUxMDY5NjMsImV4cCI6MTAwMTY4NTEwNjk2Mn0.BrzOZE5tlQsn1TigLcqQvkSVZyEJJzHWEWdz30DeHmM&t=2023-05-26T13%3A16%3A03.089Z" alt="homepage title picture" />
         </section>
         <section class="numerical-info-section">
             <div class="numerical-info-box">
@@ -59,27 +54,14 @@ import gsap from 'gsap';
         </section>
         <section class="info-banner"></section>
         <section class="team-section">
-            <OverlappingParagraph
-                image_url="supabase/home/team_picture.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS90ZWFtX3BpY3R1cmUud2VicCIsImlhdCI6MTY4NTM0Nzg5OSwiZXhwIjoxMDAxNjg1MzQ3ODk4fQ.kfuL7vdZ7EYbOq7OO7IQ3OWxqFquEqdUBPi6f7sZVlU&t=2023-05-29T08%3A11%3A38.465Z"
-                image_alt="team picture"
-            >
+            <OverlappingParagraph image_url="supabase/home/team_picture.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS90ZWFtX3BpY3R1cmUud2VicCIsImlhdCI6MTY4NTM0Nzg5OSwiZXhwIjoxMDAxNjg1MzQ3ODk4fQ.kfuL7vdZ7EYbOq7OO7IQ3OWxqFquEqdUBPi6f7sZVlU&t=2023-05-29T08%3A11%3A38.465Z" image_alt="team picture">
                 <div class="team-section-par-container">
                     <div class="team-text-container">
                         <h2>Meet our wonderful team</h2>
-                        <p>
-                            Our team combines venture capital and private equity experiences with managerial skills.
-                            Thanks to an extensive network of advisors and industry professionals, we are able to offer
-                            concrete support to our investees.
-                        </p>
+                        <p>Our team combines venture capital and private equity experiences with managerial skills. Thanks to an extensive network of advisors and industry professionals, we are able to offer concrete support to our investees.</p>
                         <GenericLink class="team-link" name="Discover Team" :alt-style="true" url="/persons" />
                     </div>
-                    <nuxt-img
-                        loading="lazy"
-                        class="team-image"
-                        width="240"
-                        height="240"
-                        src="supabase/team/person2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvdGVhbS9wZXJzb24yLndlYnAiLCJpYXQiOjE2ODU0MzIwNTEsImV4cCI6MTAwMTY4NTQzMjA1MH0.w1-Iznfcmbi6S5jNCi2IBBRUy8Bqvuk3TmX0jLTpDsk&t=2023-05-30T07%3A34%3A11.006Z"
-                    />
+                    <nuxt-img alt="person profile picture" class="team-image" width="240" height="240" src="supabase/team/person2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvdGVhbS9wZXJzb24yLndlYnAiLCJpYXQiOjE2ODU0MzIwNTEsImV4cCI6MTAwMTY4NTQzMjA1MH0.w1-Iznfcmbi6S5jNCi2IBBRUy8Bqvuk3TmX0jLTpDsk&t=2023-05-30T07%3A34%3A11.006Z" />
                 </div>
             </OverlappingParagraph>
         </section>

@@ -19,14 +19,7 @@ const { employee } = defineProps<Props>();
 
 <template>
     <NuxtLink class="employee-card-container" :to="`/persons/${employee?.id}`">
-        <nuxt-img
-            class="employee-card-image"
-            :src="employee?.pic"
-            :alt="employee?.name"
-            width="300"
-            height="415"
-            placeholder="[300, 415, 10]"
-        />
+        <nuxt-img class="employee-card-image" :src="employee?.pic" :alt="employee?.name" width="300" height="415" :placeholder="[300, 415, 10]" />
         <div class="employee-card-info-box">
             <div class="employee-card-info">
                 <p class="employee-name">{{ employee?.name }} {{ employee?.surname }}</p>
