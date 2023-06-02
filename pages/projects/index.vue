@@ -71,7 +71,7 @@ const filteredProjects = computed(() => {
     <div class="list-container">
         <h2 class="orientational-info">
             Our Projects
-            <span class="area-info" v-if="area_name !== ''">:{{ area_name }}</span>
+            <span class="area-info" v-if="area_name !== ''"> - {{ area_name }}</span>
         </h2>
         <p class="paragraph-projects">Explore the projects we have developed for the companies who put their trust in us.</p>
         <div v-if="areas" class="areas-filter">

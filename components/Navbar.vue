@@ -29,7 +29,7 @@ const closeMenuOnLink = () => {
             <ul class="nav-links">
                 <li><NuxtLink class="nuxt-link" to="/about">ABOUT</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/persons">TEAM</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/top_projects">TOP PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/projects/top">TOP PROJECTS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/projects">ALL PROJECTS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/areas">AREAS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/contacts">CONTACTS</NuxtLink></li>
@@ -44,7 +44,7 @@ const closeMenuOnLink = () => {
             <ul class="nav-links-mobile">
                 <li><NuxtLink class="nuxt-link" to="/about" @click="closeMenuOnLink">ABOUT</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/persons" @click="closeMenuOnLink">TEAM</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/top_projects" @click="closeMenuOnLink">TOP PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" to="/projects/top" @click="closeMenuOnLink">TOP PROJECTS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/projects" @click="closeMenuOnLink">ALL PROJECTS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/areas" @click="closeMenuOnLink">AREAS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" to="/contacts" @click="closeMenuOnLink">CONTACTS</NuxtLink></li>

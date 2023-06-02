@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Project } from '~/types/Project';
+
 interface APIBody {
     projects: Project[];
     error: string;
