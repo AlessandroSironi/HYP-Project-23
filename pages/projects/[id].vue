@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { numberLiteralTypeAnnotation } from '@babel/types';
-import { dataToEsm } from '@rollup/pluginutils';
-import { routerKey } from 'vue-router';
-import { routeLocationKey } from 'vue-router';
 import { Area } from '~/types/Area';
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
@@ -80,29 +76,20 @@ const loading = computed(() => {
 } */
 
 async function findNextProject() {
-    const projectNext =  await useFetch<any>('/api/project/getNextProject', {
-    query: {
-        currentProjectName: project.value?.name,
+    const projectNext = await useFetch<any>('/api/project/getNextProject', {
+        query: {
+            currentProjectName: project.value?.name,
         },
     });
-    console.log("/projects/" + projectNext.data.value[0].id);
-    
-    /* return "/projects/" + projectNext.data.value[0].id; */
-    navigateTo("/projects/" + projectNext.data.value[0].id);
+
+    navigateTo('/projects/' + projectNext.data.value[0].id);
 }
 
-const result =  await useFetch<any>('/api/project/getNextProject', {
+const result = await useFetch<any>('/api/project/getNextProject', {
     query: {
         currentProjectName: project.value?.name,
-        },
-    });
-
-/* const computedUrlNext = computed(() => {
-    console.log(findNextProject());
-    const nextId = findNextProject();
-    console.log("I am in computedUrlNext. nextId = " + nextId);
-    return "/projects/" + nextId;
-}); */
+    },
+});
 </script>
 
 <template>
@@ -162,13 +149,13 @@ const result =  await useFetch<any>('/api/project/getNextProject', {
             </ComplexParagraph>
 
             <div class="prev-next-area">
-            <!-- <NuxtLink :to="computedUrlPrevious">
+                <!-- <NuxtLink :to="computedUrlPrevious">
                 <GenericButton value="<- Previous" :alt-style="false" />
             </NuxtLink> -->
-            <div v-if="result.data.value === undefined">
-                <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
+                <div v-if="result.data.value === undefined">
+                    <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
+                </div>
             </div>
-        </div>
         </div>
     </main>
 </template>
