@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { numberLiteralTypeAnnotation } from '@babel/types';
+import { dataToEsm } from '@rollup/pluginutils';
 import { routerKey } from 'vue-router';
 import { routeLocationKey } from 'vue-router';
 import { Area } from '~/types/Area';
@@ -74,20 +75,27 @@ const loading = computed(() => {
     }
 });
 
-interface APIBody {
+/* interface APIBody {
     id: number
-}
+} */
 
-async function findNextProject () {
+async function findNextProject() {
     const projectNext =  await useFetch<any>('/api/project/getNextProject', {
     query: {
         currentProjectName: project.value?.name,
-    },
+        },
     });
     console.log("/projects/" + projectNext.data.value[0].id);
+    
     /* return "/projects/" + projectNext.data.value[0].id; */
     navigateTo("/projects/" + projectNext.data.value[0].id);
 }
+
+const result =  await useFetch<any>('/api/project/getNextProject', {
+    query: {
+        currentProjectName: project.value?.name,
+        },
+    });
 
 /* const computedUrlNext = computed(() => {
     console.log(findNextProject());
@@ -157,8 +165,9 @@ async function findNextProject () {
             <!-- <NuxtLink :to="computedUrlPrevious">
                 <GenericButton value="<- Previous" :alt-style="false" />
             </NuxtLink> -->
-
-            <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
+            <div v-if="result.data.value === undefined">
+                <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
+            </div>
         </div>
         </div>
     </main>
