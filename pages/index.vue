@@ -52,7 +52,22 @@ import gsap from 'gsap';
                 </div>
             </div>
         </section>
-        <section class="info-banner"></section>
+        <section class="central-info">
+            <div class="info-banner">
+                <div class="info-banner-text-container">
+                    <h2>What do we do?</h2>
+                    <p>Coreventure is a venture capitalist firm that focuses on investing in early-stage startups across a range of industries, including technology, healthcare, and consumer products. At Coreventure, our mission is to identify promising entrepreneurs who are developing innovative and scalable business solutions to meet today's complex challenges.</p>
+                    <p>Our mission is to spur this progress forward. We work closely with these startups to provide them with the strategic guidance, capital, and resources they need to accelerate their growth and achieve their goals. Our team of experienced investors and advisors is committed to building strong partnerships with our portfolio companies and supporting them on their journey towards success.</p>
+                </div>
+                <div class="info-banner-link-container">
+                    <div class="info-banner-link-box">
+                        <h3>Do you want to know more about us?</h3>
+                        <GenericLink url="/about" name="About us" :alt-style="false" />
+                    </div>
+                </div>
+            </div>
+            <div class="secondary-info"></div>
+        </section>
         <section class="team-section">
             <OverlappingParagraph image_url="supabase/home/team_picture.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS90ZWFtX3BpY3R1cmUud2VicCIsImlhdCI6MTY4NTM0Nzg5OSwiZXhwIjoxMDAxNjg1MzQ3ODk4fQ.kfuL7vdZ7EYbOq7OO7IQ3OWxqFquEqdUBPi6f7sZVlU&t=2023-05-29T08%3A11%3A38.465Z" image_alt="team picture">
                 <div class="team-section-par-container">
@@ -137,8 +152,44 @@ p {
 }
 
 .info-banner {
-    height: 20vh;
     background-color: var(--title-color-accent);
+    padding: 4rem 0;
+}
+
+.info-banner-text-container {
+    width: var(--content-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-banner-text-container h2 {
+    color: var(--title-color-alt);
+}
+
+.info-banner-text-container p {
+    color: #eee;
+}
+
+.info-banner-link-container {
+    display: flex;
+    justify-content: flex-end;
+    width: var(--content-width);
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.info-banner-link-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-end;
+}
+
+.info-banner-link-container h3 {
+    font-size: 1.45rem;
+    color: var(--title-color-alt);
 }
 
 .team-section {
