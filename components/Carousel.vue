@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { Project } from '~/types/Project';
 
 interface Props {
   projects?: Project[];

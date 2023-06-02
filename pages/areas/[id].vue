@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useAreaStore } from '~/stores/areaStore';
 import { Area } from '~/types/Area';
 
 const { id } = useRoute().params;
@@ -33,6 +34,14 @@ const computedUrlNext = computed(() => {
     if (next === 0) next = 1;
     return '/areas/' + next;
 });
+
+function goToRelatedProjects() {
+    const store = useAreaStore();
+    if (area.value) {
+        store.setAreaName(area.value.name);
+        navigateTo('/projects');
+    }
+}
 </script>
 
 <template>
@@ -67,7 +76,7 @@ const computedUrlNext = computed(() => {
     <section class="content">
         <div class="discover-projects-div">
             <h2>Are you interested in investing in this area?</h2>
-            <GenericLink url="/projects" name="Discover Projects" :alt-style="true" />
+            <GenericButton @func="goToRelatedProjects()" value="Discover Projects" :alt-style="true" />
         </div>
 
         <div class="prev-next-area">
@@ -99,6 +108,7 @@ const computedUrlNext = computed(() => {
 .description-2-div {
     display: flex;
     justify-content: center;
+    margin: 4rem 0;
 }
 
 .area-image {
@@ -111,10 +121,15 @@ const computedUrlNext = computed(() => {
 .discover-projects-div {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 20px;
     gap: 20px;
+}
+
+.discover-projects-div {
+    margin: 4rem 0;
 }
 
 .prev-next-area {
