@@ -20,7 +20,7 @@ const { area, is_most_relevant } = defineProps<Props>();
     <NuxtLink v-if="area" class="main-container" :to="`/areas/${area?.id}`">
         <h4 class="info-title">{{ area?.name }}</h4>
     </NuxtLink>
-    <NuxtLink v-if="is_most_relevant" class="main-container" to="/top_projects">
+    <NuxtLink v-if="is_most_relevant" class="main-container" to="/projects/top">
         <h4 class="info-title">Most Relevant</h4>
     </NuxtLink>
 </template>

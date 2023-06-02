@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { numberLiteralTypeAnnotation } from '@babel/types';
+import { routerKey } from 'vue-router';
+import { routeLocationKey } from 'vue-router';
 import { Area } from '~/types/Area';
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
@@ -72,17 +74,27 @@ const loading = computed(() => {
     }
 });
 
-const projectNext =  await useLazyFetch<Project>('/api/project/getNextProject', {
+interface APIBody {
+    id: number
+}
+
+async function findNextProject () {
+    const projectNext =  await useFetch<any>('/api/project/getNextProject', {
     query: {
         currentProjectName: project.value?.name,
     },
-});
+    });
+    console.log("/projects/" + projectNext.data.value[0].id);
+    /* return "/projects/" + projectNext.data.value[0].id; */
+    navigateTo("/projects/" + projectNext.data.value[0].id);
+}
 
-const computedUrlNext = computed(() => {
-    const nextId = projectNext.data.value?.id;
+/* const computedUrlNext = computed(() => {
+    console.log(findNextProject());
+    const nextId = findNextProject();
     console.log("I am in computedUrlNext. nextId = " + nextId);
     return "/projects/" + nextId;
-});
+}); */
 </script>
 
 <template>
@@ -146,9 +158,7 @@ const computedUrlNext = computed(() => {
                 <GenericButton value="<- Previous" :alt-style="false" />
             </NuxtLink> -->
 
-            <NuxtLink :to="computedUrlNext">
-                <GenericButton value="Next ->" :alt-style="false" />
-            </NuxtLink>
+            <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
         </div>
         </div>
     </main>

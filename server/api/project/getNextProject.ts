@@ -17,5 +17,6 @@ export default eventHandler(async (event) => {
         console.log(error);
     }
 
+    console.log("I am the server. Data:" + data);
     return data;
 });
