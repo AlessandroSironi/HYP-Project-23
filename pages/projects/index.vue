@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Area } from '~/types/Area';
 import { Project } from '~/types/Project';
+import { useAreaStore } from '~/stores/areaStore';
 
 /**
  * Fecth projects function is lazy, returns:
@@ -29,21 +30,21 @@ if (areas_error.value) {
     throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
 }
 
-const area_name = ref('');
+const store = useAreaStore();
 
 function changeArea(area: string) {
-    area_name.value = area;
+    store.setAreaName(area);
 }
 
 const filteredProjects = computed(() => {
     // Checking for values where the full list is provided
-    if (area_name.value == '') {
+    if (store.area_name == '') {
         return projects.value;
     }
 
     let arr: Project[] = [];
 
-    if (area_name.value === 'top' && projects.value) {
+    if (store.area_name === 'top' && projects.value) {
         return projects.value?.filter((el) => el.mostRelevant);
     }
 
@@ -56,7 +57,7 @@ const filteredProjects = computed(() => {
         for (i = 0; i < allProjects?.length; i++) {
             let project = allProjects[i];
             for (j = 0; j < project.related_to.length; j++) {
-                if (area_name.value === project.related_to[j].area.name) {
+                if (store.area_name === project.related_to[j].area.name) {
                     arr.push(project);
                 }
             }
@@ -71,15 +72,26 @@ const filteredProjects = computed(() => {
     <div class="list-container">
         <h2 class="orientational-info">
             Our Projects
-            <span class="area-info" v-if="area_name !== ''"> - {{ area_name }}</span>
+            <span class="area-info" v-if="store.area_name !== ''">- {{ store.area_name }}</span>
         </h2>
-        <p class="paragraph-projects">Explore the projects we have developed for the companies who put their trust in us.</p>
+        <p class="paragraph-projects">
+            Explore the projects we have developed for the companies who put their trust in us.
+        </p>
         <div v-if="areas" class="areas-filter">
+            <h3 class="filter-title">Filter the projects</h3>
             <!--The filter was made with radio html tag in order to take advantage of the checked 
             CSS propriety to better style the chips-->
+
             <div class="radio-toolbar">
                 <span v-for="area in areas" @click="changeArea(area.name)">
-                    <input type="radio" :key="area.id" :id="area.name" name="filter" :value="area.name" />
+                    <input
+                        type="radio"
+                        :key="area.id"
+                        :id="area.name"
+                        name="filter"
+                        :value="area.name"
+                        v-model="store.area_name"
+                    />
                     <label :for="area.name">{{ area.name }}</label>
                 </span>
                 <span @click="changeArea('top')">
@@ -120,6 +132,11 @@ const filteredProjects = computed(() => {
 .list-container {
     width: var(--content-width);
     margin: 2rem auto;
+}
+
+.filter-title {
+    margin: 1rem 0;
+    font-size: 1.25rem;
 }
 .list {
     display: grid;

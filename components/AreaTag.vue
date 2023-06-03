@@ -13,6 +13,7 @@ interface Props {
     is_most_relevant?: boolean;
 }
 
+// structure of the component props, are inferred during defineProps
 const { area, is_most_relevant } = defineProps<Props>();
 </script>
 

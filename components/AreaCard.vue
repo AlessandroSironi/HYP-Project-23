@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { Area } from '~/types/Area';
+import { useAreaStore } from '~/stores/areaStore';
 
 /**
  * Component name: AreaCard
  * Description: this is the card used to display
- * an Employee in the "Team" page, each card
- * is a link to the single Employee page
+ * an Area in the "Areas" page, each card
+ * is a link to the single area page
  *
  */
 
@@ -15,6 +16,16 @@ interface Props {
 }
 
 const { area } = defineProps<Props>();
+
+const areaLink = computed(() => {
+    return `/areas/${area.id}`;
+});
+
+function goToRelatedProjects() {
+    const store = useAreaStore();
+    store.setAreaName(area.name);
+    navigateTo('/projects');
+}
 </script>
 
 <template>
@@ -29,15 +40,10 @@ const { area } = defineProps<Props>();
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>
                 <p class="area-description">{{ area?.description }}</p>
-
-                <div class="area-discover-wrapper">
-                    <NuxtLink :to="`/areas/${area?.id}`">
-                        <GenericButton class="area-discover-btn" value="Discover more" :alt-style="true" />
-                    </NuxtLink>
-                    <NuxtLink>
-                        <GenericButton class="area-discover-btn" value="Discover projects" :alt-style="false" />
-                    </NuxtLink>
-                </div>
+            </div>
+            <div class="area-discover-wrapper">
+                <GenericLink :url="areaLink" name="Discover more" :alt-style="true" />
+                <GenericButton value="Discover projects" :alt-style="false" @func="goToRelatedProjects()" />
             </div>
         </div>
     </div>
@@ -102,20 +108,23 @@ const { area } = defineProps<Props>();
     margin-right: 20px;
 }
 
-.area-discover-btn {
-    margin-top: 2rem;
-}
-
 .area-discover-wrapper {
     display: flex;
     justify-content: flex-end;
     gap: 20px;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 1000px) {
     /*768px*/
     .area-card-container {
         flex-direction: column; /* Switch to a column layout */
+    }
+
+    .area-discover-wrapper {
+        justify-content: center;
     }
 }
 </style>
