@@ -10,5 +10,6 @@ export default eventHandler(async (event) => {
         .select('id, name, year, founderName, founderSurname, description, review, companyLogo, companyImage, mostRelevant, supervisor')
         .eq('mostRelevant', true)
         .order('id');
-    return { projects: data, error: error };
+        if (error) console.log(error);
+        return data;
 });

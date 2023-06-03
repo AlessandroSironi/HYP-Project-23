@@ -59,12 +59,11 @@ async function getMostRelevantProjects() {
 <style scoped>
     .content-div{
         width: var(--content-width);
-        margin: 2.5rem auto;
+        margin: 2rem auto;
         display: flex;
         flex-direction: column;
     }
     .orientational-info {
-        margin-top: 2rem;
         margin-bottom: 1rem;
     }
 
