@@ -83,7 +83,12 @@ import gsap from 'gsap';
                 </div>
             </div>
             <div class="secondary-info">
-                <div class="secondary-image-container"></div>
+                <div class="secondary-image-container">
+                    <nuxt-img
+                        src="supabase/home/grass.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS9ncmFzcy5qcGciLCJpYXQiOjE2ODU3ODIyOTIsImV4cCI6MTAwMTY4NTc4MjI5MX0.PRfoHJ9WtEg8B-OEnE2wvMzfiybSBiWblIaoSmHfcQ0&t=2023-06-03T08%3A51%3A30.268Z"
+                        sizes="xs:200px, sm:80vw, md:590px"
+                    />
+                </div>
                 <div class="secondary-info-content">
                     <div class="secondary-info-text-container">
                         <h2 class="secondary-info-title">We are here for you!</h2>
@@ -242,25 +247,25 @@ p {
 
 .secondary-info {
     width: var(--content-width);
-    margin: 3rem auto 0 auto;
+    margin: 3rem auto;
     display: flex;
     gap: 2rem;
 }
 
 .secondary-image-container {
-    height: 500px;
-    min-width: 500px;
     overflow: visible;
-    background-color: blue;
     position: relative;
     top: max(-150px, -7vw);
+}
+
+.secondary-image-container * {
+    border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 
 .secondary-info-content {
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    max-height: 400px;
 }
 
 .secondary-info-text-container {
@@ -271,6 +276,10 @@ p {
 
 .secondary-info-link * {
     margin: 2rem 0;
+}
+
+.secondary-info-links-title {
+    font-size: 1.35rem;
 }
 
 .team-section {
@@ -323,6 +332,7 @@ p {
     }
     .secondary-info {
         flex-direction: column;
+        align-items: center;
     }
 }
 </style>
