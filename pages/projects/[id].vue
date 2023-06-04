@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { numberLiteralTypeAnnotation } from '@babel/types';
+import { emptyStatement, numberLiteralTypeAnnotation } from '@babel/types';
 import { dataToEsm } from '@rollup/pluginutils';
 import { routerKey } from 'vue-router';
 import { routeLocationKey } from 'vue-router';
@@ -79,30 +79,34 @@ const loading = computed(() => {
     id: number
 } */
 
-async function findNextProject() {
-    const projectNext =  await useFetch<any>('/api/project/getNextProject', {
-    query: {
-        currentProjectName: project.value?.name,
-        },
-    });
-    console.log("/projects/" + projectNext.data.value[0].id);
-    
-    /* return "/projects/" + projectNext.data.value[0].id; */
-    navigateTo("/projects/" + projectNext.data.value[0].id);
+async function findNextProject(navigate:boolean) {
+    try {
+        const projectNext =  await useFetch<any>('/api/project/getNextProject', {
+            query: {
+                currentProjectName: project.value?.name,
+                },
+        });
+    if (navigate===true) navigateTo("/projects/" + projectNext.data.value[0].id);
+    return true;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
 }
-
-const result =  await useFetch<any>('/api/project/getNextProject', {
-    query: {
-        currentProjectName: project.value?.name,
-        },
-    });
-
-/* const computedUrlNext = computed(() => {
-    console.log(findNextProject());
-    const nextId = findNextProject();
-    console.log("I am in computedUrlNext. nextId = " + nextId);
-    return "/projects/" + nextId;
-}); */
+async function findPrevProject(navigate:boolean) {
+    try {
+        const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
+            query: {
+                currentProjectName: project.value?.name,
+                },
+        });
+    if (navigate===true) navigateTo("/projects/" + projectPrev.data.value[0].id);
+    return true;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
 </script>
 
 <template>
@@ -165,8 +169,12 @@ const result =  await useFetch<any>('/api/project/getNextProject', {
             <!-- <NuxtLink :to="computedUrlPrevious">
                 <GenericButton value="<- Previous" :alt-style="false" />
             </NuxtLink> -->
-            <div v-if="result.data.value === undefined">
-                <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
+            <div :v-if="findNextProject">
+                <GenericButton value="Next ->" :alt-style="false" @func="findNextProject(true)" />
+            </div>
+
+            <div :v-if="findPrevProject">
+                <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
             </div>
         </div>
         </div>
