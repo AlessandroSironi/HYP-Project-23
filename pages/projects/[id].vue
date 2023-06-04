@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { emptyStatement, numberLiteralTypeAnnotation } from '@babel/types';
-import { dataToEsm } from '@rollup/pluginutils';
-import { routerKey } from 'vue-router';
-import { routeLocationKey } from 'vue-router';
 import { Area } from '~/types/Area';
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
@@ -79,24 +75,22 @@ const loading = computed(() => {
     id: number
 } */
 
-async function findNextProject(navigate:boolean) {
-    const projectNext =  await useFetch<any>('/api/project/getNextProject', {
+async function findNextProject() {
+    const projectNext = await useFetch<any>('/api/project/getNextProject', {
         query: {
             currentProjectName: project.value?.name,
             },
     });
-    if (navigate===true) navigateTo("/projects/" + projectNext.data.value[0].id);
-    return true;
+    navigateTo("/projects/" + projectNext.data.value[0].id);
 }
 
-async function findPrevProject(navigate:boolean) {
+async function findPrevProject() {
     const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
         query: {
             currentProjectName: project.value?.name,
             },
     });
-    if (navigate===true) navigateTo("/projects/" + projectPrev.data.value[0].id);
-    return true;
+    navigateTo("/projects/" + projectPrev.data.value[0].id);
 }
 </script>
 
@@ -156,10 +150,15 @@ async function findPrevProject(navigate:boolean) {
                 </section>
             </ComplexParagraph>
 
-            <div class="prev-next-area">
+           <!--  <div class="prev-next-area">
                 <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
                 <GenericButton value="Next ->" :alt-style="false" @func="findNextProject(true)" />
-            </div>
+            </div> -->
+            <NextPrev
+                @previous="findPrevProject()"
+                @next="findNextProject()">
+                Explore other projects, ordered alphabetically
+            </NextPrev>
         </div>
     </main>
 </template>
@@ -201,9 +200,4 @@ h4 {
     margin-top: 0.25rem;
 }
 
-.prev-next-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 </style>

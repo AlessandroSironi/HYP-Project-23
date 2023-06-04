@@ -18,21 +18,28 @@ if (supervised_error.value) {
     throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
 }
 
-const computedUrlPrevious = computed(() => {
-    const numAreas = 5;
-    const numArea = area?.value?.id;
-    let previous = (numArea! - 1) % numAreas;
-    if (previous === 0) previous = numAreas;
-    return '/areas/' + previous;
-});
-
-const computedUrlNext = computed(() => {
-    const numAreas = 5;
+async function findNextArea() {
+    const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
+        query: {},});
+    let numAreas = numAreasQuery.data.value;
+    if (numAreas === null) numAreas = 1;
     const numArea = area?.value?.id;
     let next = (numArea! + 1) % numAreas;
     if (next === 0) next = 1;
-    return '/areas/' + next;
-});
+    navigateTo("/areas/" + next);
+    return true;
+}
+
+async function findPrevArea() {
+    const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
+        query: {},});
+    let numAreas = numAreasQuery.data.value;
+    if (numAreas === null) numAreas = 1;
+    const numArea = area?.value?.id;
+    let previous = (numArea! - 1) % numAreas;
+    if (previous === 0) previous = numAreas;
+    navigateTo("/areas/" + previous);
+}
 </script>
 
 <template>
@@ -70,15 +77,11 @@ const computedUrlNext = computed(() => {
             <GenericLink url="/projects" name="Discover Projects" :alt-style="true" />
         </div>
 
-        <div class="prev-next-area">
-            <NuxtLink :to="computedUrlPrevious">
-                <GenericButton value="<- Previous" :alt-style="false" />
-            </NuxtLink>
-
-            <NuxtLink :to="computedUrlNext">
-                <GenericButton value="Next ->" :alt-style="false" />
-            </NuxtLink>
-        </div>
+        <NextPrev
+                @previous="findPrevArea()"
+                @next="findNextArea()">
+                Explore other areas
+        </NextPrev>
     </section>
 </template>
 
