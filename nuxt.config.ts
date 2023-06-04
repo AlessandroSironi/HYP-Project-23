@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon', '@nuxt/image-edge', '@pinia/nuxt'],
+    modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon', '@nuxt/image-edge'],
     css: ['@/assets/styles/global.css'],
     googleFonts: {
         families: {
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: 'Core Investments',
-            meta: [{ name: 'description', content: 'this is coreventure website' }],
+            meta: [{ name: 'description', content: 'sample content' }],
             htmlAttrs: {
                 lang: 'en',
             },

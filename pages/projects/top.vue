@@ -1,13 +1,26 @@
 <script setup lang="ts">
 import { Project } from '~/types/Project';
 
+interface APIBody {
+    projects: Project[];
+    error: string;
+    id: number;
+}
+
 // projects vector iterated on in template
 const projects = await getMostRelevantProjects();
 
 async function getMostRelevantProjects() {
 
-    const { data: projects } = await useFetch<Project[]>('/api/project/getMostRelevantProjects');
+    const { data: serverData, error: serverError } = await useFetch<APIBody>('/api/project/getMostRelevantProjects');
+    const error = serverError.value?.message;
+    const projects = serverData.value?.projects;
 
+    if (error) {
+        console.log('error while fetching:', error);
+        return undefined;
+    }
+    console.log(projects);
     return projects;
 }
 </script>
@@ -36,7 +49,7 @@ async function getMostRelevantProjects() {
         </InfoCard>
     </section>
 
-    <div v-if="projects" class="carousel-div">
+    <div class="carousel-div">
         <Carousel :projects="projects" />
     </div>
 
@@ -46,11 +59,12 @@ async function getMostRelevantProjects() {
 <style scoped>
     .content-div{
         width: var(--content-width);
-        margin: 2rem auto;
+        margin: 2.5rem auto;
         display: flex;
         flex-direction: column;
     }
     .orientational-info {
+        margin-top: 2rem;
         margin-bottom: 1rem;
     }
 
