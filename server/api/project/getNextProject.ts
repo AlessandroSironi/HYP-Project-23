@@ -15,6 +15,7 @@ export default eventHandler(async (event) => {
         .limit(1);
     if (error) {
         console.log(error);
+        return false;
     }
     if (data?.length === 0) {
         const {data, error} = await client
