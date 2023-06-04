@@ -14,27 +14,36 @@ export default {
 </script>
 
 <template>
-<div class="prev-next-area">
-    <button class="btn scheme" @click="handlePrevious"><Icon name="octicon:arrow-left-16"/>Previous</button>
-    <slot/>
-    <button class="btn scheme" @click="handleNext">Next<Icon name="octicon:arrow-right-16"/></button>
+<div class="content">
+    <div class="prev-next-area">
+        <button class="btn scheme" @click="handlePrevious"><Icon name="octicon:arrow-left-16" height="30"/></button>
+        <slot/>
+        <button class="btn scheme" @click="handleNext"><Icon name="octicon:arrow-right-16" height="30"/></button>
+    </div>
 </div>
 </template>
 
 <style scoped>
+.content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 .prev-next-area {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 30px;
 }
+
 .btn {
-    padding: 1rem 3rem;
+    padding: 0.75rem;
     border-radius: 2rem;
     border: 0;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
+    width: 75px;
 }
 
 .scheme {
