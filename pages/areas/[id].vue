@@ -80,7 +80,7 @@ async function findPrevArea() {
         <NextPrev
                 @previous="findPrevArea()"
                 @next="findNextArea()">
-                Explore other areas
+                <p class="explore-text">Explore other areas</p>
         </NextPrev>
     </section>
 </template>
@@ -131,6 +131,10 @@ async function findPrevArea() {
     padding-left: 0.5rem;
     padding-bottom: 0.75rem;
     padding-right: 0.5rem;
+    color: var(--par-color);
+}
+
+.explore-text {
     color: var(--par-color);
 }
 </style>

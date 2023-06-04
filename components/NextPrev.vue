@@ -15,8 +15,8 @@ export default {
 
 <template>
 <div class="prev-next-area">
-    <button class="btn scheme" @click="handlePrevious"><Icon name="octicon:arrow-left-16"/> Previous</button>
-    <slot />
+    <button class="btn scheme" @click="handlePrevious"><Icon name="octicon:arrow-left-16"/>Previous</button>
+    <slot/>
     <button class="btn scheme" @click="handleNext">Next<Icon name="octicon:arrow-right-16"/></button>
 </div>
 </template>

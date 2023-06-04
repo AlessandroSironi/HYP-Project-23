@@ -157,7 +157,7 @@ async function findPrevProject() {
             <NextPrev
                 @previous="findPrevProject()"
                 @next="findNextProject()">
-                Explore other projects, ordered alphabetically
+                <p class="explore-text">Explore other projects, ordered alphabetically</p>
             </NextPrev>
         </div>
     </main>
@@ -198,6 +198,11 @@ async function findPrevProject() {
 
 h4 {
     margin-top: 0.25rem;
+}
+
+
+.explore-text {
+    color: var(--par-color);
 }
 
 </style>
