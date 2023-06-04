@@ -80,39 +80,23 @@ const loading = computed(() => {
 } */
 
 async function findNextProject(navigate:boolean) {
-    try {
-        const projectNext =  await useFetch<any>('/api/project/getNextProject', {
-            query: {
-                currentProjectName: project.value?.name,
-                },
-        });
-        console.log("I am in findNextProject:");
-        console.log(projectNext.data.value);
-    if (projectNext.data.value.length === 0) {
-        console.log("Take me to the pearly gates");
-        return false;
-    }
+    const projectNext =  await useFetch<any>('/api/project/getNextProject', {
+        query: {
+            currentProjectName: project.value?.name,
+            },
+    });
     if (navigate===true) navigateTo("/projects/" + projectNext.data.value[0].id);
     return true;
-    } catch (error) {
-        console.log(error);
-        return false;
-    }
 }
 
 async function findPrevProject(navigate:boolean) {
-    try {
-        const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
-            query: {
-                currentProjectName: project.value?.name,
-                },
-        });
+    const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
+        query: {
+            currentProjectName: project.value?.name,
+            },
+    });
     if (navigate===true) navigateTo("/projects/" + projectPrev.data.value[0].id);
     return true;
-    } catch (error) {
-        console.log(error);
-        return false;
-    }
 }
 </script>
 

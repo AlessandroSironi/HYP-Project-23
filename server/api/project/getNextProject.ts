@@ -16,7 +16,7 @@ export default eventHandler(async (event) => {
     if (error) {
         console.log(error);
     }
-    if (data?.values.length === 0) {
+    if (data?.length === 0) {
         const {data, error} = await client
         .from('project')
         .select('id')
@@ -25,7 +25,6 @@ export default eventHandler(async (event) => {
         if (error) {
             console.log(error);
         }
-
         return data;
     }
     return data;
