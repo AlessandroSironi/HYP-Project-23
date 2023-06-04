@@ -19,7 +19,7 @@ if (supervised_error.value) {
     throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
 }
 
-async function findNextArea() {
+/* async function findNextArea() {
     const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
         query: {},});
     let numAreas = numAreasQuery.data.value;
@@ -40,7 +40,7 @@ async function findPrevArea() {
     let previous = (numArea! - 1) % numAreas;
     if (previous === 0) previous = numAreas;
     navigateTo("/areas/" + previous);
-};
+}; */
 
 function goToRelatedProjects() {
     const store = useAreaStore();
@@ -86,11 +86,7 @@ function goToRelatedProjects() {
             <GenericButton @func="goToRelatedProjects()" value="Discover Projects" :alt-style="true" />
         </div>
 
-        <NextPrev
-                @previous="findPrevArea()"
-                @next="findNextArea()">
-                <p class="explore-text">Explore other areas</p>
-        </NextPrev>
+        <NextPrev :isArea="true" :areaID=area?.id></NextPrev>
     </section>
 </template>
 

@@ -74,7 +74,7 @@ const loading = computed(() => {
 /* interface APIBody {
     id: number
 } */
-
+/* 
 async function findNextProject() {
     const projectNext = await useFetch<any>('/api/project/getNextProject', {
         query: {
@@ -91,7 +91,7 @@ async function findPrevProject() {
             },
     });
     navigateTo("/projects/" + projectPrev.data.value[0].id);
-}
+} */
 </script>
 
 <template>
@@ -154,11 +154,13 @@ async function findPrevProject() {
                 <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
                 <GenericButton value="Next ->" :alt-style="false" @func="findNextProject(true)" />
             </div> -->
-            <NextPrev
+            <!-- <NextPrev
                 @previous="findPrevProject()"
                 @next="findNextProject()">
                 <p class="explore-text">Explore other projects, ordered alphabetically</p>
-            </NextPrev>
+            </NextPrev> -->
+
+            <NextPrev :isArea="false" :projectName=project?.name></NextPrev>
         </div>
     </main>
 </template>
