@@ -9,9 +9,7 @@ import { Area } from '~/types/Area';
  */
 
 const { data: areas, pending, error } = await useLazyFetch<Area[]>('/api/area/getAllAreas');
-if (error.value) {
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (error.value?.statusCode) handleFetchError(areas, error.value.statusCode);
 </script>
 
 <template>

@@ -15,10 +15,7 @@ const {
         id: id,
     },
 });
-if (project_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (project_error.value?.statusCode) handleFetchError(project, project_error.value.statusCode);
 
 // fetch the employees that have worked on the project
 const {
@@ -30,10 +27,7 @@ const {
         id: id,
     },
 });
-if (workers_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (workers_error.value?.statusCode) handleFetchError(workers, workers_error.value.statusCode);
 
 // fetch the supervisor of the project
 const {
@@ -45,11 +39,7 @@ const {
         id: id,
     },
 });
-
-if (supervisor_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (supervisor_error.value?.statusCode) handleFetchError(supervisor, supervisor_error.value.statusCode);
 
 // fetch the related areas
 const {
@@ -61,10 +51,8 @@ const {
         id: id,
     },
 });
-if (areas_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (areas_error.value?.statusCode) handleFetchError(areas, areas_error.value.statusCode);
+
 const loading = computed(() => {
     if (is_project_loading.value || is_areas_loading.value || is_supervisor_loading.value || is_workers_loading.value) {
         return true;
@@ -74,24 +62,24 @@ const loading = computed(() => {
 /* interface APIBody {
     id: number
 } */
-/* 
+
 async function findNextProject() {
     const projectNext = await useFetch<any>('/api/project/getNextProject', {
         query: {
             currentProjectName: project.value?.name,
-            },
+        },
     });
-    navigateTo("/projects/" + projectNext.data.value[0].id);
+    navigateTo('/projects/' + projectNext.data.value[0].id);
 }
 
 async function findPrevProject() {
-    const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
+    const projectPrev = await useFetch<any>('/api/project/getPrevProject', {
         query: {
             currentProjectName: project.value?.name,
-            },
+        },
     });
-    navigateTo("/projects/" + projectPrev.data.value[0].id);
-} */
+    navigateTo('/projects/' + projectPrev.data.value[0].id);
+}
 </script>
 
 <template>
@@ -117,7 +105,7 @@ async function findPrevProject() {
                 </h4>
             </div>
 
-            <ComplexParagraph :image_url="project?.companyImage" :image_alt="project?.name">
+            <ComplexParagraph :image_url="project?.companyImage" :image_alt="project?.name" :width="500" :height="300">
                 <section class="main-par">
                     <div class="collaborator-section">
                         <h4>
@@ -128,7 +116,7 @@ async function findPrevProject() {
                         </h4>
                     </div>
 
-                    <div v-if="workers?.length !== 0 " class="collaborator-section">
+                    <div v-if="workers?.length !== 0" class="collaborator-section">
                         <h4>Other team members:</h4>
                         <div v-for="worker in workers">
                             <h4>
@@ -143,24 +131,24 @@ async function findPrevProject() {
                 </section>
             </ComplexParagraph>
 
-            <ComplexParagraph :is_image_rigth="true" :image_url="project?.companyLogo" :image_alt="project?.name">
+            <ComplexParagraph
+                :is_image_rigth="true"
+                :image_url="project?.companyLogo"
+                :image_alt="project?.name"
+                :width="400"
+                :height="300"
+            >
                 <section class="main-par">
                     <h4>LET'S HEAR FROM THEM...</h4>
                     <p>{{ project?.review }}</p>
                 </section>
             </ComplexParagraph>
 
-           <!--  <div class="prev-next-area">
-                <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
-                <GenericButton value="Next ->" :alt-style="false" @func="findNextProject(true)" />
-            </div> -->
-            <!-- <NextPrev
-                @previous="findPrevProject()"
-                @next="findNextProject()">
-                <p class="explore-text">Explore other projects, ordered alphabetically</p>
-            </NextPrev> -->
-
-            <NextPrev :isArea="false" :projectName=project?.name></NextPrev>
+            <NextPrev
+                label="explore more projects. Alphabetically ordered"
+                @onPrev="findPrevProject"
+                @onNext="findNextProject"
+            />
         </div>
     </main>
 </template>
@@ -187,6 +175,7 @@ async function findPrevProject() {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .area-tags {
@@ -202,9 +191,7 @@ h4 {
     margin-top: 0.25rem;
 }
 
-
 .explore-text {
     color: var(--par-color);
 }
-
 </style>

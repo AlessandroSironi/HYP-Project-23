@@ -14,9 +14,7 @@ import { Employee } from '~/types/Employee';
  */
 
 const { data: employees, pending, error } = await useLazyFetch<Employee[]>('/api/employee/getAllEmployees');
-if (error.value) {
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (error.value?.statusCode) handleFetchError(employees, error.value.statusCode);
 </script>
 <template>
     <div class="page-content">

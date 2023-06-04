@@ -14,9 +14,9 @@ const {
         id: id,
     },
 });
-if (employee_error.value) {
+if (employee_error.value?.statusCode) {
     // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
+    if (employee_error.value?.statusCode) handleFetchError(employee, employee_error.value.statusCode);
 }
 
 // fetch the projects supervised by the employee
@@ -29,10 +29,7 @@ const {
         id: id,
     },
 });
-if (supervised_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (supervised_error.value?.statusCode) handleFetchError(supervisedProjects, supervised_error.value.statusCode);
 
 // fetch the projects the employee has worked on
 const {
@@ -44,10 +41,7 @@ const {
         id: id,
     },
 });
-if (projects_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (projects_error.value?.statusCode) handleFetchError(projects, projects_error.value.statusCode);
 
 // compute the fullname of the employee (useful when we display the title and orientational info)
 const getEmployeeFullName = computed(() => {
@@ -65,7 +59,7 @@ const getEmployeeFullName = computed(() => {
                 <span class="employee-info">{{ getEmployeeFullName }}</span>
             </h2>
 
-            <ComplexParagraph :image_url="employee?.pic" :image_alt="getEmployeeFullName">
+            <ComplexParagraph :image_url="employee?.pic" :image_alt="getEmployeeFullName" :width="460" :height="636">
                 <div class="employee-bio">
                     <div class="employee-header">
                         <h1 class="employee-name">{{ getEmployeeFullName }}</h1>
@@ -130,7 +124,6 @@ const getEmployeeFullName = computed(() => {
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
-    width: 60%;
 }
 
 .employee-name {
@@ -178,12 +171,6 @@ const getEmployeeFullName = computed(() => {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
-}
-
-@media (width < 1200px) {
-    .employee-bio {
-        width: 100%;
-    }
 }
 
 @media (width < 620px) {

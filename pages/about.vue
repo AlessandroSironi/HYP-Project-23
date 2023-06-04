@@ -12,7 +12,7 @@
             />
         </div>
         <div class="paragraph-content">
-            <h3 class="">WHAT IS OUR APPROACH</h3>
+            <h3>WHAT IS OUR APPROACH</h3>
             <p class="p-alt">
                 We’re not a traditional venture capital firm. We are built by founders for founders. Every single aspect
                 of Core, every part of our culture, and every decision we take, is designed with the ambition of helping
@@ -61,8 +61,10 @@
     </div>
 
     <div class="content">
-        <OverlappingParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTcxMDUyNiwiZXhwIjoxMDAxNjg1NzEwNTI1fQ.uP6HD80xxD2sejn-KwD9_IISkLm3ZAKKoojJopd4Yrc&t=2023-06-02T12%3A55%3A26.638Z"
-          image_alt="What should founders expect?">
+        <OverlappingParagraph
+            image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTcxMDUyNiwiZXhwIjoxMDAxNjg1NzEwNTI1fQ.uP6HD80xxD2sejn-KwD9_IISkLm3ZAKKoojJopd4Yrc&t=2023-06-02T12%3A55%3A26.638Z"
+            image_alt="What should founders expect?"
+        >
             <div class="overlapping-par-content">
                 <div class="overlapping-paragraph-sub">
                     <h2>What should founders expect?</h2>
@@ -108,13 +110,16 @@
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
-    text-align: justify;
     margin: 30px;
 }
 
 .overlapping-par-content {
     display: flex;
     gap: 20px;
+}
+
+.overlapping-paragraph-sub h2 {
+    margin-bottom: 1rem;
 }
 
 .p-alt {

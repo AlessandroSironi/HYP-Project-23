@@ -8,40 +8,44 @@ const { id } = useRoute().params;
 const {
     data: area,
     pending: pending,
-    error: supervised_error,
+    error: error,
 } = await useLazyFetch<Area>('/api/area/getAreaById', {
     query: {
         id: id,
     },
 });
-if (supervised_error.value) {
-    // throw error if something went wrong during the fetch
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (error.value?.statusCode) handleFetchError(area, error.value.statusCode);
 
-/* async function findNextArea() {
+async function findNextArea() {
     const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
-        query: {},});
+        query: {},
+    });
     let numAreas = numAreasQuery.data.value;
     if (numAreas === null) numAreas = 1;
     const numArea = area?.value?.id;
     let next = (numArea! + 1) % numAreas;
     if (next === 0) next = 1;
 
-    navigateTo("/areas/" + next);
+    navigateTo('/areas/' + next);
 }
 
 async function findPrevArea() {
     const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
-        query: {},});
+        query: {},
+    });
     let numAreas = numAreasQuery.data.value;
     if (numAreas === null) numAreas = 1;
     const numArea = area?.value?.id;
     let previous = (numArea! - 1) % numAreas;
     if (previous === 0) previous = numAreas;
-    navigateTo("/areas/" + previous);
-}; */
+    navigateTo('/areas/' + previous);
+}
 
+/**
+ * this function allow us to redirect the
+ * user to the /projects page with the
+ * filter active for this area
+ */
 function goToRelatedProjects() {
     const store = useAreaStore();
     if (area.value) {
@@ -86,7 +90,7 @@ function goToRelatedProjects() {
             <GenericButton @func="goToRelatedProjects()" value="Discover Projects" :alt-style="true" />
         </div>
 
-        <NextPrev :isArea="true" :areaID=Number(id)></NextPrev>
+        <NextPrev label="Explore other areas" @onPrev="findPrevArea()" @onNext="findNextArea()" />
     </section>
 </template>
 
