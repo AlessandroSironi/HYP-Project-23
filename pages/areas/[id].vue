@@ -73,7 +73,7 @@ async function findPrevArea() {
 
     <section class="content">
         <div class="discover-projects-div">
-            <h2 class="discover-title">Are you interested in investing in this area?</h2>
+            <h2>Are you interested in investing in this area?</h2>
             <GenericLink url="/projects" name="Discover Projects" :alt-style="true" />
         </div>
 
@@ -117,10 +117,7 @@ async function findPrevArea() {
     flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 20px;
-    gap: 20px;
-}
-.discover-title {
-    margin-bottom: 20px;
+    gap: 30px;
 }
 
 .text-container {
