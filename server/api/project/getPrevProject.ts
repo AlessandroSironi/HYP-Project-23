@@ -5,8 +5,6 @@ export default eventHandler(async (event) => {
     const {currentProjectName} = getQuery(event); 
     const client = serverSupabaseClient<Database>(event);
 
-    console.log("I am in query getPrevProject. Current Project Name: " + currentProjectName);
-
     const { data, error } = await client
         .from('project')
         .select('id')
