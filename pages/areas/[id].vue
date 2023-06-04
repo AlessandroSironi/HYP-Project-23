@@ -40,7 +40,7 @@ async function findPrevArea() {
     let previous = (numArea! - 1) % numAreas;
     if (previous === 0) previous = numAreas;
     navigateTo("/areas/" + previous);
-});
+};
 
 function goToRelatedProjects() {
     const store = useAreaStore();
