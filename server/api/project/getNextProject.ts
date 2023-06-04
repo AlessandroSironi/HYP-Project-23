@@ -16,7 +16,17 @@ export default eventHandler(async (event) => {
     if (error) {
         console.log(error);
     }
+    if (data?.values.length === 0) {
+        const {data, error} = await client
+        .from('project')
+        .select('id')
+        .order('name', {ascending: true})
+        .limit(1);
+        if (error) {
+            console.log(error);
+        }
 
-    console.log("I am the server. Data:" + data);
+        return data;
+    }
     return data;
 });

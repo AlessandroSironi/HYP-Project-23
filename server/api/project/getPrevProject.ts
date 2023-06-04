@@ -17,5 +17,17 @@ export default eventHandler(async (event) => {
         console.log(error);
         return false;
     }
-    else return data;
+    if (data?.values.length === 0) {
+        const {data, error} = await client
+        .from('project')
+        .select('id')
+        .order('name', {ascending: false})
+        .limit(1);
+        if (error) {
+            console.log(error);
+        }
+
+        return data;
+    }
+    return data;
 });

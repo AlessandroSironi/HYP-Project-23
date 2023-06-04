@@ -86,6 +86,12 @@ async function findNextProject(navigate:boolean) {
                 currentProjectName: project.value?.name,
                 },
         });
+        console.log("I am in findNextProject:");
+        console.log(projectNext.data.value);
+    if (projectNext.data.value.length === 0) {
+        console.log("Take me to the pearly gates");
+        return false;
+    }
     if (navigate===true) navigateTo("/projects/" + projectNext.data.value[0].id);
     return true;
     } catch (error) {
@@ -93,6 +99,7 @@ async function findNextProject(navigate:boolean) {
         return false;
     }
 }
+
 async function findPrevProject(navigate:boolean) {
     try {
         const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
@@ -166,17 +173,9 @@ async function findPrevProject(navigate:boolean) {
             </ComplexParagraph>
 
             <div class="prev-next-area">
-            <!-- <NuxtLink :to="computedUrlPrevious">
-                <GenericButton value="<- Previous" :alt-style="false" />
-            </NuxtLink> -->
-            <div :v-if="findNextProject">
+                <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
                 <GenericButton value="Next ->" :alt-style="false" @func="findNextProject(true)" />
             </div>
-
-            <div :v-if="findPrevProject">
-                <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
-            </div>
-        </div>
         </div>
     </main>
 </template>
@@ -216,5 +215,11 @@ async function findPrevProject(navigate:boolean) {
 
 h4 {
     margin-top: 0.25rem;
+}
+
+.prev-next-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 </style>
