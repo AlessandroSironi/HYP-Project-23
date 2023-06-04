@@ -2,7 +2,7 @@
 import { Project } from '~/types/Project';
 
 interface Props {
-  projects?: Project[];
+  projects: Project[];
 }
 
 const { projects } = defineProps<Props>();
