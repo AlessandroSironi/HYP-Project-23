@@ -74,22 +74,24 @@ const loading = computed(() => {
 /* interface APIBody {
     id: number
 } */
-
+/* 
 async function findNextProject() {
     const projectNext = await useFetch<any>('/api/project/getNextProject', {
         query: {
             currentProjectName: project.value?.name,
-        },
+            },
     });
-
-    navigateTo('/projects/' + projectNext.data.value[0].id);
+    navigateTo("/projects/" + projectNext.data.value[0].id);
 }
 
-const result = await useFetch<any>('/api/project/getNextProject', {
-    query: {
-        currentProjectName: project.value?.name,
-    },
-});
+async function findPrevProject() {
+    const projectPrev =  await useFetch<any>('/api/project/getPrevProject', {
+        query: {
+            currentProjectName: project.value?.name,
+            },
+    });
+    navigateTo("/projects/" + projectPrev.data.value[0].id);
+} */
 </script>
 
 <template>
@@ -148,14 +150,17 @@ const result = await useFetch<any>('/api/project/getNextProject', {
                 </section>
             </ComplexParagraph>
 
-            <div class="prev-next-area">
-                <!-- <NuxtLink :to="computedUrlPrevious">
-                <GenericButton value="<- Previous" :alt-style="false" />
-            </NuxtLink> -->
-                <div v-if="result.data.value === undefined">
-                    <GenericButton value="Next ->" :alt-style="false" @func="findNextProject" />
-                </div>
-            </div>
+           <!--  <div class="prev-next-area">
+                <GenericButton value="<- Previous" :alt-style="false" @func="findPrevProject(true)" />
+                <GenericButton value="Next ->" :alt-style="false" @func="findNextProject(true)" />
+            </div> -->
+            <!-- <NextPrev
+                @previous="findPrevProject()"
+                @next="findNextProject()">
+                <p class="explore-text">Explore other projects, ordered alphabetically</p>
+            </NextPrev> -->
+
+            <NextPrev :isArea="false" :projectName=project?.name></NextPrev>
         </div>
     </main>
 </template>
@@ -196,4 +201,10 @@ const result = await useFetch<any>('/api/project/getNextProject', {
 h4 {
     margin-top: 0.25rem;
 }
+
+
+.explore-text {
+    color: var(--par-color);
+}
+
 </style>

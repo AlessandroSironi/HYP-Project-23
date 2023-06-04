@@ -8,8 +8,8 @@ export default eventHandler(async (event) => {
     const { data, error } = await client
         .from('project')
         .select('id')
-        .order('name')
-        .gt('name', currentProjectName)
+        .order('name', { ascending: false })
+        .lt('name', currentProjectName)
         .limit(1);
     if (error) {
         console.log(error);
@@ -19,7 +19,7 @@ export default eventHandler(async (event) => {
         const {data, error} = await client
         .from('project')
         .select('id')
-        .order('name', {ascending: true})
+        .order('name', {ascending: false})
         .limit(1);
         if (error) {
             console.log(error);
