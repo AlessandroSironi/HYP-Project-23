@@ -86,7 +86,7 @@ function goToRelatedProjects() {
             <GenericButton @func="goToRelatedProjects()" value="Discover Projects" :alt-style="true" />
         </div>
 
-        <NextPrev :isArea="true" :areaID=area?.id></NextPrev>
+        <NextPrev :isArea="true" :areaID=Number(id)></NextPrev>
     </section>
 </template>
 
