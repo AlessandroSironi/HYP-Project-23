@@ -128,7 +128,7 @@ async function findPrevProject() {
                         </h4>
                     </div>
 
-                    <div class="collaborator-section">
+                    <div v-if="workers?.length !== 0 " class="collaborator-section">
                         <h4>Other team members:</h4>
                         <div v-for="worker in workers">
                             <h4>

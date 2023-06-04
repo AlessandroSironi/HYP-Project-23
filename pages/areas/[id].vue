@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useAreaStore } from '~/stores/areaStore';
 import { Area } from '~/types/Area';
 
 const { id } = useRoute().params;
@@ -26,8 +27,8 @@ async function findNextArea() {
     const numArea = area?.value?.id;
     let next = (numArea! + 1) % numAreas;
     if (next === 0) next = 1;
+
     navigateTo("/areas/" + next);
-    return true;
 }
 
 async function findPrevArea() {
@@ -39,6 +40,14 @@ async function findPrevArea() {
     let previous = (numArea! - 1) % numAreas;
     if (previous === 0) previous = numAreas;
     navigateTo("/areas/" + previous);
+});
+
+function goToRelatedProjects() {
+    const store = useAreaStore();
+    if (area.value) {
+        store.setAreaName(area.value.name);
+        navigateTo('/projects');
+    }
 }
 </script>
 
@@ -74,7 +83,7 @@ async function findPrevArea() {
     <section class="content">
         <div class="discover-projects-div">
             <h2>Are you interested in investing in this area?</h2>
-            <GenericLink url="/projects" name="Discover Projects" :alt-style="true" />
+            <GenericButton @func="goToRelatedProjects()" value="Discover Projects" :alt-style="true" />
         </div>
 
         <NextPrev
@@ -102,6 +111,7 @@ async function findPrevArea() {
 .description-2-div {
     display: flex;
     justify-content: center;
+    margin: 4rem 0;
 }
 
 .area-image {
@@ -114,10 +124,21 @@ async function findPrevArea() {
 .discover-projects-div {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 20px;
-    gap: 30px;
+    gap: 20px;
+}
+
+.discover-projects-div {
+    margin: 4rem 0;
+}
+
+.prev-next-area {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
 }
 
 .text-container {
