@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { Project } from '~/types/Project';
 
 interface Props {
-  projects?: Project[];
+  projects: Project[];
 }
 
 const { projects } = defineProps<Props>();
 
 const translateX = ref(-200);
+
+const startTouchX = ref(0);
+const currentTouchX = ref(0);
+const isDragging = ref(false);
 
 const moveSlider = (direction: 'prev' | 'next') => {
   const containerWidth = (sliderContainerRef.value as HTMLElement).clientWidth;
@@ -30,10 +34,43 @@ const moveSlider = (direction: 'prev' | 'next') => {
 };
 
 const sliderContainerRef = ref<HTMLElement | null>(null);
+
+// Handle touch events
+const handleTouchStart = (event: TouchEvent) => {
+  isDragging.value = true;
+  startTouchX.value = event.touches[0].clientX;
+};
+
+const handleTouchMove = (event: TouchEvent) => {
+  if (isDragging.value) {
+    currentTouchX.value = event.touches[0].clientX;
+    const deltaX = currentTouchX.value - startTouchX.value;
+    translateX.value += deltaX;
+    startTouchX.value = currentTouchX.value;
+  }
+};
+
+const handleTouchEnd = () => {
+  isDragging.value = false;
+};
+
+onMounted(() => {
+  // Attach touch event listeners
+  const container = sliderContainerRef.value;
+  if (container) {
+    container.addEventListener('touchstart', handleTouchStart);
+    container.addEventListener('touchmove', handleTouchMove);
+    container.addEventListener('touchend', handleTouchEnd);
+  }
+});
 </script>
 
 <template>
-  <main class="slider-container" ref="sliderContainerRef">
+  <main class="slider-container" ref="sliderContainerRef"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+  >
     <div class="slider" :style="{ transform: `translateX(${translateX}px)` }">
       <div
         v-for="(project, index) in projects ?? []"
