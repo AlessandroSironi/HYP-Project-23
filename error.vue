@@ -19,7 +19,7 @@ const handleClearError = () => {
         <Navbar />
         <main class="main">
             <h1 class="err-code">{{ error.statusCode }}</h1>
-            <h2 v-if="error.statusCode === 404">Page not found</h2>
+            <h2 v-if="error.statusCode === 404">{{ error.message ? error.message : 'Page not found' }}</h2>
             <h2 v-else>An error occurred, {{ error.message }}</h2>
             <div class="err-links">
                 <GenericButton value="Back to HomePage" :alt-style="true" @func="handleClearError" />

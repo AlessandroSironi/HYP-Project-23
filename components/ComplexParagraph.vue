@@ -13,9 +13,11 @@ interface Props {
     // the default value if missing is false
     is_image_rigth?: boolean;
     image_alt?: string;
+    width?: number;
+    height?: number;
 }
 
-const { image_url, is_image_rigth, image_alt } = defineProps<Props>();
+const { image_url, is_image_rigth, image_alt, width, height } = defineProps<Props>();
 
 /**
  * This function is used to compute which class
@@ -27,12 +29,24 @@ const imageStyle = computed(() => {
     if (is_image_rigth) return 'right-image';
     else return 'left-image';
 });
+
+// compute the responsive sizes of the nuxt-img tag
+const computeResponsiveSizes = computed(() => {
+    return `xs:250, sm:90vw, md:90vw lg:${width}`;
+});
 </script>
 
 <template>
     <div class="par-container">
-        <div v-if="image_url" class="image-container" :class="imageStyle">
-            <nuxt-img class="image" :src="image_url" :alt="image_alt" :placeholder="[500, 500, 10]" />
+        <div class="image-container" :class="imageStyle">
+            <nuxt-img
+                class="image"
+                :src="image_url"
+                :alt="image_alt"
+                :placeholder="[width, height, 10]"
+                :sizes="computeResponsiveSizes"
+                quality="75"
+            />
         </div>
         <slot />
     </div>
@@ -48,7 +62,6 @@ const imageStyle = computed(() => {
 }
 
 .image {
-    width: min(100%, 1000px);
     border-radius: 1.25rem 1.25rem 0 1.25rem;
 }
 

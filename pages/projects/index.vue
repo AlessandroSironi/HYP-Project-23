@@ -21,14 +21,10 @@ type ProjectsBody = Project & {
 };
 
 const { data: projects, pending, error } = await useLazyFetch<ProjectsBody[]>('/api/project/getAllProjects');
-if (error.value) {
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+if (error.value?.statusCode) handleFetchError(projects, error.value.statusCode);
 
-const { data: areas, pending: areas_pending, error: areas_error } = await useLazyFetch<Area[]>('/api/area/getAllAreas');
-if (areas_error.value) {
-    throw createError({ statusCode: 500, message: 'Error while fetching data from the database' });
-}
+const { data: areas, error: areas_error } = await useLazyFetch<Area[]>('/api/area/getAllAreas');
+if (areas_error.value?.statusCode) handleFetchError(areas, areas_error.value.statusCode);
 
 const store = useAreaStore();
 
