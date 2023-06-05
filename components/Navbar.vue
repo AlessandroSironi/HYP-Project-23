@@ -27,12 +27,12 @@ const closeMenuOnLink = () => {
         <nav class="nav-group">
             <div class="logo"><NuxtLink class="nuxt-link" to="/" @click="closeMenuOnLink">CORE</NuxtLink></div>
             <ul class="nav-links">
-                <li><NuxtLink class="nuxt-link" to="/about">ABOUT</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/persons">TEAM</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/projects/top">TOP PROJECTS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/projects">ALL PROJECTS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/areas">AREAS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/contacts">CONTACTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/about">ABOUT</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/persons">TEAM</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/projects/top">TOP PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/projects">ALL PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/areas">AREAS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/contacts">CONTACTS</NuxtLink></li>
             </ul>
             <button @click="toggleMenu" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''">
                 <span></span>
@@ -105,6 +105,11 @@ const closeMenuOnLink = () => {
 .nav-links-mobile {
     display: none;
     overflow: hidden;
+}
+
+.active-link{
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 @media (width < 1000px) {
