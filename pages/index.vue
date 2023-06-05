@@ -78,7 +78,7 @@
             </div>
             <div class="secondary-info">
                 <div class="secondary-image-container">
-                    <nuxt-img src="/img/home/grass.webp" sizes="xs:200px, sm:80vw, md:590px" />
+                    <nuxt-img src="/img/home/grass.webp" sizes="xs:200, sm:80vw, md:590" />
                 </div>
                 <div class="secondary-info-content">
                     <div class="secondary-info-text-container">
