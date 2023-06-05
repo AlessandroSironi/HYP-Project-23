@@ -145,7 +145,7 @@ async function findPrevProject() {
             </ComplexParagraph>
 
             <NextPrev
-                label="explore more projects. Alphabetically ordered"
+                label="Explore more projects. Alphabetically ordered"
                 @onPrev="findPrevProject"
                 @onNext="findNextProject"
             />
