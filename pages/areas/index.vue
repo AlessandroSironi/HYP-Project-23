@@ -2,7 +2,8 @@
 import { Area } from '~/types/Area';
 
 /**
- * Fecth employees function is lazy, returns:
+ * All areas page.
+ * Fetch employees function is lazy, returns:
  * employees: the Ref<Area[]> vector used in the template
  * pending: Ref<boolean> used to display the loader while still fetching
  * error: Ref<FetchError> used to redirect to error page when there is an error while fetching

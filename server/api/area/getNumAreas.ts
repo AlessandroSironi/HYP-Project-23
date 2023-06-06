@@ -1,6 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
 
+/**
+ * Query that returns the total number of areas present in the DB.
+ */
 export default eventHandler(async (event) => {
     const {currentProjectName} = getQuery(event); 
     const client = serverSupabaseClient<Database>(event);

@@ -1,6 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
 
+/**
+ * Query that returns the area that corresponds to a given ID.
+ */
 export default eventHandler(async (event) => {
     // get the employee id from the parameters of the query
     const { id } = getQuery(event);

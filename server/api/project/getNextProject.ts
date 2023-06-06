@@ -1,6 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
 
+/**
+ * Query that returns the next project, in alphabetical order, given the current project name.
+ */
 export default eventHandler(async (event) => {
     const {currentProjectName} = getQuery(event); 
     const client = serverSupabaseClient<Database>(event);
