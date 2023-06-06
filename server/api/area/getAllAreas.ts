@@ -1,6 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
 
+/**
+ * Query that returns all areas available, ordered by ID.
+ */
 export default eventHandler(async (event) => {
     // create a client for the supabase DB and infer the DB structure
     const client = serverSupabaseClient<Database>(event);

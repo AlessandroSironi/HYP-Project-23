@@ -4,7 +4,7 @@ import { Area } from '~/types/Area';
 
 const { id } = useRoute().params;
 
-// fetch the area information
+// Fetch the area information
 const {
     data: area,
     pending: pending,
@@ -16,6 +16,7 @@ const {
 });
 if (error.value?.statusCode) handleFetchError(area, error.value.statusCode);
 
+//Find the ID of the next area, navigates to that page.
 async function findNextArea() {
     const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
         query: {},
@@ -29,6 +30,7 @@ async function findNextArea() {
     navigateTo('/areas/' + next);
 }
 
+//Find the ID of the previous area, navigates to that page.
 async function findPrevArea() {
     const numAreasQuery = await useFetch<number>('/api/area/getNumAreas', {
         query: {},
@@ -42,7 +44,7 @@ async function findPrevArea() {
 }
 
 /**
- * this function allow us to redirect the
+ * This function allow us to redirect the
  * user to the /projects page with the
  * filter active for this area
  */

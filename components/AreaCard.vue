@@ -5,12 +5,11 @@ import { useAreaStore } from '~/stores/areaStore';
 /**
  * Component name: AreaCard
  * Description: this is the card used to display
- * an Area in the "Areas" page, each card
- * is a link to the single area page
- *
+ * an Area in the "Areas" page. Each card
+ * is a link to the single area page.
  */
 
-// structure of the component props, are inferred during defineProps
+// Structure of the component props, inferred during defineProps
 interface Props {
     area: Area;
 }
@@ -21,6 +20,7 @@ const areaLink = computed(() => {
     return `/areas/${area.id}`;
 });
 
+//Function that allows to display the projects page with the active filter.
 function goToRelatedProjects() {
     const store = useAreaStore();
     store.setAreaName(area.name);

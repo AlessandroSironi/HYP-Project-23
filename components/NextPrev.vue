@@ -1,4 +1,11 @@
 <script setup lang="ts">
+
+/**
+ * Component Name: NextPrev.
+ * Displays a next and previous button that allows the user
+ * to navigate between areas or projects, dynamically.
+ * Displays two buttons and a text that adapts to the context.
+ */
 interface Props {
     label?: string;
 }
