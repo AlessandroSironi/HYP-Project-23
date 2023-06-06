@@ -13,9 +13,9 @@ export default defineNuxtConfig({
     },
     // needed to use the sizes attribute in <nuxt-img />
     image: {
-        image: {
-            // Generate images to `/_nuxt/images/file.png`
-            staticFilename: '[publicPath]/img/[name]-[hash][ext]',
+        domains: ['nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/'],
+        alias: {
+            supabase: 'https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources',
         },
         screens: {
             xs: 320,
