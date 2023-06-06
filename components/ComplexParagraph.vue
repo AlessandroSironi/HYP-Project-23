@@ -14,6 +14,7 @@ interface Props {
     is_image_rigth?: boolean;
     image_alt?: string;
     width?: number;
+    // height is just used to compute the placeholder dimensions
     height?: number;
 }
 
@@ -30,10 +31,12 @@ const imageStyle = computed(() => {
     else return 'left-image';
 });
 
-// compute the responsive sizes of the nuxt-img tag
-const computeResponsiveSizes = computed(() => {
-    return `xs:250, sm:90vw, md:${width} lg:${width}`;
+// compute the max size of the image
+const maxWidth = computed(() => {
+    return width + 'px';
 });
+
+// The placeholer in the nuxt-img tag is used to reduce the cumulative layout shift
 </script>
 
 <template>
@@ -44,8 +47,8 @@ const computeResponsiveSizes = computed(() => {
                 :src="image_url"
                 :alt="image_alt"
                 :placeholder="[width, height, 10]"
-                :sizes="computeResponsiveSizes"
                 quality="75"
+                :style="{ maxWidth: maxWidth }"
             />
         </div>
         <slot />
@@ -63,6 +66,8 @@ const computeResponsiveSizes = computed(() => {
 
 .image {
     border-radius: 1.25rem 1.25rem 0 1.25rem;
+    min-width: 225px;
+    width: 90vw;
 }
 
 .no-image {
