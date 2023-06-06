@@ -32,7 +32,7 @@ const imageStyle = computed(() => {
 
 // compute the responsive sizes of the nuxt-img tag
 const computeResponsiveSizes = computed(() => {
-    return `xs:250, sm:90vw, md:90vw lg:${width}`;
+    return `xs:250, sm:90vw, md:${width} lg:${width}`;
 });
 </script>
 

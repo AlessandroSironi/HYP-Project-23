@@ -21,7 +21,12 @@
                     <GenericLink url="/about" name="Learn more" :alt-style="false" />
                 </div>
             </div>
-            <nuxt-img width="340" class="title-image" src="/img/home/home.webp" alt="homepage title picture" />
+            <nuxt-img
+                width="340"
+                class="title-image"
+                src="supabase/home/home.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS9ob21lLndlYnAiLCJpYXQiOjE2ODYwMzcwNTgsImV4cCI6MTAwMTY4NjAzNzA1N30.nXrORN-MTHsRp-5tS5xb6IwgHIUQ8NR_93EvXVW4a5k&t=2023-06-06T07%3A37%3A38.059Z"
+                alt="homepage title picture"
+            />
         </section>
         <section class="numerical-info-section">
             <div class="numerical-info-box">
@@ -78,7 +83,10 @@
             </div>
             <div class="secondary-info">
                 <div class="secondary-image-container">
-                    <nuxt-img src="/img/home/grass.webp" sizes="xs:200, sm:80vw, md:590" />
+                    <nuxt-img
+                        src="supabase/home/grass.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS9ncmFzcy5qcGciLCJpYXQiOjE2ODYwMzcwMDYsImV4cCI6MTAwMTY4NjAzNzAwNX0.Qj-HcQURJhlip6wHESvswraTiX3WRJxj4d6j3daGSs4&t=2023-06-06T07%3A36%3A46.169Z"
+                        sizes="xs:200, sm:80vw, md:590"
+                    />
                 </div>
                 <div class="secondary-info-content">
                     <div class="secondary-info-text-container">
@@ -100,7 +108,10 @@
             </div>
         </section>
         <section class="team-section">
-            <OverlappingParagraph image_url="img/home/team_picture.webp" image_alt="team picture">
+            <OverlappingParagraph
+                image_url="supabase/home/team_picture.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvaG9tZS90ZWFtX3BpY3R1cmUud2VicCIsImlhdCI6MTY4NjAzNzA4NCwiZXhwIjoxMDAxNjg2MDM3MDgzfQ.sy2RwI1FI9XLxxvaNeT8yK32NZzRgCuS6Bd_2I3zjzI&t=2023-06-06T07%3A38%3A03.790Z"
+                image_alt="team picture"
+            >
                 <div class="team-section-par-container">
                     <div class="team-text-container">
                         <h2>Meet our wonderful team</h2>
@@ -116,7 +127,7 @@
                         class="team-image"
                         width="240"
                         height="240"
-                        src="img/team/person2.webp"
+                        src="supabase/team/person2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvdGVhbS9wZXJzb24yLndlYnAiLCJpYXQiOjE2ODYwMzcxMjAsImV4cCI6MTAwMDE2ODYwMzcxMTl9.IkYKcyZwvcn2tOYhKGZy63SD_UeQR1FLsK3KICFDgOs&t=2023-06-06T07%3A38%3A39.984Z"
                     />
                 </div>
             </OverlappingParagraph>
