@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { Project } from '~/types/Project';
 
+/**
+ * Component name: Carousel
+ * Description: this component shows
+ * the ProjectCards of all projects that are
+ * marked as most relevant in a slideshow. It is
+ * possible to move through the slideshow by clicking
+ * the arrows or by dragging on mobile.
+ */
+
+// Structure of the component props, inferred during defineProps
 interface Props {
     projects: Project[];
 }

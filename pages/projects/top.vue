@@ -20,7 +20,8 @@ if (error.value?.statusCode) handleFetchError(projects, error.value.statusCode);
             <div class="top-p-img-div">
                 <NuxtImg
                     class="top-p-img"
-                    src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/projects/top_proj_img.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvcHJvamVjdHMvdG9wX3Byb2pfaW1nLndlYnAiLCJpYXQiOjE2ODU0NjQwMDgsImV4cCI6MS4wMDAwMDAwMDAwMDE2ODU1ZSsyMX0.cGjEGYN966MY2cyID6BFT6iSJAUuKrixr6JYOqk34h0&t=2023-05-30T16%3A26%3A49.719Z"
+                    src="img/projects/top_proj_img.webp"
+                    alt="top projects front image"
                 />
             </div>
             <p>
