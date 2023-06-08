@@ -70,9 +70,7 @@ const filteredProjects = computed(() => {
             Our Projects
             <span class="area-info" v-if="store.area_name !== ''">- {{ store.area_name }}</span>
         </h2>
-        <p class="paragraph-projects">
-            Explore the projects we have developed for the companies who put their trust in us.
-        </p>
+        <p class="paragraph-projects"> Explore the projects we have developed for the companies who put their trust in us. </p>
         <div v-if="areas" class="areas-filter">
             <h3 class="filter-title">Filter the projects</h3>
             <!--The filter was made with radio html tag in order to take advantage of the checked 
@@ -80,14 +78,7 @@ const filteredProjects = computed(() => {
 
             <div class="radio-toolbar">
                 <span v-for="area in areas" @click="changeArea(area.name)">
-                    <input
-                        type="radio"
-                        :key="area.id"
-                        :id="area.name"
-                        name="filter"
-                        :value="area.name"
-                        v-model="store.area_name"
-                    />
+                    <input type="radio" :key="area.id" :id="area.name" name="filter" :value="area.name" v-model="store.area_name" />
                     <label :for="area.name">{{ area.name }}</label>
                 </span>
                 <span @click="changeArea('top')">
@@ -96,7 +87,7 @@ const filteredProjects = computed(() => {
                 </span>
                 <span class="remove-btn" @click="changeArea('')">
                     <input type="radio" id="remove" name="filter" value="remove" />
-                    <label for="remove"><Icon name="ion:trash-bin" size="24px" /></label>
+                    <label for="remove"><Icon name="ion:trash-bin" size="24px" />&#8203;</label>
                 </span>
             </div>
         </div>
