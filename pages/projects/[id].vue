@@ -97,33 +97,27 @@ async function findPrevProject() {
                 </div>
             </div>
             <div class="collaborator-section">
-                <h4>FOUNDED BY:</h4>
-                <h4>
-                    <NuxtLink class="collaborator-info" to="https://rateyourmusic.com/">
-                        {{ project?.founderName }} {{ project?.founderSurname }}
-                    </NuxtLink>
-                </h4>
+                <span>FOUNDED BY:</span>
+                <span>
+                    <NuxtLink class="collaborator-info" to="https://rateyourmusic.com/"> {{ project?.founderName }} {{ project?.founderSurname }} </NuxtLink>
+                </span>
             </div>
 
             <ComplexParagraph :image_url="project?.companyImage" :image_alt="project?.name" :width="500" :height="300">
                 <section class="main-par">
                     <div class="collaborator-section">
-                        <h4>
+                        <span>
                             Project supervised by:
-                            <NuxtLink :to="`/persons/${project?.supervisor}`" class="collaborator-info">
-                                {{ supervisor?.name }} {{ supervisor?.surname }}
-                            </NuxtLink>
-                        </h4>
+                            <NuxtLink :to="`/persons/${project?.supervisor}`" class="collaborator-info"> {{ supervisor?.name }} {{ supervisor?.surname }} </NuxtLink>
+                        </span>
                     </div>
 
                     <div v-if="workers?.length !== 0" class="collaborator-section">
-                        <h4>Other team members:</h4>
+                        <span>Other team members:</span>
                         <div v-for="worker in workers">
-                            <h4>
-                                <NuxtLink class="collaborator-info" :to="`/persons/${worker?.id}`">
-                                    {{ worker?.name }} {{ worker?.surname }}
-                                </NuxtLink>
-                            </h4>
+                            <span>
+                                <NuxtLink class="collaborator-info" :to="`/persons/${worker?.id}`"> {{ worker?.name }} {{ worker?.surname }} </NuxtLink>
+                            </span>
                         </div>
                     </div>
 
@@ -131,24 +125,14 @@ async function findPrevProject() {
                 </section>
             </ComplexParagraph>
 
-            <ComplexParagraph
-                :is_image_rigth="true"
-                :image_url="project?.companyLogo"
-                :image_alt="project?.name"
-                :width="400"
-                :height="300"
-            >
+            <ComplexParagraph :is_image_rigth="true" :image_url="project?.companyLogo" :image_alt="project?.name" :width="400" :height="300">
                 <section class="main-par">
-                    <h4>LET'S HEAR FROM THEM...</h4>
+                    <span>LET'S HEAR FROM THEM...</span>
                     <p>{{ project?.review }}</p>
                 </section>
             </ComplexParagraph>
 
-            <NextPrev
-                label="Explore more projects. Alphabetically ordered"
-                @onPrev="findPrevProject"
-                @onNext="findNextProject"
-            />
+            <NextPrev label="Explore more projects. Alphabetically ordered" @onPrev="findPrevProject" @onNext="findNextProject" />
         </div>
     </main>
 </template>
@@ -169,6 +153,7 @@ async function findPrevProject() {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .main-par {
@@ -193,5 +178,13 @@ h4 {
 
 .explore-text {
     color: var(--par-color);
+}
+
+span {
+    color: var(--title-color);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 </style>

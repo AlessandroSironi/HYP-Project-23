@@ -18,7 +18,7 @@
  <template>
     <main class="main_class_div">
         <div class="card-icon-div"><Icon :name="icon_locator"/></div>
-        <h4 class="card-title">{{ title }}</h4>
+        <span class="card-title">{{ title }}</span>
         <div class="text-container">
             <slot class="text-container"/>
         </div>
