@@ -99,9 +99,7 @@ async function findPrevProject() {
             <div class="collaborator-section">
                 <span>FOUNDED BY:</span>
                 <span>
-                    <NuxtLink class="collaborator-info" to="https://rateyourmusic.com/">
-                        {{ project?.founderName }} {{ project?.founderSurname }}
-                    </NuxtLink>
+                    <NuxtLink class="collaborator-info" to="https://rateyourmusic.com/"> {{ project?.founderName }} {{ project?.founderSurname }} </NuxtLink>
                 </span>
             </div>
 
@@ -110,9 +108,7 @@ async function findPrevProject() {
                     <div class="collaborator-section">
                         <span>
                             Project supervised by:
-                            <NuxtLink :to="`/persons/${project?.supervisor}`" class="collaborator-info">
-                                {{ supervisor?.name }} {{ supervisor?.surname }}
-                            </NuxtLink>
+                            <NuxtLink :to="`/persons/${project?.supervisor}`" class="collaborator-info"> {{ supervisor?.name }} {{ supervisor?.surname }} </NuxtLink>
                         </span>
                     </div>
 
@@ -120,9 +116,7 @@ async function findPrevProject() {
                         <span>Other team members:</span>
                         <div v-for="worker in workers">
                             <span>
-                                <NuxtLink class="collaborator-info" :to="`/persons/${worker?.id}`">
-                                    {{ worker?.name }} {{ worker?.surname }}
-                                </NuxtLink>
+                                <NuxtLink class="collaborator-info" :to="`/persons/${worker?.id}`"> {{ worker?.name }} {{ worker?.surname }} </NuxtLink>
                             </span>
                         </div>
                     </div>
@@ -131,24 +125,14 @@ async function findPrevProject() {
                 </section>
             </ComplexParagraph>
 
-            <ComplexParagraph
-                :is_image_rigth="true"
-                :image_url="project?.companyLogo"
-                :image_alt="project?.name"
-                :width="400"
-                :height="300"
-            >
+            <ComplexParagraph :is_image_rigth="true" :image_url="project?.companyLogo" :image_alt="project?.name" :width="400" :height="300">
                 <section class="main-par">
                     <span>LET'S HEAR FROM THEM...</span>
                     <p>{{ project?.review }}</p>
                 </section>
             </ComplexParagraph>
 
-            <NextPrev
-                label="Explore more projects. Alphabetically ordered"
-                @onPrev="findPrevProject"
-                @onNext="findNextProject"
-            />
+            <NextPrev label="Explore more projects. Alphabetically ordered" @onPrev="findPrevProject" @onNext="findNextProject" />
         </div>
     </main>
 </template>
@@ -169,6 +153,7 @@ async function findPrevProject() {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .main-par {
@@ -195,9 +180,9 @@ h4 {
     color: var(--par-color);
 }
 
-span{
+span {
     color: var(--title-color);
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
