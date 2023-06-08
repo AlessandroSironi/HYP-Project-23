@@ -97,33 +97,33 @@ async function findPrevProject() {
                 </div>
             </div>
             <div class="collaborator-section">
-                <h4>FOUNDED BY:</h4>
-                <h4>
+                <span>FOUNDED BY:</span>
+                <span>
                     <NuxtLink class="collaborator-info" to="https://rateyourmusic.com/">
                         {{ project?.founderName }} {{ project?.founderSurname }}
                     </NuxtLink>
-                </h4>
+                </span>
             </div>
 
             <ComplexParagraph :image_url="project?.companyImage" :image_alt="project?.name" :width="500" :height="300">
                 <section class="main-par">
                     <div class="collaborator-section">
-                        <h4>
+                        <span>
                             Project supervised by:
                             <NuxtLink :to="`/persons/${project?.supervisor}`" class="collaborator-info">
                                 {{ supervisor?.name }} {{ supervisor?.surname }}
                             </NuxtLink>
-                        </h4>
+                        </span>
                     </div>
 
                     <div v-if="workers?.length !== 0" class="collaborator-section">
-                        <h4>Other team members:</h4>
+                        <span>Other team members:</span>
                         <div v-for="worker in workers">
-                            <h4>
+                            <span>
                                 <NuxtLink class="collaborator-info" :to="`/persons/${worker?.id}`">
                                     {{ worker?.name }} {{ worker?.surname }}
                                 </NuxtLink>
-                            </h4>
+                            </span>
                         </div>
                     </div>
 
@@ -139,7 +139,7 @@ async function findPrevProject() {
                 :height="300"
             >
                 <section class="main-par">
-                    <h4>LET'S HEAR FROM THEM...</h4>
+                    <span>LET'S HEAR FROM THEM...</span>
                     <p>{{ project?.review }}</p>
                 </section>
             </ComplexParagraph>
@@ -193,5 +193,13 @@ h4 {
 
 .explore-text {
     color: var(--par-color);
+}
+
+span{
+    color: var(--title-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 </style>
