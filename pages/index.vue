@@ -1,6 +1,4 @@
-<script setup lang="ts">
-// we will put stuff for animations here
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="main">
@@ -34,7 +32,7 @@
                     <p class="numerical-info-par">Partners who trust us and work with us</p>
                 </div>
                 <div class="numerical-card">
-                    <span class="numerical-info">12</span>
+                    <span class="numerical-info" id="year-count">12</span>
                     <p class="numerical-info-par">Years of experience in the sector</p>
                 </div>
                 <div class="numerical-card">
