@@ -34,7 +34,7 @@ const closeMenuOnLink = () => {
                 <li><NuxtLink class="nuxt-link" active-class="active-link" to="/areas">AREAS</NuxtLink></li>
                 <li><NuxtLink class="nuxt-link" active-class="active-link" to="/contacts">CONTACTS</NuxtLink></li>
             </ul>
-            <button @click="toggleMenu" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''">
+            <button @click="toggleMenu" class="nav-btn" :class="showMobileNav ? 'close-icon' : ''" aria-label="toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -107,7 +107,7 @@ const closeMenuOnLink = () => {
     overflow: hidden;
 }
 
-.active-link{
+.active-link {
     text-decoration: underline;
     text-underline-offset: 2px;
 }
