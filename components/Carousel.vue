@@ -63,16 +63,6 @@ const handleTouchMove = (event: TouchEvent) => {
 const handleTouchEnd = () => {
     isDragging.value = false;
 };
-
-/* onMounted(() => {
-    // Attach touch event listeners
-    const container = sliderContainerRef.value;
-    if (container) {
-        container.addEventListener('touchstart', handleTouchStart);
-        container.addEventListener('touchmove', handleTouchMove);
-        container.addEventListener('touchend', handleTouchEnd);
-    }
-}); */
 </script>
 
 <template>
