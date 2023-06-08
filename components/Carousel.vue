@@ -64,7 +64,7 @@ const handleTouchEnd = () => {
     isDragging.value = false;
 };
 
-onMounted(() => {
+/* onMounted(() => {
     // Attach touch event listeners
     const container = sliderContainerRef.value;
     if (container) {
@@ -72,17 +72,11 @@ onMounted(() => {
         container.addEventListener('touchmove', handleTouchMove);
         container.addEventListener('touchend', handleTouchEnd);
     }
-});
+}); */
 </script>
 
 <template>
-    <main
-        class="slider-container"
-        ref="sliderContainerRef"
-        @touchstart="handleTouchStart"
-        @touchmove="handleTouchMove"
-        @touchend="handleTouchEnd"
-    >
+    <main class="slider-container" ref="sliderContainerRef" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd">
         <div class="slider" :style="{ transform: `translateX(${translateX}px)` }">
             <div v-for="(project, index) in projects ?? []" :key="project?.id" class="slider-item">
                 <ProjectCard :project="project" />
