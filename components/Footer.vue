@@ -27,13 +27,13 @@
                 </p>
             </div>
             <div class="footer-icon-container">
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
+                <NuxtLink to="https://www.linkedin.com" class="footer-anchor" aria-label="go to linkedin">
                     <Icon name="uil:linkedin" />
                 </NuxtLink>
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
+                <NuxtLink to="https://www.facebook.com" class="footer-anchor" aria-label="go to facebook">
                     <Icon name="uil:facebook" />
                 </NuxtLink>
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor">
+                <NuxtLink to="https://www.twitter.com" class="footer-anchor" aria-label="go to twitter">
                     <Icon name="fa6-brands:square-twitter" />
                 </NuxtLink>
             </div>

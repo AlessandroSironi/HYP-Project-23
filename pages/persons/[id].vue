@@ -55,8 +55,8 @@ const getEmployeeFullName = computed(() => {
         </div>
         <div v-else>
             <h2 class="orientational-info">
-                The Team:
-                <span class="employee-info">{{ getEmployeeFullName }}</span>
+                The Team
+                <span class="employee-info">- {{ getEmployeeFullName }}</span>
             </h2>
 
             <ComplexParagraph :image_url="employee?.pic" :image_alt="getEmployeeFullName" :width="460" :height="636">

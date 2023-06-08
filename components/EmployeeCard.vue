@@ -25,7 +25,7 @@ const { employee } = defineProps<Props>();
                 <p class="employee-name">{{ employee?.name }} {{ employee?.surname }}</p>
                 <p class="employee-role">{{ employee?.role }}</p>
             </div>
-            <button class="employee-link"><Icon name="material-symbols:arrow-forward-ios-rounded" /></button>
+            <button class="employee-link" aria-label="go to employee"><Icon name="material-symbols:arrow-forward-ios-rounded" /></button>
         </div>
     </NuxtLink>
 </template>

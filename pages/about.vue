@@ -6,86 +6,50 @@
         <h1 class="page-h1-title">European roots, global from the start</h1>
         <p>We use our hard-won experience to help visonary founders become global category leaders.</p>
         <div class="hero-image-div">
-            <nuxt-img
-                class="hero-image"
-                src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1cy53ZWJwIiwiaWF0IjoxNjg1MTA1NTc2LCJleHAiOjEwMDE2ODUxMDU1NzV9.Q5o0t9EqUXtzlIhLWPqhPnmwkuOU1rEOcwwlx1bZM1A&t=2023-05-26T12%3A52%3A56.667Z"
-            />
+            <nuxt-img class="hero-image" src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1cy53ZWJwIiwiaWF0IjoxNjg1MTA1NTc2LCJleHAiOjEwMDE2ODUxMDU1NzV9.Q5o0t9EqUXtzlIhLWPqhPnmwkuOU1rEOcwwlx1bZM1A&t=2023-05-26T12%3A52%3A56.667Z" />
         </div>
         <div class="paragraph-content">
             <h3>WHAT IS OUR APPROACH</h3>
-            <p class="p-alt">
-                We’re not a traditional venture capital firm. We are built by founders for founders. Every single aspect
-                of Core, every part of our culture, and every decision we take, is designed with the ambition of helping
-                founders succeed. We exist for more than returns.
-            </p>
-            <p class="p-alt">
-                We believe entrepreneurs are the ultimate agents of positive, transformational change across every
-                aspect of our society and economy. Our mission is to spur this progress forward.
-            </p>
-            <p class="p-alt">
-                It’s why we partner with the world’s most ambitious founders. The rule-breakers who want to build the
-                next leader in their category. The world-shapers creating companies that fundamentally shift the way we
-                live today. The gamechangers using technology to rewire the world in favour of something better, for as
-                many people as possible. When we find these people, we invest much more than money. We work hand-
-                in-glove with them, drawing on hard-won experience scaling some of the most successful technology
-                companies in the world.
-            </p>
+            <p class="p-alt">We’re not a traditional venture capital firm. We are built by founders for founders. Every single aspect of Core, every part of our culture, and every decision we take, is designed with the ambition of helping founders succeed. We exist for more than returns.</p>
+            <p class="p-alt">We believe entrepreneurs are the ultimate agents of positive, transformational change across every aspect of our society and economy. Our mission is to spur this progress forward.</p>
+            <p class="p-alt">It’s why we partner with the world’s most ambitious founders. The rule-breakers who want to build the next leader in their category. The world-shapers creating companies that fundamentally shift the way we live today. The gamechangers using technology to rewire the world in favour of something better, for as many people as possible. When we find these people, we invest much more than money. We work hand- in-glove with them, drawing on hard-won experience scaling some of the most successful technology companies in the world.</p>
         </div>
     </div>
     <div class="colored-bar">
         <h2 class="colored-bar-content">Why should you partner with us?</h2>
-        <p class="colored-bar-content">
-            If you're a founder asking yourself whether or not we are the right partner for you, here are the five
-            principles that guide how we act as a team.
-        </p>
+        <p class="colored-bar-content">If you're a founder asking yourself whether or not we are the right partner for you, here are the five principles that guide how we act as a team.</p>
         <div class="colored-bar-card">
             <InfoCard icon_locator="tabler:trophy-filled" title="Aligned to Win">
-                <p class="text-container">
-                    Choose us for unmatched expertise and exceptional returns on your investment.
-                </p>
+                <p class="text-container">Choose us for unmatched expertise and exceptional returns on your investment.</p>
             </InfoCard>
             <InfoCard icon_locator="tabler:scale" title="Performance through Integrity">
                 <p class="text-container">Our success is rooted in unwavering integrity and consistently delivering.</p>
             </InfoCard>
             <InfoCard icon_locator="bi:fire" title="Bold and Progressive">
-                <p class="text-container">
-                    Embrace our bold and progressive approach to drive innovation and maximize growth potential.
-                </p>
+                <p class="text-container">Embrace our bold and progressive approach to drive innovation and maximize growth potential.</p>
             </InfoCard>
             <InfoCard icon_locator="ph:hand" title="Humble">
-                <p class="text-container">
-                    Partner with a humble team that values collaboration and puts your success above all else.
-                </p>
+                <p class="text-container">Partner with a humble team that values collaboration and puts your success above all else.</p>
             </InfoCard>
         </div>
     </div>
 
     <div class="content">
-        <OverlappingParagraph
-            image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTcxMDUyNiwiZXhwIjoxMDAxNjg1NzEwNTI1fQ.uP6HD80xxD2sejn-KwD9_IISkLm3ZAKKoojJopd4Yrc&t=2023-06-02T12%3A55%3A26.638Z"
-            image_alt="What should founders expect?"
-        >
+        <OverlappingParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTcxMDUyNiwiZXhwIjoxMDAxNjg1NzEwNTI1fQ.uP6HD80xxD2sejn-KwD9_IISkLm3ZAKKoojJopd4Yrc&t=2023-06-02T12%3A55%3A26.638Z" image_alt="What should founders expect?">
             <div class="overlapping-par-content">
                 <div class="overlapping-paragraph-sub">
                     <h2>What should founders expect?</h2>
-                    <p>
-                        The truth is no two founders, products or business models are the same, and so there is no "one
-                        size-fits-all" approach to investing. However, as a founder, these are some general things you
-                        should expect if we are lucky enough to be invited into your fundraising process.
-                    </p>
+                    <p>The truth is no two founders, products or business models are the same, and so there is no "one size-fits-all" approach to investing. However, as a founder, these are some general things you should expect if we are lucky enough to be invited into your fundraising process.</p>
                 </div>
                 <div class="overlapping-paragraph-sub">
                     <h4>We listen, more than we talk.</h4>
-                    <p>
-                        Don't worry, that's because we focus on the things that matter and we do our work upfront. But
-                        we will have questions.
-                    </p>
+                    <p>Don't worry, that's because we focus on the things that matter and we do our work upfront. But we will have questions.</p>
                 </div>
                 <div class="overlapping-paragraph-sub">
                     <h4>It's never too early to speak with us.</h4>
                     <p>If you are interested in knowing us better feel free to contact us.</p>
                 </div>
-                <NuxtLink to="mailto:info@coreventure.it">
+                <NuxtLink to="/contacts">
                     <GenericButton value="Contact Us" :altStyle="true" />
                 </NuxtLink>
             </div>
