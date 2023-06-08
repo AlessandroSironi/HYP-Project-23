@@ -30,12 +30,7 @@ function goToRelatedProjects() {
 
 <template>
     <div class="area-card-container" to="/">
-        <nuxt-img
-            sizes="xs:240px, sm:80vw, md:90vw, lg:350px"
-            class="area-card-image"
-            :src="area?.pic"
-            :alt="area?.name"
-        />
+        <nuxt-img sizes="xs:240px, sm:80vw, md:80vw, lg:350px" class="area-card-image" :src="area?.pic" :alt="area?.name" />
         <div class="area-card-info-box">
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>

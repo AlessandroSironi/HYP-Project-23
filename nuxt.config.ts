@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    ssr: true,
     modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon', '@nuxt/image-edge', '@pinia/nuxt'],
     css: ['@/assets/styles/global.css'],
     googleFonts: {
