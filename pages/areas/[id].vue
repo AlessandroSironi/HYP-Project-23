@@ -67,7 +67,7 @@ function goToRelatedProjects() {
             <h1>{{ area?.name }}</h1>
             <p class="area-description">{{ area?.description }}</p>
             <div class="area-image-div">
-                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" />
+                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" :alt="area?.name"/>
             </div>
             <div class="area-card">
                 <InfoCard title="Revenues" icon_locator="solar:dollar-bold">

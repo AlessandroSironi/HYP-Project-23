@@ -18,11 +18,11 @@ const emit = defineEmits(['onPrev', 'onNext']);
 <template>
     <div class="content">
         <div class="prev-next">
-            <button class="btn scheme" @click="emit('onPrev')">
+            <button class="btn scheme" @click="emit('onPrev')" alt="Previous">
                 <Icon name="octicon:arrow-left-16" size="30" />
             </button>
             <p>{{ label }}</p>
-            <button class="btn scheme" @click="emit('onNext')">
+            <button class="btn scheme" @click="emit('onNext')" alt="Next">
                 <Icon name="octicon:arrow-right-16" size="30" />
             </button>
         </div>
