@@ -6,7 +6,7 @@
         <h1 class="page-h1-title">European roots, global from the start</h1>
         <p>We use our hard-won experience to help visonary founders become global category leaders.</p>
         <div class="hero-image-div">
-            <nuxt-img class="hero-image" src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1cy53ZWJwIiwiaWF0IjoxNjg1MTA1NTc2LCJleHAiOjEwMDE2ODUxMDU1NzV9.Q5o0t9EqUXtzlIhLWPqhPnmwkuOU1rEOcwwlx1bZM1A&t=2023-05-26T12%3A52%3A56.667Z" alt="Our approach"/>
+            <nuxt-img class="hero-image" src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1cy53ZWJwIiwiaWF0IjoxNjg1MTA1NTc2LCJleHAiOjEwMDE2ODUxMDU1NzV9.Q5o0t9EqUXtzlIhLWPqhPnmwkuOU1rEOcwwlx1bZM1A&t=2023-05-26T12%3A52%3A56.667Z" alt="Our approach" />
         </div>
         <div class="paragraph-content">
             <h3>WHAT IS OUR APPROACH</h3>
@@ -92,7 +92,6 @@
 }
 
 .paragraph-content {
-    text-align: justify;
     margin: 15px;
 }
 
