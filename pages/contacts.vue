@@ -103,7 +103,7 @@ async function sendEmail() {
                 <div class="form-group">
                     <label for="email">Email (*):</label>
                     <input type="email" id="email" name="email" required v-model="email" @focus="activateChecking" :class="!validateEmail ? 'incorrect' : ''" />
-                    <p v-if="!validateEmail" class="incorrect-text">please insert a valid email address</p>
+                    <p v-if="!validateEmail" class="incorrect-text">Please insert a valid email address</p>
                 </div>
                 <div class="form-group">
                     <label for="message">Message (*):</label>

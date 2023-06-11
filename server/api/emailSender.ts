@@ -4,6 +4,6 @@ export default eventHandler(async (event) => {
 
     //console.log('--> the body is: ', body);
 
-    const data = { status: 200, message: 'mail sent' };
+    const data = { status: 200, message: 'Mail sent' };
     return data;
 });
