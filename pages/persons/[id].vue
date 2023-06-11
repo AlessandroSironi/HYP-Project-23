@@ -53,7 +53,7 @@ const getEmployeeFullName = computed(() => {
         <div v-if="is_employee_loading">
             <LoaderComponent />
         </div>
-        <div v-else>
+        <div v-else v-if="employee">
             <h2 class="orientational-info">
                 The Team
                 <span class="employee-info">- {{ getEmployeeFullName }}</span>
@@ -68,7 +68,9 @@ const getEmployeeFullName = computed(() => {
                     <div class="employee-description">
                         <h3 class="employee-description-title">WHO AM I?</h3>
 
-                        <div class="employee-description-p">{{ employee?.description }}</div>
+                        <div class="employee-description-p">
+                            <p v-html="newLineOnEnter(employee?.description)"></p>
+                        </div>
                     </div>
                     <div class="employee-contacts">
                         <p>

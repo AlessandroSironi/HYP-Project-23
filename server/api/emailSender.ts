@@ -1,0 +1,9 @@
+export default eventHandler(async (event) => {
+    //fake email backend module
+    const body = await readBody(event);
+
+    //console.log('--> the body is: ', body);
+
+    const data = { status: 200, message: 'mail sent' };
+    return data;
+});
