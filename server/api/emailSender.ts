@@ -1,5 +1,6 @@
 export default eventHandler(async (event) => {
     //fake email backend module
+
     const body = await readBody(event);
 
     //console.log('--> the body is: ', body);

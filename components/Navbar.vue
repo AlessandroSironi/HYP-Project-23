@@ -42,12 +42,12 @@ const closeMenuOnLink = () => {
         </nav>
         <div class="menu-mobile" :class="showMobileNav === true ? 'open-menu' : 'close-menu'">
             <ul class="nav-links-mobile">
-                <li><NuxtLink class="nuxt-link" to="/about" @click="closeMenuOnLink">ABOUT</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/persons" @click="closeMenuOnLink">TEAM</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/projects/top" @click="closeMenuOnLink">TOP PROJECTS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/projects" @click="closeMenuOnLink">ALL PROJECTS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/areas" @click="closeMenuOnLink">AREAS</NuxtLink></li>
-                <li><NuxtLink class="nuxt-link" to="/contacts" @click="closeMenuOnLink">CONTACTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/about" @click="closeMenuOnLink">ABOUT</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/persons" @click="closeMenuOnLink">TEAM</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/projects/top" @click="closeMenuOnLink">TOP PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/projects" @click="closeMenuOnLink">ALL PROJECTS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/areas" @click="closeMenuOnLink">AREAS</NuxtLink></li>
+                <li><NuxtLink class="nuxt-link" active-class="active-link" to="/contacts" @click="closeMenuOnLink">CONTACTS</NuxtLink></li>
             </ul>
         </div>
     </header>
