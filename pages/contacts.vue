@@ -29,7 +29,7 @@ const validateEmail = computed(() => {
 });
 
 async function sendEmail() {
-    if (!validateEmail) return;
+    if (!validateEmail.value) return;
 
     const { data, error } = await useFetch('/api/emailSender', {
         method: 'POST',
