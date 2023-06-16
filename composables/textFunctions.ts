@@ -1,5 +1,5 @@
 /**
- * This function replace the \n substring in a string with a <br/>
+ * This function replaces the \n substring in a string with a <br/>
  * html tag
  */
 

@@ -2,12 +2,12 @@
 import { Employee } from '~/types/Employee';
 
 /**
- * team page with all employees,
+ * Team page with all employees,
  * fecth data from backend and displays employees in a grid
  */
 
 /**
- * Fecth employees function is lazy, returns:
+ * Fetch employees function is lazy, returns:
  * employees: the Ref<Employee[]> vector used in the template
  * pending: Ref<boolean> used to display the loader while still fetching
  * error: Ref<FetchError> used to redirect to error page when there is an error while fetching

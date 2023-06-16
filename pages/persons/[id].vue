@@ -3,7 +3,15 @@ import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
 
 const { id } = useRoute().params;
-
+/**
+ * Single person page. 
+ * Informations about a single person of the Team of 
+ * Core Venture is shown to the user:
+ * the name, the role, a short descriptions, 
+ * contact informations and links to their social, 
+ * all the projects supervised by the team member and
+ * all the projects they have worked on.
+ */
 // fetch the employee infoprmation
 const {
     data: employee,

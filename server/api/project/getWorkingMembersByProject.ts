@@ -1,6 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
-
+/*
+    Query that returns all the members of the team that have worked on a given project.
+*/
 export default eventHandler(async (event) => {
     const { id } = getQuery(event);
     const client = serverSupabaseClient<Database>(event);

@@ -1,5 +1,11 @@
 <script setup lang="ts"></script>
-
+<!--
+    About Us page. 
+    This page presents a short presentation of Core Venture as a company,
+    the approach, why should the companies partner with Core Venture (information
+    shown with InfoCards and a different background to eye-catch the user with relevant
+    and important information) and a link to the contact page.
+-->
 <template>
     <div class="content">
         <h2 class="orientational-info">About us</h2>

@@ -1,6 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
-
+/*
+    Query that returns all the projects that a certain employee (given its ID) has supervised.
+*/
 export default eventHandler(async (event) => {
     // get the supervisor id from the parameters of the query
     const { id } = getQuery(event);

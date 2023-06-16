@@ -4,6 +4,18 @@ import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
 
 const { id } = useRoute().params;
+/**
+ * Single project page.
+ * In this page the user is presented with the information regarding
+ * the project they have clicked on, such as
+ * the name, the tags related to it, the founder of the external company, 
+ * the names of the supervisor(s) and the worker(s) of the team of Core Venture, 
+ * a description of the company, their logo, and a review of the performance of
+ * Core Venture by the external company.
+ * 
+ * The user can navigate and explore other projects, by alphabetical order, by clicking
+ * the next/previous buttons.
+ */
 
 // fetch the project information
 const {

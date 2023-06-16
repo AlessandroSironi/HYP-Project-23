@@ -1,6 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
-
+/*
+    Query that returns the supervisor's information given a certain project.
+*/
 export default eventHandler(async (event) => {
     const { id } = getQuery(event);
     const client = serverSupabaseClient<Database>(event);

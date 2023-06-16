@@ -1,6 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
-
+/*
+    Query that returns all the most relevant projects from the database.
+*/
 export default eventHandler(async (event) => {
     // create a client for the supabase DB and infer the DB structure
     const client = serverSupabaseClient<Database>(event);

@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Component name: Overlapping Paragraph.
+ * This component contains a picture that overlaps 
+ * with the previous content, to create
+ * a dynamic feeling for the design
+ * of certain pages.
+ */
 interface Props {
     image_url: string;
     image_alt: string;
