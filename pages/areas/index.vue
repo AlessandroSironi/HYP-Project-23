@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Area } from '~/types/Area';
 
+useSeoMeta({
+    title: 'Core Investments | Areas',
+    description: 'This is the Areas page with a list of the areas of invesments.',
+});
+
 /**
  * All areas page.
  * Fetch employees function is lazy, returns:
@@ -17,10 +22,7 @@ if (error.value?.statusCode) handleFetchError(areas, error.value.statusCode);
     <div class="list-container">
         <!-- <h2 class="orientational-info">Areas</h2> -->
         <h2 class="orientational-info">Areas of Investment</h2>
-        <p>
-            Core Ventures aims to create strong financial returns while adding value for individuals, communities, and
-            humanity.
-        </p>
+        <p> Core Ventures aims to create strong financial returns while adding value for individuals, communities, and humanity. </p>
         <br />
         <br />
         <div v-if="pending">

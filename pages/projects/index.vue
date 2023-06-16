@@ -3,6 +3,11 @@ import { Area } from '~/types/Area';
 import { Project } from '~/types/Project';
 import { useAreaStore } from '~/stores/areaStore';
 
+useSeoMeta({
+    title: 'Core Investments | All Projects',
+    description: 'This is the projects page with a list of the projects the company has worked on.',
+});
+
 /**
  * Fecth projects function is lazy, returns:
  * employees: the Ref<Project[]> vector used in the template

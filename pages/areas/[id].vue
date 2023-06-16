@@ -2,6 +2,11 @@
 import { useAreaStore } from '~/stores/areaStore';
 import { Area } from '~/types/Area';
 
+useSeoMeta({
+    title: 'Core Investments | Area',
+    description: 'This is the single Area page with all relevant details about an area of investment.',
+});
+
 const { id } = useRoute().params;
 
 // Fetch the area information
@@ -67,7 +72,7 @@ function goToRelatedProjects() {
             <h1>{{ area?.name }}</h1>
             <p class="area-description">{{ area?.description }}</p>
             <div class="area-image-div">
-                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" :alt="area?.name"/>
+                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" :alt="area?.name" />
             </div>
             <div class="area-card">
                 <InfoCard title="Revenues" icon_locator="solar:dollar-bold">

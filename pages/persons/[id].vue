@@ -2,6 +2,11 @@
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
 
+useSeoMeta({
+    title: 'Core Investments | Person',
+    description: 'This is the single person page with all relevant details about an employee.',
+});
+
 const { id } = useRoute().params;
 
 // fetch the employee infoprmation

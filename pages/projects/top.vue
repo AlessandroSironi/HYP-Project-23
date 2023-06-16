@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Project } from '~/types/Project';
 
+useSeoMeta({
+    title: 'Core Investments | Top Projects',
+    description: 'This is the top projects page with a small presentation of the most relevant projects.',
+});
+
 // projects vector iterated on in template
 const { data: projects, error } = await useFetch<Project[]>('/api/project/getMostRelevantProjects');
 if (error.value?.statusCode) handleFetchError(projects, error.value.statusCode);
@@ -11,43 +16,22 @@ if (error.value?.statusCode) handleFetchError(projects, error.value.statusCode);
         <div class="info-header">
             <h2 class="orientational-info">Top Projects</h2>
             <h1>Our most successful stories</h1>
-            <p class="header-text">
-                Core Ventures, a leading venture capital firm, has cultivated a remarkable track record in green tech,
-                health tech, and artificial intelligence startups. Our portfolio boasts groundbreaking projects
-                revolutionizing industries, leveraging sustainable practices, advancing healthcare, and pushing the
-                boundaries of AI innovation.
-            </p>
+            <p class="header-text"> Core Ventures, a leading venture capital firm, has cultivated a remarkable track record in green tech, health tech, and artificial intelligence startups. Our portfolio boasts groundbreaking projects revolutionizing industries, leveraging sustainable practices, advancing healthcare, and pushing the boundaries of AI innovation. </p>
             <div class="top-p-img-div">
-                <NuxtImg
-                    class="top-p-img"
-                    src="img/projects/top_proj_img.webp"
-                    alt="top projects front image"
-                />
+                <NuxtImg class="top-p-img" src="img/projects/top_proj_img.webp" alt="top projects front image" />
             </div>
-            <p>
-                Core Ventures continues to drive innovation in the tech landscape with its strategic investments in
-                green tech, health tech, and artificial intelligence. Our successful projects are reshaping industries,
-                improving sustainability, enhancing healthcare outcomes, and pushing the boundaries of AI capabilities,
-                solidifying our position as a trailblazer in the venture capital space.
-            </p>
+            <p> Core Ventures continues to drive innovation in the tech landscape with its strategic investments in green tech, health tech, and artificial intelligence. Our successful projects are reshaping industries, improving sustainability, enhancing healthcare outcomes, and pushing the boundaries of AI capabilities, solidifying our position as a trailblazer in the venture capital space. </p>
         </div>
 
         <section class="info-card-section">
             <InfoCard icon_locator="jam:hammer-f" title="Impactful Stories">
-                <p class="text-container">
-                    Core Ventures-backed startups are driving transformative impact across diverse tech sectors.
-                </p>
+                <p class="text-container"> Core Ventures-backed startups are driving transformative impact across diverse tech sectors. </p>
             </InfoCard>
             <InfoCard icon_locator="mdi:flame-circle" title="Success Oriented">
-                <p class="text-container">
-                    Core Ventures is driven by a relentless pursuit of success in every investment.
-                </p>
+                <p class="text-container"> Core Ventures is driven by a relentless pursuit of success in every investment. </p>
             </InfoCard>
             <InfoCard icon_locator="fa:handshake-o" title="Trust: a Priority">
-                <p class="text-container">
-                    Trust is Core Ventures' top priority, fostering strong relationships with entrepreneurs and
-                    investors.
-                </p>
+                <p class="text-container"> Trust is Core Ventures' top priority, fostering strong relationships with entrepreneurs and investors. </p>
             </InfoCard>
         </section>
 

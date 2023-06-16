@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+    title: 'Core Investments | About',
+    description: 'This is the about page with a brief history of the company and its main activities.',
+});
+</script>
 
 <template>
     <div class="content">

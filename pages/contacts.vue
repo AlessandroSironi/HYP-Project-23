@@ -1,4 +1,9 @@
 <script setup lang="ts">
+useSeoMeta({
+    title: 'Core Investments | Contacts',
+    description: 'This is the contacts page with a form for sending emails.',
+});
+
 const name = ref('');
 const surname = ref('');
 const email = ref('');
