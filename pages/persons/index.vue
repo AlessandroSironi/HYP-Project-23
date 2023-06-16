@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Employee } from '~/types/Employee';
 
+useSeoMeta({
+    title: 'Core Investments | Team',
+    description: 'This is the team page with a list of the employees working for the company.',
+});
+
 /**
  * Team page with all employees,
  * fecth data from backend and displays employees in a grid
@@ -21,10 +26,7 @@ if (error.value?.statusCode) handleFetchError(employees, error.value.statusCode)
         <section class="page-title-container">
             <h2 class="orientational-info">The team</h2>
             <h1 class="page-title">Meet our team of experts, we are here to make your company grow.</h1>
-            <p>
-                To be the company our customers want us to be , it takes an electric group of passionate operators. Get
-                to know the people leading the way at Core Investments.
-            </p>
+            <p> To be the company our customers want us to be , it takes an electric group of passionate operators. Get to know the people leading the way at Core Investments. </p>
         </section>
 
         <section class="list-container">

@@ -3,6 +3,11 @@ import { Area } from '~/types/Area';
 import { Employee } from '~/types/Employee';
 import { Project } from '~/types/Project';
 
+useSeoMeta({
+    title: 'Core Investments | Projects',
+    description: 'This is the project page with all relevant details about a single project.',
+});
+
 const { id } = useRoute().params;
 /**
  * Single project page.

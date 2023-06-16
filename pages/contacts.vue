@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 /**
  * Contacts page.
  * This page contains contact information to reach out to the company, as well as
@@ -8,6 +9,12 @@
  * the correct <input> types. 
  * Errors and confirmation messages are reported to the user. 
  */
+ 
+useSeoMeta({
+    title: 'Core Investments | Contacts',
+    description: 'This is the contacts page with a form for sending emails.',
+});
+
 const name = ref('');
 const surname = ref('');
 const email = ref('');

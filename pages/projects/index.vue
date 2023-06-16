@@ -3,6 +3,11 @@ import { Area } from '~/types/Area';
 import { Project } from '~/types/Project';
 import { useAreaStore } from '~/stores/areaStore';
 
+useSeoMeta({
+    title: 'Core Investments | All Projects',
+    description: 'This is the projects page with a list of the projects the company has worked on.',
+});
+
 /**
  * Page with all the projects.
  * The user is presented with a grid of all the projects that 

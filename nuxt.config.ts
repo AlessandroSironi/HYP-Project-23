@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: 'Core Investments',
-            meta: [{ name: 'description', content: 'this is coreventure website' }],
+            meta: [{ name: 'description', content: 'this is coreventure - Core Investments company website' }],
             htmlAttrs: {
                 lang: 'en',
             },
