@@ -1,4 +1,9 @@
 <script setup lang="ts"></script>
+<!--
+    Homepage of Core Venture's Website.
+    Contains a brief description of the company, useful links to navigate
+    the website to the most useful pages.
+-->
 
 <template>
     <div class="main">

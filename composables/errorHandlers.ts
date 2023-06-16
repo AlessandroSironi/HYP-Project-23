@@ -1,7 +1,7 @@
 /**
  * This function allow us to handle the error we get while fetching
- * wrong data from our database, if no data is present we create
- * a 404 error
+ * wrong data from our database. If no data is present we create
+ * a 404 error.
  */
 
 export function handleFetchError(data: Ref<any>, errorCode: number) {

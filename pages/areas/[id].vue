@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { useAreaStore } from '~/stores/areaStore';
 import { Area } from '~/types/Area';
-
+/**
+ * Single area page.
+ * Shows all the information pertaining a single area. 
+ * The name of the area, its description, its image and 
+ * a few additional information are shown to the user.
+ * The visitor can discover projects related to the current area
+ * or explore other areas from this page.
+ */
 const { id } = useRoute().params;
 
 // Fetch the area information

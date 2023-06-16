@@ -1,6 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
-
+/*
+    Query that returns the project's information, given its ID.
+*/
 export default eventHandler(async (event) => {
     const { id } = getQuery(event);
     const client = serverSupabaseClient<Database>(event);

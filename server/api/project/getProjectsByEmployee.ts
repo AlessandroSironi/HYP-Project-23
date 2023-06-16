@@ -1,6 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
-
+/*
+    Query that returns all the projects in which a given employee (id) has worked on.
+*/
 export default eventHandler(async (event) => {
     // get the worker id from the parameters of the query
     const { id } = getQuery(event);
