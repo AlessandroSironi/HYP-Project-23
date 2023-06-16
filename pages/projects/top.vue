@@ -1,6 +1,18 @@
 <script setup lang="ts">
 import { Project } from '~/types/Project';
 
+
+/**
+ * Page of the top projects.
+ * This special page presents the 'jewels' projects of Core Venture, 
+ * the ones most successful. 
+ * The user is presented with a brief presentation of the most successful stories
+ * of the company and a few info cards.
+ * 
+ * The projects are shown in a navigable carousel, a responsibe component that works on 
+ * mobile too (with the support for gestures in touchscreen devices), to elevete their importance.
+ */
+
 useSeoMeta({
     title: 'Core Investments | Top Projects',
     description: 'This is the top projects page with a small presentation of the most relevant projects.',

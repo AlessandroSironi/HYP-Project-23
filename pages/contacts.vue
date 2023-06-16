@@ -1,4 +1,15 @@
 <script setup lang="ts">
+
+/**
+ * Contacts page.
+ * This page contains contact information to reach out to the company, as well as
+ * a mail form. 
+ * This form lets the user send a mail to Core Venture. 
+ * The form checks the validity of the mail address through a RegEx and by implementing
+ * the correct <input> types. 
+ * Errors and confirmation messages are reported to the user. 
+ */
+ 
 useSeoMeta({
     title: 'Core Investments | Contacts',
     description: 'This is the contacts page with a form for sending emails.',

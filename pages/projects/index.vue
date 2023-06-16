@@ -9,6 +9,13 @@ useSeoMeta({
 });
 
 /**
+ * Page with all the projects.
+ * The user is presented with a grid of all the projects that 
+ * Core Venture has developed for the companies. 
+ * The projects can be filtered by area and by most relevant.
+ */
+
+/**
  * Fecth projects function is lazy, returns:
  * employees: the Ref<Project[]> vector used in the template
  * pending: Ref<boolean> used to display the loader while still fetching
