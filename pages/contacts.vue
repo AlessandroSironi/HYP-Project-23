@@ -83,11 +83,11 @@ async function sendEmail() {
                 <h2 class="contact-information-h2">Contact Information</h2>
                 <p>
                     Address:
-                    <NuxtLink to="/" class="contacts-links">Piazza Leonardo da Vinci - Milano</NuxtLink>
+                    <NuxtLink to="https://www.google.com/maps" class="contacts-links">Piazza Leonardo da Vinci - Milano</NuxtLink>
                 </p>
                 <p>
                     Phone number:
-                    <NuxtLink to="/" class="contacts-links">+39 06 389 5940</NuxtLink>
+                    <NuxtLink to="https://www.ingindinf.polimi.it" class="contacts-links">+39 06 389 5940</NuxtLink>
                 </p>
                 <p>
                     Email:

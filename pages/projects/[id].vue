@@ -97,6 +97,10 @@ async function findPrevProject() {
     });
     navigateTo('/projects/' + projectPrev.data.value[0].id);
 }
+
+const altLogo = computed(() => {
+    return "Logo of: " + project.value?.name;
+});
 </script>
 
 <template>
@@ -142,7 +146,7 @@ async function findPrevProject() {
                 </section>
             </ComplexParagraph>
 
-            <ComplexParagraph :is_image_rigth="true" :image_url="project?.companyLogo" :image_alt="project?.name" :width="400" :height="300">
+            <ComplexParagraph :is_image_rigth="true" :image_url="project?.companyLogo" :image_alt="altLogo" :width="400" :height="300">
                 <section class="main-par">
                     <span>LET'S HEAR FROM THEM...</span>
                     <p>{{ project?.review }}</p>
