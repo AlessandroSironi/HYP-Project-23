@@ -16,7 +16,7 @@ Members:
 
 ### **Links**
 
-Github repository: [https://github.com/AlessandroSironi/HYP-Project-23](https://github.com/AlessandroSironi/HYP-Project-23)
+Github repository: [https://github.com/AlessandroSironi/HYP-Project-23](https://github.com/AlessandroSironi/HYP-Project-23) <br />
 Website Link: [https://coreventure.vercel.app](https://coreventure.vercel.app/)
 
 <br/>
