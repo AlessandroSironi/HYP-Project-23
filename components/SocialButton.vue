@@ -13,10 +13,14 @@ interface Props {
     text?: string;
 }
 
-const { icon, text } = defineProps<Props>();
+const { icon, text, url } = defineProps<Props>();
+
+const ariaLabel = computed(() => {
+    return "Go to " + url;
+});
 </script>
 <template>
-    <NuxtLink class="social-button" :to="url">
+    <NuxtLink class="social-button" :to="url" :aria-label="ariaLabel">
         <Icon :name="icon" class="icon-link" />
         <div v-if="text" class="btn-text">
             {{ text }}

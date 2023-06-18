@@ -26,11 +26,15 @@ function goToRelatedProjects() {
     store.setAreaName(area.name);
     navigateTo('/projects');
 }
+
+const altPicture = computed(() => {
+    return "Area photo: " + area.name;
+});
 </script>
 
 <template>
     <div class="area-card-container" to="/">
-        <nuxt-img sizes="xs:240px, sm:80vw, md:80vw, lg:350px" class="area-card-image" :src="area?.pic" :alt="area?.name" />
+        <nuxt-img sizes="xs:240px, sm:80vw, md:80vw, lg:350px" class="area-card-image" :src="area?.pic" :alt="altPicture" />
         <div class="area-card-info-box">
             <div class="area-card-info">
                 <p class="area-name">{{ area?.name }}</p>
@@ -99,7 +103,7 @@ function goToRelatedProjects() {
 
 .area-description {
     font-weight: 400;
-    text-align: justify;
+    /* text-align: justify; */
     margin-right: 20px;
 }
 

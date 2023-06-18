@@ -23,17 +23,17 @@
                     © 2022 Core Impact SGR S.P.A. All rights reserved.
                     <NuxtLink class="footer-anchor" to="https://www.google.it/">Privacy Policy</NuxtLink>
                     ·
-                    <NuxtLink class="footer-anchor" to="https://www.google.it/">Cookie Policy</NuxtLink>
+                    <NuxtLink class="footer-anchor" to="https://www.polimi.it/">Cookie Policy</NuxtLink>
                 </p>
             </div>
             <div class="footer-icon-container">
-                <NuxtLink to="https://www.linkedin.com" class="footer-anchor" aria-label="go to linkedin">
+                <NuxtLink to="https://www.linkedin.com" class="footer-anchor" aria-label="Go to linkedin">
                     <Icon name="uil:linkedin" />
                 </NuxtLink>
-                <NuxtLink to="https://www.facebook.com" class="footer-anchor" aria-label="go to facebook">
+                <NuxtLink to="https://www.facebook.com" class="footer-anchor" aria-label="Go to facebook">
                     <Icon name="uil:facebook" />
                 </NuxtLink>
-                <NuxtLink to="https://www.twitter.com" class="footer-anchor" aria-label="go to twitter">
+                <NuxtLink to="https://www.twitter.com" class="footer-anchor" aria-label="Go to twitter">
                     <Icon name="fa6-brands:square-twitter" />
                 </NuxtLink>
             </div>

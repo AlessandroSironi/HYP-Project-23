@@ -20,7 +20,7 @@ useSeoMeta({
         <h1 class="page-h1-title">European roots, global from the start</h1>
         <p>We use our hard-won experience to help visonary founders become global category leaders.</p>
         <div class="hero-image-div">
-            <nuxt-img class="hero-image" src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1cy53ZWJwIiwiaWF0IjoxNjg1MTA1NTc2LCJleHAiOjEwMDE2ODUxMDU1NzV9.Q5o0t9EqUXtzlIhLWPqhPnmwkuOU1rEOcwwlx1bZM1A&t=2023-05-26T12%3A52%3A56.667Z" alt="Our approach" />
+            <nuxt-img class="hero-image" src="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1cy53ZWJwIiwiaWF0IjoxNjg1MTA1NTc2LCJleHAiOjEwMDE2ODUxMDU1NzV9.Q5o0t9EqUXtzlIhLWPqhPnmwkuOU1rEOcwwlx1bZM1A&t=2023-05-26T12%3A52%3A56.667Z" alt="Company Process" />
         </div>
         <div class="paragraph-content">
             <h3>WHAT IS OUR APPROACH</h3>
@@ -49,7 +49,7 @@ useSeoMeta({
     </div>
 
     <div class="content">
-        <OverlappingParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTcxMDUyNiwiZXhwIjoxMDAxNjg1NzEwNTI1fQ.uP6HD80xxD2sejn-KwD9_IISkLm3ZAKKoojJopd4Yrc&t=2023-06-02T12%3A55%3A26.638Z" image_alt="What should founders expect?">
+        <OverlappingParagraph image_url="https://nwgklsfwmhatudgymnvk.supabase.co/storage/v1/object/sign/resources/about/aboutus2.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvYWJvdXQvYWJvdXR1czIud2VicCIsImlhdCI6MTY4NTcxMDUyNiwiZXhwIjoxMDAxNjg1NzEwNTI1fQ.uP6HD80xxD2sejn-KwD9_IISkLm3ZAKKoojJopd4Yrc&t=2023-06-02T12%3A55%3A26.638Z" image_alt="Comapany's expectations">
             <div class="overlapping-par-content">
                 <div class="overlapping-paragraph-sub">
                     <h2>What should founders expect?</h2>

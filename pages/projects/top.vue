@@ -30,7 +30,7 @@ if (error.value?.statusCode) handleFetchError(projects, error.value.statusCode);
             <h1>Our most successful stories</h1>
             <p class="header-text"> Core Ventures, a leading venture capital firm, has cultivated a remarkable track record in green tech, health tech, and artificial intelligence startups. Our portfolio boasts groundbreaking projects revolutionizing industries, leveraging sustainable practices, advancing healthcare, and pushing the boundaries of AI innovation. </p>
             <div class="top-p-img-div">
-                <NuxtImg class="top-p-img" src="img/projects/top_proj_img.webp" alt="top projects front image" />
+                <NuxtImg class="top-p-img" src="img/projects/top_proj_img.webp" alt="Team working on our top projects" />
             </div>
             <p> Core Ventures continues to drive innovation in the tech landscape with its strategic investments in green tech, health tech, and artificial intelligence. Our successful projects are reshaping industries, improving sustainability, enhancing healthcare outcomes, and pushing the boundaries of AI capabilities, solidifying our position as a trailblazer in the venture capital space. </p>
         </div>

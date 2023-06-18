@@ -69,6 +69,10 @@ function goToRelatedProjects() {
         navigateTo('/projects');
     }
 }
+
+const altPicture = computed(() => {
+    return "Area photo: " + area.value?.name;
+});
 </script>
 
 <template>
@@ -81,7 +85,7 @@ function goToRelatedProjects() {
             <h1>{{ area?.name }}</h1>
             <p class="area-description">{{ area?.description }}</p>
             <div class="area-image-div">
-                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" :alt="area?.name" />
+                <nuxt-img class="area-image" :src="area?.pic" :placeholder="[100, 50, 10]" :alt="altPicture" />
             </div>
             <div class="area-card">
                 <InfoCard title="Revenues" icon_locator="solar:dollar-bold">
@@ -115,13 +119,13 @@ function goToRelatedProjects() {
     color: var(--par-color);
     margin-top: 30px;
     margin-bottom: 30px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .area-description-2 {
     color: var(--par-color-alt);
     width: var(--content-width);
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .description-2-div {

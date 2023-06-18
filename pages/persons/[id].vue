@@ -60,6 +60,10 @@ if (projects_error.value?.statusCode) handleFetchError(projects, projects_error.
 const getEmployeeFullName = computed(() => {
     return employee.value?.name + ' ' + employee.value?.surname;
 });
+
+const altPicture = computed(() => {
+    return "Employee's photo: " + employee.value?.name + " " + employee.value?.surname;
+});
 </script>
 <template>
     <section class="main-content">
@@ -72,7 +76,7 @@ const getEmployeeFullName = computed(() => {
                 <span class="employee-info">- {{ getEmployeeFullName }}</span>
             </h2>
 
-            <ComplexParagraph :image_url="employee?.pic" :image_alt="getEmployeeFullName" :width="460" :height="636">
+            <ComplexParagraph :image_url="employee?.pic" :image_alt="altPicture" :width="460" :height="636">
                 <div class="employee-bio">
                     <div class="employee-header">
                         <h1 class="employee-name">{{ getEmployeeFullName }}</h1>

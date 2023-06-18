@@ -14,6 +14,10 @@ interface Props {
 }
 
 const { project } = defineProps<Props>();
+
+const altPicture = computed(() => {
+    return "Project photo: " + project.name;
+});
 </script>
 
 <template>
@@ -23,7 +27,7 @@ const { project } = defineProps<Props>();
                 <Icon name="solar:cup-star-bold" class="trophy" />
             </div>
         </div>
-        <nuxt-img height="200" width="267" class="project-logo-img" :src="project?.companyLogo" :alt="project?.name" />
+        <nuxt-img height="200" width="267" class="project-logo-img" :src="project?.companyLogo" :alt="altPicture" />
         <div class="project-card-infos">
             <p class="project-name">{{ project?.name }}</p>
             <p>Year invested: {{ project?.year }}</p>

@@ -78,7 +78,7 @@ async function sendEmail() {
 <template>
     <div class="content">
         <h2 class="orientational-info">Contacts</h2>
-        <ComplexParagraph image_url="supabase/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z" image_alt="Contact Us" :width="700">
+        <ComplexParagraph image_url="supabase/contacts/contacts.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXJjZXMvY29udGFjdHMvY29udGFjdHMud2VicCIsImlhdCI6MTY4NTAyMTQyNCwiZXhwIjoxMDAxNjg1MDIxNDIzfQ.WTlg9AP4VfwyEJX-J-ZJbMw6mfMkY0KAkFYGPq7IkZU&t=2023-05-25T13%3A30%3A24.378Z" image_alt="Photo of our offices" :width="700">
             <div class="contact-info-box">
                 <h2 class="contact-information-h2">Contact Information</h2>
                 <p>
@@ -91,7 +91,7 @@ async function sendEmail() {
                 </p>
                 <p>
                     Email:
-                    <NuxtLink to="/" class="contacts-links">info@coreventure.com</NuxtLink>
+                    <NuxtLink to="mailto:info@coreventure.vercel.app" class="contacts-links">info@coreventure.com</NuxtLink>
                 </p>
                 <div class="social-box">
                     <SocialButton icon="uil:linkedin" url="https://www.linkedin.com" text="Find us on LinkedIn" />
@@ -119,7 +119,7 @@ async function sendEmail() {
                 <div class="form-group">
                     <label for="email">Email (*):</label>
                     <input type="email" id="email" name="email" required v-model="email" @focus="activateChecking" :class="!validateEmail ? 'incorrect' : ''" />
-                    <p v-if="!validateEmail" class="incorrect-text">Please insert a valid email address</p>
+                    <p v-if="!validateEmail" class="incorrect-text">Please insert a valid email address. For example, info@coreventure.com</p>
                 </div>
                 <div class="form-group">
                     <label for="message">Message (*):</label>
@@ -174,7 +174,7 @@ async function sendEmail() {
 }
 
 .form-required-p {
-    color: rgb(169, 169, 169);
+    color: rgb(68, 68, 68);
     margin: 10px;
 }
 

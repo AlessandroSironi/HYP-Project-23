@@ -21,7 +21,7 @@ const emit = defineEmits(['onPrev', 'onNext']);
             <button class="btn scheme" @click="emit('onPrev')" aria-label="Previous">
                 <Icon name="octicon:arrow-left-16" size="30" />
             </button>
-            <p>{{ label }}</p>
+            <p class="p-label">{{ label }}</p>
             <button class="btn scheme" @click="emit('onNext')" aria-label="Next">
                 <Icon name="octicon:arrow-right-16" size="30" />
             </button>
@@ -30,6 +30,9 @@ const emit = defineEmits(['onPrev', 'onNext']);
 </template>
 
 <style scoped>
+.p-label {
+    text-align: center;
+}
 .content {
     padding-top: 20px;
     padding-bottom: 20px;
