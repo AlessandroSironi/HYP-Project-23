@@ -10,11 +10,11 @@
 <template>
     <main class="footer-box">
         <div class="footer-text-container">
-            <p class="footer-title">CORE Impact SGR S.p.A. – manager EuAA</p>
+            <p class="footer-title">CORE Venture SGR S.p.A. – manager EuAA</p>
             <p class="footer-title-2">P.IVA Core Impact SGR SpA – 11325612983</p>
             <p class="footer-title-3">Via Aurelio Saffi 29 - 20123 Milano</p>
             <p class="footer-title-3">Phone number: +39 06 389 4677</p>
-            <p class="footer-title-3">info@oltreimpact.com</p>
+            <p class="footer-title-3">info@coreventure.com</p>
         </div>
         <hr class="divider" />
         <div class="footer-social-container">
