@@ -4,7 +4,7 @@
 
 ### Group name: TheCores
 
-Technical documentation for the ptoject of the course "Hypermedia Application (Web and Multimedia)" of Politecnico di Milano
+Technical documentation for the project of the course "Hypermedia Application (Web and Multimedia)" of Politecnico di Milano
 
 ### **Group composition**
 
